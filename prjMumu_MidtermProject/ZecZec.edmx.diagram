@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7ce7c8b866964d65b5179f51a9325341" Name="Diagram1">
+        <EntityTypeShape EntityType="ZecZecModel.Carts" Width="1.5" PointX="3" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZecZecModel.Comments" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZecZecModel.LikeDetails" Width="1.5" PointX="3" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZecZecModel.Likes" Width="1.5" PointX="6" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZecZecModel.MemberInterestProjectType" Width="1.5" PointX="6" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZecZecModel.MemberRoleGroup" Width="1.5" PointX="6" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZecZecModel.Members" Width="1.5" PointX="0.75" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZecZecModel.OrderDetails" Width="1.5" PointX="13.5" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZecZecModel.Orders" Width="1.5" PointX="11.25" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZecZecModel.PaymentMethods" Width="1.5" PointX="9" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZecZecModel.PaymentStatus" Width="1.5" PointX="9" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZecZecModel.PermissionLevels" Width="1.5" PointX="0.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZecZecModel.Products" Width="1.5" PointX="11.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZecZecModel.ProjectEditPermissions" Width="1.5" PointX="3" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZecZecModel.ProjectIDType" Width="1.5" PointX="14.25" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZecZecModel.Projects" Width="1.5" PointX="9" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZecZecModel.ProjectTypes" Width="1.5" PointX="3.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZecZecModel.Roles" Width="1.5" PointX="6.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZecZecModel.Service" Width="1.5" PointX="3" PointY="40.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZecZecModel.ShipmentStatus" Width="1.5" PointX="9" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZecZecModel.SubComments" Width="1.5" PointX="8.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZecZecModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="ZecZecModel.FK_Carts_Members" ManuallyRouted="false" />
+        <AssociationConnector Association="ZecZecModel.FK_Carts_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="ZecZecModel.FK_Comments_Members" ManuallyRouted="false" />
+        <AssociationConnector Association="ZecZecModel.FK_Comments_Projects" ManuallyRouted="false" />
+        <AssociationConnector Association="ZecZecModel.FK_SubComments_Comments" ManuallyRouted="false" />
+        <AssociationConnector Association="ZecZecModel.FK_LikeDetails_Likes" ManuallyRouted="false" />
+        <AssociationConnector Association="ZecZecModel.FK_LikeDetails_Members" ManuallyRouted="false" />
+        <AssociationConnector Association="ZecZecModel.FK_Likes_Members" ManuallyRouted="false" />
+        <AssociationConnector Association="ZecZecModel.FK_Likes_Projects" ManuallyRouted="false" />
+        <AssociationConnector Association="ZecZecModel.FK_MemberInterestProjectType_Members" ManuallyRouted="false" />
+        <AssociationConnector Association="ZecZecModel.FK_MemberInterestProjectType_ProjectTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="ZecZecModel.FK_MemberRoleGroup_Members" ManuallyRouted="false" />
+        <AssociationConnector Association="ZecZecModel.FK_MemberRoleGroup_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="ZecZecModel.FK_ProjectEditPermissions_Members" ManuallyRouted="false" />
+        <AssociationConnector Association="ZecZecModel.FK_Projects_Members" ManuallyRouted="false" />
+        <AssociationConnector Association="ZecZecModel.FK_Service_Members" ManuallyRouted="false" />
+        <AssociationConnector Association="ZecZecModel.FK_SubComments_Members" ManuallyRouted="false" />
+        <AssociationConnector Association="ZecZecModel.FK_OrderDetails_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="ZecZecModel.FK_OrderDetails_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="ZecZecModel.FK_Orders_PaymentMethods" ManuallyRouted="false" />
+        <AssociationConnector Association="ZecZecModel.FK_Orders_PaymentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="ZecZecModel.FK_Orders_ShipmentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="ZecZecModel.FK_ProjectEditPermissions_PermissionLevels" ManuallyRouted="false" />
+        <AssociationConnector Association="ZecZecModel.FK_Products_Projects" ManuallyRouted="false" />
+        <AssociationConnector Association="ZecZecModel.FK_ProjectEditPermissions_Projects" ManuallyRouted="false" />
+        <AssociationConnector Association="ZecZecModel.FK_ProjectIDType_Projects" ManuallyRouted="false" />
+        <AssociationConnector Association="ZecZecModel.FK_ProjectIDType_ProjectTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="ZecZecModel.FK_Projects_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="ZecZecModel.FK_Orders_Members1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

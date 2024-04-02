@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{68FDF404-EAF2-4F2C-8FF2-3523755D3F2F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>prjMumu_MidtermProject</RootNamespace>
+    <AssemblyName>prjMumu_MidtermProject</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CircularProgressBar, Version=2.8.0.16, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CircularProgressBar.2.8.0.16\lib\net40\CircularProgressBar.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="ReaLTaiizor, Version=3.8.0.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ReaLTaiizor.3.8.0.5\lib\net48\ReaLTaiizor.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WinFormAnimation, Version=1.6.0.4, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
+      <HintPath>..\packages\WinFormAnimation.1.6.0.4\lib\net40\WinFormAnimation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Carts.cs">
+      <DependentUpon>ZecZec.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Comments.cs">
+      <DependentUpon>ZecZec.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Demo.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Demo.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Demo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Demo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Demo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Demo.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAbout.Designer.cs">
+      <DependentUpon>FrmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLiked.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLiked.Designer.cs">
+      <DependentUpon>FrmLiked.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogIn.Designer.cs">
+      <DependentUpon>FrmLogIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMessage.Designer.cs">
+      <DependentUpon>FrmMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMyMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMyMessageBox.Designer.cs">
+      <DependentUpon>FrmMyMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMyProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMyProject.Designer.cs">
+      <DependentUpon>FrmMyProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProjectInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProjectInfo.Designer.cs">
+      <DependentUpon>FrmProjectInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSignUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSignUp.Designer.cs">
+      <DependentUpon>FrmSignUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmView\FrmPay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmView\FrmPay.Designer.cs">
+      <DependentUpon>FrmPay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmView\FrmSponsor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmView\FrmSponsor.Designer.cs">
+      <DependentUpon>FrmSponsor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LikeDetails.cs">
+      <DependentUpon>ZecZec.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Likes.cs">
+      <DependentUpon>ZecZec.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MemberInterestProjectType.cs">
+      <DependentUpon>ZecZec.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MemberRoleGroup.cs">
+      <DependentUpon>ZecZec.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Members.cs">
+      <DependentUpon>ZecZec.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CurrentUserManager.cs" />
+    <Compile Include="FrmHomepage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHomepage.Designer.cs">
+      <DependentUpon>FrmHomepage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProfile.Designer.cs">
+      <DependentUpon>FrmProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MembersTable.cs" />
+    <Compile Include="OrderDetails.cs">
+      <DependentUpon>ZecZec.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Orders.cs">
+      <DependentUpon>ZecZec.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentMethods.cs">
+      <DependentUpon>ZecZec.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentStatus.cs">
+      <DependentUpon>ZecZec.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PermissionLevels.cs">
+      <DependentUpon>ZecZec.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Products.cs">
+      <DependentUpon>ZecZec.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="FrmProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProject.Designer.cs">
+      <DependentUpon>FrmProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectEditPermissions.cs">
+      <DependentUpon>ZecZec.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectIDType.cs">
+      <DependentUpon>ZecZec.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Projects.cs">
+      <DependentUpon>ZecZec.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectTypes.cs">
+      <DependentUpon>ZecZec.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Query\QueryDB.cs" />
+    <Compile Include="Roles.cs">
+      <DependentUpon>ZecZec.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Service.cs">
+      <DependentUpon>ZecZec.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Authenticator.cs" />
+    <Compile Include="ShipmentStatus.cs">
+      <DependentUpon>ZecZec.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SubComments.cs">
+      <DependentUpon>ZecZec.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>ZecZec.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Addtopurchase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Addtopurchase.Designer.cs">
+      <DependentUpon>Addtopurchase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CommentBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CommentBox.designer.cs">
+      <DependentUpon>CommentBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MemberPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\MemberPanel.Designer.cs">
+      <DependentUpon>MemberPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PanelProducts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\PanelProducts.Designer.cs">
+      <DependentUpon>PanelProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PrjPBFront.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\PrjPBFront.designer.cs">
+      <DependentUpon>PrjPBFront.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PrjPBLong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\PrjPBLong.designer.cs">
+      <DependentUpon>PrjPBLong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PrjPBSquare.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\PrjPBSquare.designer.cs">
+      <DependentUpon>PrjPBSquare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ProductCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ProductCard.designer.cs">
+      <DependentUpon>ProductCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZecZec.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ZecZec.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ZecZec.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ZecZec.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ZecZec.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ZecZec.edmx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FrmAbout.resx">
+      <DependentUpon>FrmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHomepage.resx">
+      <DependentUpon>FrmHomepage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLiked.resx">
+      <DependentUpon>FrmLiked.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogIn.resx">
+      <DependentUpon>FrmLogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMessage.resx">
+      <DependentUpon>FrmMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMyMessageBox.resx">
+      <DependentUpon>FrmMyMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMyProject.resx">
+      <DependentUpon>FrmMyProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProfile.resx">
+      <DependentUpon>FrmProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProject.resx">
+      <DependentUpon>FrmProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProjectInfo.resx">
+      <DependentUpon>FrmProjectInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSignUp.resx">
+      <DependentUpon>FrmSignUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmView\FrmPay.resx">
+      <DependentUpon>FrmPay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmView\FrmSponsor.resx">
+      <DependentUpon>FrmSponsor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UserControls\Addtopurchase.resx">
+      <DependentUpon>Addtopurchase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\CommentBox.resx">
+      <DependentUpon>CommentBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\MemberPanel.resx">
+      <DependentUpon>MemberPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\PanelProducts.resx">
+      <DependentUpon>PanelProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\PrjPBFront.resx">
+      <DependentUpon>PrjPBFront.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\PrjPBLong.resx">
+      <DependentUpon>PrjPBLong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\PrjPBSquare.resx">
+      <DependentUpon>PrjPBSquare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ProductCard.resx">
+      <DependentUpon>ProductCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Demo.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Demo.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Demo.edmx.diagram">
+      <DependentUpon>Demo.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EntityDeploy Include="ZecZec.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ZecZec.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ZecZec.edmx.diagram">
+      <DependentUpon>ZecZec.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Demo.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Demo.edmx</DependentUpon>
+      <LastGenOutput>Demo.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Demo.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Demo.edmx</DependentUpon>
+      <LastGenOutput>Demo.cs</LastGenOutput>
+    </Content>
+    <Content Include="ZecZec.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ZecZec.edmx</DependentUpon>
+      <LastGenOutput>ZecZec.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ZecZec.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ZecZec.edmx</DependentUpon>
+      <LastGenOutput>ZecZec.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
