@@ -178,6 +178,7 @@
     <Compile Include="Members.cs">
       <DependentUpon>ZecZec.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CFunction.cs" />
     <Compile Include="Models\CurrentUserManager.cs" />
     <Compile Include="FrmHomepage.cs">
       <SubType>Form</SubType>
@@ -253,11 +254,23 @@
     <Compile Include="UserControls\Addtopurchase.Designer.cs">
       <DependentUpon>Addtopurchase.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\CCPurchaseHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CCPurchaseHistory.designer.cs">
+      <DependentUpon>CCPurchaseHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\CommentBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\CommentBox.designer.cs">
       <DependentUpon>CommentBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CUserLike.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CUserLike.designer.cs">
+      <DependentUpon>CUserLike.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\MemberPanel.cs">
       <SubType>UserControl</SubType>
@@ -357,12 +370,19 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UserControls\Addtopurchase.resx">
       <DependentUpon>Addtopurchase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\CCPurchaseHistory.resx">
+      <DependentUpon>CCPurchaseHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\CommentBox.resx">
       <DependentUpon>CommentBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\CUserLike.resx">
+      <DependentUpon>CUserLike.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MemberPanel.resx">
       <DependentUpon>MemberPanel.cs</DependentUpon>
@@ -436,6 +456,9 @@
       <DependentUpon>Demo.edmx</DependentUpon>
       <LastGenOutput>Demo.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\bae9a9fa28f88d9dce5881801a66820b.jfif" />
+    <Content Include="Resources\DELETE.PNG" />
+    <None Include="Resources\DELETE1.PNG" />
     <Content Include="ZecZec.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ZecZec.edmx</DependentUpon>

@@ -272,7 +272,7 @@ namespace slnMumu_MidtermProject
 
             if (liked == null)
             {
-                liked = new FrmLiked();
+                liked = new FrmLiked(cum.member.MemberID);
                 liked.FormClosed += Liked_FormClosed;
                 liked.MdiParent = this;
                 liked.Dock = DockStyle.Fill;
