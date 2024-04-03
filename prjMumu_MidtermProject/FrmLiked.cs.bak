@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace slnMumu_MidtermProject
+namespace prjMumu_MidtermProject
 {
     public partial class FrmLiked : Form
     {
@@ -22,7 +22,6 @@ namespace slnMumu_MidtermProject
             m_id = id;
             InitializeComponent();
             cum = new CurrentUserManager();
-            loadLikeData(m_id, 1);
         }
 
         private string currentUser;
@@ -74,16 +73,6 @@ namespace slnMumu_MidtermProject
                     Projects pID = db.Projects.FirstOrDefault(p => p.ProjectName == CUL.fieldTitle);
                     if (pID != null)
                     {
-                        ContextMenuStrip cms = new ContextMenuStrip();
-                        CUL.ContextMenuStrip = cms;
-                        ToolStripMenuItem toolStripMenuItem = new ToolStripMenuItem();
-                        toolStripMenuItem.Text = "移除";
-                        toolStripMenuItem.Click += Like_DeleteClick(pID.ProjectID);
-                        ToolStripMenuItem toolStripMenuItem2 = new ToolStripMenuItem();
-                        toolStripMenuItem2.Text = "即刻贊助";
-                        toolStripMenuItem2.Click += DirectToSponsor(pID.ProjectID);
-
-                        cms.Items.AddRange(new ToolStripMenuItem[] { toolStripMenuItem, toolStripMenuItem2 });
                         CUL.fieldClick += Item_itemFieldClick(pID.ProjectID);
                         CUL.DeleteClick += Like_DeleteClick(pID.ProjectID);
                     }
@@ -247,16 +236,6 @@ namespace slnMumu_MidtermProject
                 frmProjectInfo.Dock = DockStyle.Fill;
                 frmProjectInfo.Show();
                 Close();
-            };
-        }
- private EventHandler DirectToSponsor(int projectID)
-        {
-            return (sender, e) =>
-            {
-                FrmSponsor sponsor = new FrmSponsor(projectID);
-                sponsor.MdiParent = this.MdiParent as FrmHomepage;
-                sponsor.Dock = DockStyle.Fill;
-                sponsor.Show();
             };
         }
         private EventHandler Like_DeleteClick(int i)

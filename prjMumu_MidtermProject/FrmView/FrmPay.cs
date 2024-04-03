@@ -28,7 +28,7 @@ namespace slnMumu_MidtermProject.FrmView
         private decimal addToPurchase;
         private decimal currentProductPrice;
         private decimal donate = 0;
-        private decimal totalProductPrice=0;
+        private decimal totalProductPrice = 0;
         private CurrentUserManager cum;
         private ZecZecEntities db;
         bool checkboxchange = false;
@@ -136,7 +136,7 @@ namespace slnMumu_MidtermProject.FrmView
             lblSponsor.Text = memberInfo.Nickname;
             lblSponsor.MouseEnter += LblSponsor_MouseEnter;
             lblSponsor.MouseLeave += LblSponsor_MouseLeave;
-            
+
             var type = await queryDB.FindProjectType(projectID);
 
             decimal total = await LoadGoalAndTotal();
@@ -158,7 +158,7 @@ namespace slnMumu_MidtermProject.FrmView
             currentProductPrice = result.Price;
             lblTotalPrice.Text = currentProductPrice.ToString("C0");
             labelprice.Text = currentProductPrice.ToString("C0");
-            pp.productPrice =  currentProductPrice.ToString("C0");
+            pp.productPrice = currentProductPrice.ToString("C0");
             pp.productIventory = "剩餘 " + result.Inventory.ToString() + " 組";
             int sponsor = result.Quantity - result.Inventory;
             pp.productSelled = "已被贊助 " + sponsor.ToString() + " 組";
@@ -178,7 +178,7 @@ namespace slnMumu_MidtermProject.FrmView
                 {
                     continue;
                 }
-                if(item.Inventory == 0)   //todo增加數量0條件
+                if (item.Inventory == 0)   //todo增加數量0條件
                 {
                     continue;
                 }
@@ -232,7 +232,7 @@ namespace slnMumu_MidtermProject.FrmView
 
         private void btnbackToSponsor_Click(object sender, EventArgs e)
         {
-            FrmSponsor  sponsor = new FrmSponsor(projectID);
+            FrmSponsor sponsor = new FrmSponsor(projectID);
             sponsor.MdiParent = this.MdiParent as FrmHomepage;
             sponsor.Dock = DockStyle.Fill;
             sponsor.Show();
@@ -312,11 +312,6 @@ namespace slnMumu_MidtermProject.FrmView
                     db.OrderDetails.Add(addOrderDetail);
 
                     var productEdit = db.Products.FirstOrDefault(p => p.ProductID == productID);
-
-                    if (productEdit != null && productEdit.Inventory > 0)
-                    {
-                        productEdit.Inventory -= 1;
-                    }
                     if (productEdit.Inventory == 0) //TODO 如剩餘總數為0
                     {
                         productEdit.Inventory = 0;
@@ -326,6 +321,11 @@ namespace slnMumu_MidtermProject.FrmView
                         mms.ShowDialog();
                         return;
                     }
+                    if (productEdit != null && productEdit.Inventory > 0)
+                    {
+                        productEdit.Inventory -= 1;
+                    }
+
 
                     db.SaveChanges();
 
@@ -344,7 +344,7 @@ namespace slnMumu_MidtermProject.FrmView
                     ftd.flpDateils.Controls.Add(td);
                     ftd.ShowDialog();
 
-               
+
 
                 }
 
@@ -427,7 +427,7 @@ namespace slnMumu_MidtermProject.FrmView
                     var product = db.Products.FirstOrDefault(p => p.ProductID == productID);
 
                     checkedList.Add(product);
-                    List<string>  allProductName = new List<string>();
+                    List<string> allProductName = new List<string>();
                     List<decimal> allPRoductPrice = new List<decimal>();
                     for (int i = 0; i < checkedList.Count; i++)
                     {
@@ -435,11 +435,6 @@ namespace slnMumu_MidtermProject.FrmView
                         var pEdit = db.Products.FirstOrDefault(p => p.ProductID == productIDToFind);
                         allProductName.Add(pEdit.ProductName);
                         allPRoductPrice.Add(pEdit.Price);
-
-                        if (pEdit != null && pEdit.Inventory > 0)
-                        {
-                            pEdit.Inventory -= 1;
-                        }
                         if (pEdit.Inventory == 0) //TODO 如剩餘總數為0
                         {
                             pEdit.Inventory = 0;
@@ -448,6 +443,11 @@ namespace slnMumu_MidtermProject.FrmView
                             mms.ShowDialog();
                             return;
                         }
+                        if (pEdit != null && pEdit.Inventory > 0)
+                        {
+                            pEdit.Inventory -= 1;
+                        }
+
                     }
 
 
@@ -463,7 +463,7 @@ namespace slnMumu_MidtermProject.FrmView
 
                     for (int i = 0; i < checkedList.Count; i++)
                     {
-                      
+
                         TransactionDetails td = new TransactionDetails();
                         ftd.lblDate.Text = DateTime.Now.ToString();
                         ftd.lblDonate.Text = donate.ToString("C0");
@@ -475,7 +475,7 @@ namespace slnMumu_MidtermProject.FrmView
                     ftd.ShowDialog();
 
 
-               
+
 
 
 
@@ -528,12 +528,12 @@ namespace slnMumu_MidtermProject.FrmView
             //DialogResult = MessageBox.Show(" 確定要進行交易嗎? ", "交易提示", MessageBoxButtons.OKCancel);
             if (myn.DialogResult == DialogResult.Cancel)
             {
-                FrmMyMessageBox  mm = new FrmMyMessageBox();
+                FrmMyMessageBox mm = new FrmMyMessageBox();
                 mm.msg = "交易已取消";
                 mm.ShowDialog();
                 return;
             }
-                
+
 
 
             if (checkedList.Count == 0)
@@ -555,7 +555,7 @@ namespace slnMumu_MidtermProject.FrmView
                 {
                     if (value == 0 && checkedList.Count == 0)
                     {
-                        lblTotalPrice.Text = currentProductPrice.ToString("c0");       
+                        lblTotalPrice.Text = currentProductPrice.ToString("c0");
                     }
 
                     if (value == 0 && checkedList.Count > 0)

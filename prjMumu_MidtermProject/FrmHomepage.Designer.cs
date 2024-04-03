@@ -52,10 +52,16 @@
             this.sidebarTransition = new System.Windows.Forms.Timer(this.components);
             this.pnCurrentPage = new System.Windows.Forms.Panel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.重新整理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.登出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.離開ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnControl.SuspendLayout();
             this.pnSidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.pnMember.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnControl
@@ -415,11 +421,48 @@
             this.imageList1.Images.SetKeyName(0, "Dragon Quest.png");
             this.imageList1.Images.SetKeyName(1, "dragon.png");
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.重新整理ToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.登出ToolStripMenuItem,
+            this.離開ToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(139, 82);
+            // 
+            // 重新整理ToolStripMenuItem
+            // 
+            this.重新整理ToolStripMenuItem.Name = "重新整理ToolStripMenuItem";
+            this.重新整理ToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
+            this.重新整理ToolStripMenuItem.Text = "重新整理";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(135, 6);
+            // 
+            // 登出ToolStripMenuItem
+            // 
+            this.登出ToolStripMenuItem.Name = "登出ToolStripMenuItem";
+            this.登出ToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
+            this.登出ToolStripMenuItem.Text = "登出";
+            this.登出ToolStripMenuItem.Click += new System.EventHandler(this.登出ToolStripMenuItem_Click);
+            // 
+            // 離開ToolStripMenuItem
+            // 
+            this.離開ToolStripMenuItem.Name = "離開ToolStripMenuItem";
+            this.離開ToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
+            this.離開ToolStripMenuItem.Text = "離開";
+            this.離開ToolStripMenuItem.Click += new System.EventHandler(this.離開ToolStripMenuItem_Click);
+            // 
             // FrmHomepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1600, 900);
+            this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.pnCurrentPage);
             this.Controls.Add(this.pnSidebar);
             this.Controls.Add(this.pnControl);
@@ -436,6 +479,7 @@
             this.pnSidebar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.pnMember.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -464,6 +508,11 @@
         private System.Windows.Forms.Timer sidebarTransition;
         private System.Windows.Forms.Panel pnCurrentPage;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 重新整理ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem 登出ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 離開ToolStripMenuItem;
     }
 }
 
