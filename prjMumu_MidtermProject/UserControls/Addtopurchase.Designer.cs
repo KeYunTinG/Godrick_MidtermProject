@@ -1,4 +1,4 @@
-﻿namespace prjMumu_MidtermProject.FrmSpo
+﻿namespace slnMumu_MidtermProject.FrmSpo
 {
     partial class Addtopurchase
     {

@@ -1,4 +1,4 @@
-﻿namespace prjMumu_MidtermProject.UserControls
+﻿namespace slnMumu_MidtermProject.UserControls
 {
     partial class CUserLike
     {
@@ -53,7 +53,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::prjMumu_MidtermProject.Properties.Resources.DELETE;
+            this.pictureBox2.Image = global::slnMumu_MidtermProject.Properties.Resources.DELETE;
             this.pictureBox2.Location = new System.Drawing.Point(1386, 61);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(164, 58);
@@ -91,7 +91,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Image = global::prjMumu_MidtermProject.Properties.Resources.bae9a9fa28f88d9dce5881801a66820b;
+            this.pictureBox1.Image = global::slnMumu_MidtermProject.Properties.Resources.bae9a9fa28f88d9dce5881801a66820b;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";

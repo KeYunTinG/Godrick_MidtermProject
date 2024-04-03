@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace prjMumu_MidtermProject
+namespace slnMumu_MidtermProject
 {
     public partial class FrmMyProject : Form
     {
@@ -21,31 +21,27 @@ namespace prjMumu_MidtermProject
             cum = new CurrentUserManager();
         }
 
-        private string currentUser;
-
+   
         private void FrmMyProject_Load(object sender, EventArgs e)
         {
-
-
-            currentUser = cum.currentUser;
-            label2.Text = currentUser;
+            this.flowLayoutPanelMyProject.Controls.Clear();
             ZecZecEntities db = new ZecZecEntities();
 
             //具體權限還沒弄 
-            var photo = (from r in db.Members
-                         join r1 in db.ProjectEditPermissions on r.MemberID equals r1.MemberID
-                         join r2 in db.Projects on r1.ProjectID equals r2.ProjectID
-                         where r.Username == currentUser
-                         select new { Members=r , ProjectEditPermissions = r1, Projects =r2});
-
-            foreach (var image in photo)
+            //var photo = (from r in db.Members
+            //             join r1 in db.ProjectEditPermissions on r.MemberID equals r1.MemberID
+            //             join r2 in db.Projects on r1.ProjectID equals r2.ProjectID
+            //             where r.Username == currentUser
+            //             select new { Members = r, ProjectEditPermissions = r1, Projects = r2 });
+            var projects = db.Projects.Where(p => p.MemberID == cum.member.MemberID);
+            foreach (var proj in projects)
             {
-                string path = System.Windows.Forms.Application.StartupPath + "\\Image\\ProjectsThumbnail";
+                string path = System.Windows.Forms.Application.StartupPath + "\\Images\\ProjectsThumbnail";
                 
                 
                 PictureBox pictureBox = new PictureBox
                 {
-                    Image = new Bitmap(path + "\\" + image.Projects.Thumbnail),
+                    Image = new Bitmap(path + "\\" + proj.Thumbnail),
                     SizeMode = PictureBoxSizeMode.Zoom,
                     Width = 400,
                     Height = 200,
@@ -53,12 +49,12 @@ namespace prjMumu_MidtermProject
                     Margin = new Padding(0, 50, 0, 30)
                 };
                 //設定TAG
-                pictureBox.Tag = image.Projects.ProjectID;
+                pictureBox.Tag = proj.ProjectID;
                 pictureBox.DoubleClick += PictureBox_DoubleClick;
                 
                 Label label = new Label
                 {
-                    Text = image.Projects.ProjectName,
+                    Text = proj.ProjectName,
                     AutoSize = true,
                     Anchor = AnchorStyles.None,
                     Margin = new Padding(0, 0, 0, 30)
@@ -73,22 +69,22 @@ namespace prjMumu_MidtermProject
                     Margin = new Padding(0, 0, 0, 30)
                 };
 
-                Button btn2 = new Button
-                {
-                    Text = "編輯專案中的商品",
-                    Anchor = AnchorStyles.None,
-                    Font = new Font("Microsoft JhengHei", 10F, FontStyle.Regular),
-                    Width = 180,
-                    Height = 50,
+                //Button btn2 = new Button
+                //{
+                //    Text = "編輯專案中的商品",
+                //    Anchor = AnchorStyles.None,
+                //    Font = new Font("Microsoft JhengHei", 10F, FontStyle.Regular),
+                //    Width = 180,
+                //    Height = 50,
                     
-                };
+                //};
                 
 
                 btn1.Click += Btn1_Click;
-                btn1.Tag= image.Projects.ProjectID;
+                btn1.Tag= proj.ProjectID;
 
-                btn2.Click += Btn2_Click;
-                btn2.Tag= image.Projects.ProjectID;
+                //btn2.Click += Btn2_Click;
+                //btn2.Tag= proj.ProjectID;
 
 
                 FlowLayoutPanel panel = new FlowLayoutPanel
@@ -100,13 +96,10 @@ namespace prjMumu_MidtermProject
                 panel.Controls.Add(pictureBox);
                 panel.Controls.Add(label);
                 panel.Controls.Add(btn1);
-                panel.Controls.Add(btn2);
+                //panel.Controls.Add(btn2);
                 panel.BackColor= Color.LightGray;
 
-
                 flowLayoutPanelMyProject.Controls.Add(panel);
-
-
             }
 
         }
@@ -124,11 +117,10 @@ namespace prjMumu_MidtermProject
         private void Btn1_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-            FrmEdit f = new FrmEdit((int)btn.Tag);
+            FrmPropose f = new FrmPropose((int)btn.Tag);
             f.MdiParent = this.MdiParent as FrmHomepage;
             f.Dock = DockStyle.Fill;
             f.Show();
-            this.Close();
         }
 
         private void PictureBox_DoubleClick(object sender, EventArgs e)
@@ -154,11 +146,15 @@ namespace prjMumu_MidtermProject
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FrmEdit f = new FrmEdit(0);
+            FrmPropose f = new FrmPropose();
             f.MdiParent = this.MdiParent as FrmHomepage;
             f.Dock = DockStyle.Fill;
             f.Show();
-            this.Close();
+        }
+
+        private void FrmMyProject_Activated(object sender, EventArgs e)
+        {
+            FrmMyProject_Load(sender, e);
         }
     }
 }

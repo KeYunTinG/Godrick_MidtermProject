@@ -1,4 +1,4 @@
-﻿namespace prjMumu_MidtermProject.FrmView
+﻿namespace slnMumu_MidtermProject.FrmView
 {
     partial class FrmSponsor
     {

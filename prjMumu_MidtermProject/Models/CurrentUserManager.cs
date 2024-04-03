@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace prjMumu_MidtermProject
+namespace slnMumu_MidtermProject
 {
     public class CurrentUserManager
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace prjMumu_MidtermProject.Models
+namespace slnMumu_MidtermProject.Models
 {
     public class MembersTable
     {

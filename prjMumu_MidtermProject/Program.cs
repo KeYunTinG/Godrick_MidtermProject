@@ -1,4 +1,4 @@
-﻿using prjMumu_MidtermProject;
+﻿using slnMumu_MidtermProject;
 using System;
 using System.Collections.Generic;
 using System.Linq;

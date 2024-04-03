@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace prjMumu_MidtermProject
+namespace slnMumu_MidtermProject
 {
     //此頁面會不會讓其他頁面跳轉?不然A看B的個人檔案結果能編輯會有問題要另外做一個頁面
     public partial class FrmProfile : Form

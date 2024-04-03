@@ -1,4 +1,4 @@
-﻿namespace prjMumu_MidtermProject
+﻿namespace slnMumu_MidtermProject
 {
     partial class FrmMyProject
     {
@@ -49,7 +49,7 @@
             this.flowLayoutPanelMyProject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanelMyProject.AutoScroll = true;
             this.flowLayoutPanelMyProject.Location = new System.Drawing.Point(37, 52);
-            this.flowLayoutPanelMyProject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanelMyProject.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanelMyProject.Name = "flowLayoutPanelMyProject";
             this.flowLayoutPanelMyProject.Size = new System.Drawing.Size(1697, 589);
             this.flowLayoutPanelMyProject.TabIndex = 7;
@@ -60,7 +60,7 @@
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.button1.Location = new System.Drawing.Point(1294, 650);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(187, 59);
             this.button1.TabIndex = 8;
@@ -91,6 +91,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmMyProject";
             this.Text = "FrmMyProject";
+            this.Activated += new System.EventHandler(this.FrmMyProject_Activated);
             this.Load += new System.EventHandler(this.FrmMyProject_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace prjMumu_MidtermProject.UserControls
+namespace slnMumu_MidtermProject.UserControls
 {
     public partial class TransactionDetails : UserControl
     {

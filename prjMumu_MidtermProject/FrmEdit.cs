@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace prjMumu_MidtermProject
+namespace slnMumu_MidtermProject
 {
 
     public partial class FrmEdit : Form

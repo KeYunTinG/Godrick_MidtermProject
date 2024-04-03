@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace prjMumu_MidtermProject.FrmSpo
+namespace slnMumu_MidtermProject.FrmSpo
 {
     public partial class Addtopurchase : UserControl
     {

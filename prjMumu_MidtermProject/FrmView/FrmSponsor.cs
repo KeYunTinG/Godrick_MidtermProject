@@ -1,6 +1,6 @@
-﻿using prjMumu_MidtermProject;
-using prjMumu_MidtermProject.Query;
-using prjMumu_MidtermProject.UserControls;
+﻿using slnMumu_MidtermProject;
+using slnMumu_MidtermProject.Query;
+using slnMumu_MidtermProject.UserControls;
 using slnMumu_MidtermProject;
 using System;
 using System.Collections.Generic;
@@ -18,7 +18,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 
-namespace prjMumu_MidtermProject.FrmView
+namespace slnMumu_MidtermProject.FrmView
 {
 
     public partial class FrmSponsor : Form

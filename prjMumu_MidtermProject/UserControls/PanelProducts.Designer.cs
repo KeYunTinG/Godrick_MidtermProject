@@ -1,4 +1,4 @@
-﻿namespace prjMumu_MidtermProject.UserControls
+﻿namespace slnMumu_MidtermProject.UserControls
 {
     partial class PanelProducts
     {

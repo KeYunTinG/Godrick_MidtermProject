@@ -1,4 +1,4 @@
-﻿using prjMumu_MidtermProject;
+﻿using slnMumu_MidtermProject;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,7 +24,7 @@ namespace slnMumu_MidtermProject
                 this.lblName.Text = _comment.Members.Username;
                 if (!string.IsNullOrEmpty(_comment.Members.Thumbnail))
                 {
-                    this.pbThumbnail.Image = new Bitmap(Application.StartupPath + @"\Image\membersThumbnail\" + _comment.Members.Thumbnail);
+                    this.pbThumbnail.Image = new Bitmap(Application.StartupPath + @"\Images\membersThumbnail\" + _comment.Members.Thumbnail);
                 }
                 this.lblCommentTime.Text = _comment.Date.Value.ToString("yyyy/MM/dd\nHH:mm");
                 this.lblMessage.Text = _comment.CommentMsg;
