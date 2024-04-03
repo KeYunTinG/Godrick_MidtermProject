@@ -229,6 +229,7 @@
       <DependentUpon>FrmHomepage.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\MembersTable.cs" />
+    <Compile Include="Models\PageBefore.cs" />
     <Compile Include="OrderDetails.cs">
       <DependentUpon>zeczec.tt</DependentUpon>
     </Compile>
@@ -343,6 +344,12 @@
     </Compile>
     <Compile Include="UserControls\ProductCard.designer.cs">
       <DependentUpon>ProductCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Progressbar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Progressbar.designer.cs">
+      <DependentUpon>Progressbar.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\TransactionDetails.cs">
       <SubType>UserControl</SubType>
@@ -461,6 +468,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ProductCard.resx">
       <DependentUpon>ProductCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Progressbar.resx">
+      <DependentUpon>Progressbar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\TransactionDetails.resx">
       <DependentUpon>TransactionDetails.cs</DependentUpon>

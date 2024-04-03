@@ -24,13 +24,12 @@ namespace prjMumu_MidtermProject
         private void FrmHomepage_Load(object sender, EventArgs e)
         {
             //屁眼
-            headProject();
-            fillComboPrjType();
-            fillFlowAllPrj();
-            fillPBLong();
+
         }
         private void headProject()
         {
+            if (_list != null) 
+                _list.Clear();
             //取最新5筆計畫加入_list
             ZecZecEntities db = new ZecZecEntities();
             var project = from x in db.Projects
@@ -107,6 +106,7 @@ namespace prjMumu_MidtermProject
         }
         private void fillPBLong()
         {
+            this.flowLayoutPanel1.Controls.Clear();
             ZecZecEntities db = new ZecZecEntities();
             var projects = from x in db.Projects
                            orderby x.Date descending
@@ -288,6 +288,10 @@ namespace prjMumu_MidtermProject
         {
             //設置計時
             setTimer();
+            headProject();
+            fillComboPrjType();
+            fillFlowAllPrj();
+            fillPBLong();
         }
         private void homepagePB1_MouseEnter(object sender, EventArgs e)
         {

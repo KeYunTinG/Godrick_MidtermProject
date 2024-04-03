@@ -1,5 +1,4 @@
-﻿using prjMumu_MidtermProject.Models;
-using prjMumu_MidtermProject.Query;
+﻿using prjMumu_MidtermProject.Query;
 using prjMumu_MidtermProject.Services;
 using slnMumu_MidtermProject;
 using System;
@@ -21,7 +20,6 @@ namespace prjMumu_MidtermProject
         public delegate void RedirectHomepage(object sender, EventArgs e);
         public event RedirectHomepage setRedirectHomepage;
         public FrmProjectInfo frmProjectInfo;
-public PageBefore pb;
 
         private CurrentUserManager cum;
         private QueryDB queryDB;
@@ -34,7 +32,6 @@ public PageBefore pb;
         {
             InitializeComponent();
             cum = new CurrentUserManager();
- pb = new PageBefore();
             queryDB = new QueryDB();
         }
         public FrmLogIn(FrmProjectInfo form)
@@ -42,7 +39,6 @@ public PageBefore pb;
             this.frmProjectInfo = form;
             InitializeComponent();
             cum = new CurrentUserManager();
- pb = new PageBefore();
             queryDB = new QueryDB();
         }
 
@@ -72,31 +68,6 @@ public PageBefore pb;
             myMessageBox.msg = "登入成功";
             myMessageBox.ShowDialog();
 
-if (pb.page != null)
-            {
-                if (pb.page == "liked")
-                {
-                    (this.MdiParent as FrmHomepage).Click();
-                    (this.MdiParent as FrmHomepage).btnLiked_Click(sender, e);
-                    return;
-                }
-
-                if (pb.page == "profile")
-                {
-                    (this.MdiParent as FrmHomepage).Click();
-                    
-                    (this.MdiParent as FrmHomepage).btnProfile_Click(sender, e);
-                    return;
-                }
-
-                if (pb.page == "myProject")
-                {
-                    (this.MdiParent as FrmHomepage).Click();
-
-                    (this.MdiParent as FrmHomepage).btnMyProject_Click(sender, e);
-                    return;
-                }
-            }
 
             if (setUserState != null)
             {
