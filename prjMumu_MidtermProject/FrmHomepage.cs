@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using prjMumu_MidtermProject;
+using slnMumu_MidtermProject;
 
 namespace slnMumu_MidtermProject
 {

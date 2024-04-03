@@ -1,4 +1,4 @@
-﻿using prjMumu_MidtermProject.FrmView;
+﻿using slnMumu_MidtermProject.FrmView;
 using slnMumu_MidtermProject;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace prjMumu_MidtermProject
+namespace slnMumu_MidtermProject
 {
     public partial class FrmProject : Form
     {
@@ -24,14 +24,16 @@ namespace prjMumu_MidtermProject
         private void FrmHomepage_Load(object sender, EventArgs e)
         {
             //屁眼
-            headProject();
-            fillComboPrjType();
-            fillFlowAllPrj();
-            fillPBLong();
+            //headProject();
+            //fillComboPrjType();
+            //fillFlowAllPrj();
+            //fillPBLong();
         }
         private void headProject()
         {
             //取最新5筆計畫加入_list
+            if (_list != null) 
+            _list.Clear();
             ZecZecEntities db = new ZecZecEntities();
             var project = from x in db.Projects
                           orderby x.Date descending
@@ -107,6 +109,7 @@ namespace prjMumu_MidtermProject
         }
         private void fillPBLong()
         {
+            this.flowLayoutPanel1.Controls.Clear();
             ZecZecEntities db = new ZecZecEntities();
             var projects = from x in db.Projects
                            orderby x.Date descending
@@ -286,6 +289,10 @@ namespace prjMumu_MidtermProject
         }
         private void FrmHomepage_Activated(object sender, EventArgs e)
         {
+            headProject();
+            fillComboPrjType();
+            fillFlowAllPrj();
+            fillPBLong();
             //設置計時
             setTimer();
         }

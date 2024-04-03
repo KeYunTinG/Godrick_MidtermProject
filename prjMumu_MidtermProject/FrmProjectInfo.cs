@@ -10,9 +10,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
-using prjMumu_MidtermProject.FrmView;
+using slnMumu_MidtermProject.FrmView;
 
-namespace prjMumu_MidtermProject
+namespace slnMumu_MidtermProject
 {
     /// <summary>
     /// 輸入：一個 Project ID,一個 Member ID

@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace prjMumu_MidtermProject.Services
+namespace slnMumu_MidtermProject.Services
 {
     public class Authenticator
     {

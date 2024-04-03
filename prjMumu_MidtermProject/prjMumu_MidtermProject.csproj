@@ -181,6 +181,18 @@
     <Compile Include="FrmProjectInfo.Designer.cs">
       <DependentUpon>FrmProjectInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPropose.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPropose.Designer.cs">
+      <DependentUpon>FrmPropose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProposeProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProposeProduct.Designer.cs">
+      <DependentUpon>FrmProposeProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSignUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -344,6 +356,12 @@
     <Compile Include="UserControls\ProductCard.designer.cs">
       <DependentUpon>ProductCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ProductCardEditable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ProductCardEditable.Designer.cs">
+      <DependentUpon>ProductCardEditable.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\TransactionDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -410,6 +428,12 @@
     <EmbeddedResource Include="FrmProjectInfo.resx">
       <DependentUpon>FrmProjectInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmPropose.resx">
+      <DependentUpon>FrmPropose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProposeProduct.resx">
+      <DependentUpon>FrmProposeProduct.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmSignUp.resx">
       <DependentUpon>FrmSignUp.cs</DependentUpon>
     </EmbeddedResource>
@@ -461,6 +485,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ProductCard.resx">
       <DependentUpon>ProductCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ProductCardEditable.resx">
+      <DependentUpon>ProductCardEditable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\TransactionDetails.resx">
       <DependentUpon>TransactionDetails.cs</DependentUpon>

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace prjMumu_MidtermProject.Query
+namespace slnMumu_MidtermProject.Query
 {
     public class QueryDB
     {

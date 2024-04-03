@@ -1,6 +1,6 @@
-﻿using prjMumu_MidtermProject.FrmSpo;
-using prjMumu_MidtermProject.Query;
-using prjMumu_MidtermProject.UserControls;
+﻿using slnMumu_MidtermProject.FrmSpo;
+using slnMumu_MidtermProject.Query;
+using slnMumu_MidtermProject.UserControls;
 using slnMumu_MidtermProject;
 using System;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 using System.Transactions;
 using System.Windows.Forms;
 
-namespace prjMumu_MidtermProject.FrmView
+namespace slnMumu_MidtermProject.FrmView
 {
     public partial class FrmPay : Form
     {

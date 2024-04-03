@@ -10,11 +10,11 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.NetworkInformation;
-using prjMumu_MidtermProject.Services;
+using slnMumu_MidtermProject.Services;
 using System.Text.RegularExpressions;
-using prjMumu_MidtermProject.Query;
+using slnMumu_MidtermProject.Query;
 
-namespace prjMumu_MidtermProject
+namespace slnMumu_MidtermProject
 {
     public partial class FrmSignUp : Form
     {

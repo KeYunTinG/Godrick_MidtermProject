@@ -1,5 +1,5 @@
-﻿using prjMumu_MidtermProject.Query;
-using prjMumu_MidtermProject.Services;
+﻿using slnMumu_MidtermProject.Query;
+using slnMumu_MidtermProject.Services;
 using slnMumu_MidtermProject;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace prjMumu_MidtermProject
+namespace slnMumu_MidtermProject
 {
     public partial class FrmLogIn : Form
     {

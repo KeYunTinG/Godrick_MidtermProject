@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace prjMumu_MidtermProject.Properties {
+namespace slnMumu_MidtermProject.Properties {
     using System;
     
     

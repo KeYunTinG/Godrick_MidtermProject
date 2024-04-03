@@ -1,4 +1,4 @@
-﻿namespace prjMumu_MidtermProject
+﻿namespace slnMumu_MidtermProject
 {
     partial class FrmLogIn
     {

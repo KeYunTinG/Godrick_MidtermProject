@@ -1,4 +1,4 @@
-﻿using prjMumu_MidtermProject.UserControls;
+﻿using slnMumu_MidtermProject.UserControls;
 using slnMumu_MidtermProject;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace prjMumu_MidtermProject
+namespace slnMumu_MidtermProject
 {
     public partial class FrmLiked : Form
     {

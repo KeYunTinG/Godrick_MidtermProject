@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace prjMumu_MidtermProject
+namespace slnMumu_MidtermProject
 {
     using System;
     using System.Data.Entity;
