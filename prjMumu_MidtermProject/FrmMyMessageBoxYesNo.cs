@@ -24,7 +24,7 @@ namespace prjMumu_MidtermProject
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.btnClose.DialogResult = DialogResult.OK;
+            this.DialogResult = DialogResult.OK;
         }
 
         private void button1_Click(object sender, EventArgs e)

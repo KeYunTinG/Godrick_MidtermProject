@@ -109,6 +109,24 @@
     <Compile Include="FrmAbout.Designer.cs">
       <DependentUpon>FrmAbout.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCreateNewPrd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCreateNewPrd.designer.cs">
+      <DependentUpon>FrmCreateNewPrd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEdit.designer.cs">
+      <DependentUpon>FrmEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEditProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEditProduct.designer.cs">
+      <DependentUpon>FrmEditProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLiked.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,8 +160,20 @@
     <Compile Include="FrmMyProject.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMyProject.Designer.cs">
+    <Compile Include="FrmMyProject.designer.cs">
       <DependentUpon>FrmMyProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProductList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProductList.designer.cs">
+      <DependentUpon>FrmProductList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProfile.designer.cs">
+      <DependentUpon>FrmProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmProjectInfo.cs">
       <SubType>Form</SubType>
@@ -197,12 +227,6 @@
     </Compile>
     <Compile Include="FrmHomepage.Designer.cs">
       <DependentUpon>FrmHomepage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmProfile.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmProfile.Designer.cs">
-      <DependentUpon>FrmProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\MembersTable.cs" />
     <Compile Include="OrderDetails.cs">
@@ -344,6 +368,15 @@
     <EmbeddedResource Include="FrmAbout.resx">
       <DependentUpon>FrmAbout.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCreateNewPrd.resx">
+      <DependentUpon>FrmCreateNewPrd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEdit.resx">
+      <DependentUpon>FrmEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEditProduct.resx">
+      <DependentUpon>FrmEditProduct.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmHomepage.resx">
       <DependentUpon>FrmHomepage.cs</DependentUpon>
     </EmbeddedResource>
@@ -364,6 +397,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMyProject.resx">
       <DependentUpon>FrmMyProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProductList.resx">
+      <DependentUpon>FrmProductList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProfile.resx">
       <DependentUpon>FrmProfile.cs</DependentUpon>

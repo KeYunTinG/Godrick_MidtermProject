@@ -112,6 +112,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmLiked";
             this.Text = "FrmLiked";
+            this.Activated += new System.EventHandler(this.FrmLiked_Activated);
             this.Load += new System.EventHandler(this.FrmLiked_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

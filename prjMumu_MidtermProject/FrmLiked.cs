@@ -21,7 +21,6 @@ namespace prjMumu_MidtermProject
             m_id = id;
             InitializeComponent();
             cum = new CurrentUserManager();
-            loadLikeData(m_id, 1);
         }
 
         private string currentUser;
@@ -30,6 +29,10 @@ namespace prjMumu_MidtermProject
         {
             currentUser = cum.currentUser;
             label2.Text = currentUser;
+        }
+        private void FrmLiked_Activated(object sender, EventArgs e)
+        {
+           loadLikeData(m_id, 1);
         }
         private void loadLikeData(int memberId, int currentPage) //收藏顯示
         {
