@@ -1,6 +1,7 @@
-﻿using prjMumu_MidtermProject.FrmView;
-using prjMumu_MidtermProject.UserControls;
+﻿using prjMumu_MidtermProject.UserControls;
 using slnMumu_MidtermProject;
+using slnMumu_MidtermProject.FrmView;
+using slnMumu_MidtermProject.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

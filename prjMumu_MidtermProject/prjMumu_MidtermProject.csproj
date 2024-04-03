@@ -363,7 +363,7 @@
     </Compile>
     <Compile Include="UserControls\ProductCardEditable.Designer.cs">
       <DependentUpon>ProductCardEditable.cs</DependentUpon>
-
+    </Compile>
     <Compile Include="UserControls\Progressbar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -497,6 +497,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ProductCardEditable.resx">
       <DependentUpon>ProductCardEditable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Progressbar.resx">
       <DependentUpon>Progressbar.cs</DependentUpon>
     </EmbeddedResource>

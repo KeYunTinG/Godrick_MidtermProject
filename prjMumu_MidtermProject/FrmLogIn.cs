@@ -1,7 +1,7 @@
 ﻿using prjMumu_MidtermProject.Models;
-using prjMumu_MidtermProject.Query;
-using prjMumu_MidtermProject.Services;
 using slnMumu_MidtermProject;
+using slnMumu_MidtermProject.Query;
+using slnMumu_MidtermProject.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
