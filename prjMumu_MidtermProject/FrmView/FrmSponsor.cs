@@ -104,6 +104,10 @@ namespace prjMumu_MidtermProject.FrmView
 
             foreach (var item in result)
             {
+                if (item.Inventory == 0)   //todo增加數量0條件
+                {
+                    continue;
+                }
                 PanelProducts pp = new PanelProducts();
 
                 int[] a = new int[2] { item.ProjectID, item.ProductID };
@@ -143,6 +147,7 @@ namespace prjMumu_MidtermProject.FrmView
             pay.MdiParent = this.MdiParent as FrmHomepage;
             pay.Dock = DockStyle.Fill;
             pay.Show();
+            this.Close();  //TODO 4/3
         }
     }
 }

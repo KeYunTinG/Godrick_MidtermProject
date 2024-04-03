@@ -58,7 +58,7 @@
             this.fpProducts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fpProducts.Location = new System.Drawing.Point(0, 0);
             this.fpProducts.Name = "fpProducts";
-            this.fpProducts.Size = new System.Drawing.Size(1350, 587);
+            this.fpProducts.Size = new System.Drawing.Size(1670, 712);
             this.fpProducts.TabIndex = 1;
             // 
             // projecttitle
@@ -118,7 +118,7 @@
             this.projectpic.Image = ((System.Drawing.Image)(resources.GetObject("projectpic.Image")));
             this.projectpic.Location = new System.Drawing.Point(31, 0);
             this.projectpic.Name = "projectpic";
-            this.projectpic.Size = new System.Drawing.Size(375, 263);
+            this.projectpic.Size = new System.Drawing.Size(375, 318);
             this.projectpic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.projectpic.TabIndex = 0;
             this.projectpic.TabStop = false;
@@ -143,8 +143,8 @@
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Silver;
             this.splitContainer1.Panel2.Controls.Add(this.fpProducts);
-            this.splitContainer1.Size = new System.Drawing.Size(1350, 852);
-            this.splitContainer1.SplitterDistance = 261;
+            this.splitContainer1.Size = new System.Drawing.Size(1670, 1032);
+            this.splitContainer1.SplitterDistance = 316;
             this.splitContainer1.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -174,7 +174,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1350, 852);
+            this.ClientSize = new System.Drawing.Size(1670, 1032);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

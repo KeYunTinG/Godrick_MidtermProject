@@ -133,6 +133,12 @@
     <Compile Include="FrmMyMessageBox.Designer.cs">
       <DependentUpon>FrmMyMessageBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMyMessageBoxYesNo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMyMessageBoxYesNo.designer.cs">
+      <DependentUpon>FrmMyMessageBoxYesNo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMyProject.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,16 +157,22 @@
     <Compile Include="FrmSignUp.Designer.cs">
       <DependentUpon>FrmSignUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmTransactionDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTransactionDetails.designer.cs">
+      <DependentUpon>FrmTransactionDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmView\FrmPay.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmView\FrmPay.Designer.cs">
+    <Compile Include="FrmView\FrmPay.designer.cs">
       <DependentUpon>FrmPay.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmView\FrmSponsor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmView\FrmSponsor.Designer.cs">
+    <Compile Include="FrmView\FrmSponsor.designer.cs">
       <DependentUpon>FrmSponsor.cs</DependentUpon>
     </Compile>
     <Compile Include="LikeDetails.cs">
@@ -308,6 +320,12 @@
     <Compile Include="UserControls\ProductCard.designer.cs">
       <DependentUpon>ProductCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\TransactionDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\TransactionDetails.designer.cs">
+      <DependentUpon>TransactionDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="zeczec.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -341,6 +359,9 @@
     <EmbeddedResource Include="FrmMyMessageBox.resx">
       <DependentUpon>FrmMyMessageBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmMyMessageBoxYesNo.resx">
+      <DependentUpon>FrmMyMessageBoxYesNo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMyProject.resx">
       <DependentUpon>FrmMyProject.cs</DependentUpon>
     </EmbeddedResource>
@@ -355,6 +376,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSignUp.resx">
       <DependentUpon>FrmSignUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTransactionDetails.resx">
+      <DependentUpon>FrmTransactionDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmView\FrmPay.resx">
       <DependentUpon>FrmPay.cs</DependentUpon>
@@ -401,6 +425,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ProductCard.resx">
       <DependentUpon>ProductCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\TransactionDetails.resx">
+      <DependentUpon>TransactionDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Demo.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

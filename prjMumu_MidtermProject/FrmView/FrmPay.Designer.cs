@@ -124,8 +124,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.右下panel);
             this.splitContainer1.Panel2.Controls.Add(this.panelAddtopurchase);
             this.splitContainer1.Panel2.Controls.Add(this.左下panel);
-            this.splitContainer1.Size = new System.Drawing.Size(1350, 852);
-            this.splitContainer1.SplitterDistance = 193;
+            this.splitContainer1.Size = new System.Drawing.Size(1671, 1032);
+            this.splitContainer1.SplitterDistance = 233;
             this.splitContainer1.TabIndex = 2;
             // 
             // flowLayoutPanel1
@@ -182,7 +182,7 @@
             this.projectpic.Location = new System.Drawing.Point(0, 0);
             this.projectpic.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.projectpic.Name = "projectpic";
-            this.projectpic.Size = new System.Drawing.Size(347, 193);
+            this.projectpic.Size = new System.Drawing.Size(347, 233);
             this.projectpic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.projectpic.TabIndex = 0;
             this.projectpic.TabStop = false;
@@ -231,10 +231,10 @@
             this.右下panel.Controls.Add(this.textBox3);
             this.右下panel.Controls.Add(this.textBox4);
             this.右下panel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.右下panel.Location = new System.Drawing.Point(396, 650);
+            this.右下panel.Location = new System.Drawing.Point(396, 573);
             this.右下panel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.右下panel.Name = "右下panel";
-            this.右下panel.Size = new System.Drawing.Size(933, 3268);
+            this.右下panel.Size = new System.Drawing.Size(1254, 3268);
             this.右下panel.TabIndex = 31;
             // 
             // label5
@@ -265,10 +265,10 @@
             this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox6.Font = new System.Drawing.Font("微軟正黑體", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox6.Location = new System.Drawing.Point(169, 525);
+            this.textBox6.Location = new System.Drawing.Point(190, 525);
             this.textBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(859, 51);
+            this.textBox6.Size = new System.Drawing.Size(1017, 51);
             this.textBox6.TabIndex = 0;
             this.textBox6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox6_KeyDown);
             // 
@@ -304,7 +304,7 @@
             this.paybyATM.Location = new System.Drawing.Point(76, 238);
             this.paybyATM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.paybyATM.Name = "paybyATM";
-            this.paybyATM.Size = new System.Drawing.Size(920, 96);
+            this.paybyATM.Size = new System.Drawing.Size(1131, 96);
             this.paybyATM.TabIndex = 10;
             // 
             // ATMfont
@@ -348,10 +348,10 @@
             this.comboBox1.Items.AddRange(new object[] {
             "選擇收件地點",
             "台灣(本島)Taiwan"});
-            this.comboBox1.Location = new System.Drawing.Point(76, 400);
+            this.comboBox1.Location = new System.Drawing.Point(76, 399);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(952, 50);
+            this.comboBox1.Size = new System.Drawing.Size(1131, 50);
             this.comboBox1.TabIndex = 13;
             // 
             // btnPay
@@ -375,7 +375,7 @@
             this.textBox1.Location = new System.Drawing.Point(76, 640);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(561, 51);
+            this.textBox1.Size = new System.Drawing.Size(584, 51);
             this.textBox1.TabIndex = 1;
             // 
             // label26
@@ -428,10 +428,10 @@
             this.paybyCard.Controls.Add(this.label15);
             this.paybyCard.Controls.Add(this.label14);
             this.paybyCard.Controls.Add(this.creditcard);
-            this.paybyCard.Location = new System.Drawing.Point(76, 98);
+            this.paybyCard.Location = new System.Drawing.Point(76, 107);
             this.paybyCard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.paybyCard.Name = "paybyCard";
-            this.paybyCard.Size = new System.Drawing.Size(920, 96);
+            this.paybyCard.Size = new System.Drawing.Size(1131, 96);
             this.paybyCard.TabIndex = 9;
             // 
             // label15
@@ -469,7 +469,7 @@
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("微軟正黑體", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Location = new System.Drawing.Point(714, 594);
+            this.label20.Location = new System.Drawing.Point(699, 594);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(105, 29);
             this.label20.TabIndex = 17;
@@ -488,10 +488,10 @@
             this.panel4.Controls.Add(this.radioButton1);
             this.panel4.Controls.Add(this.label23);
             this.panel4.Controls.Add(this.labelLINE);
-            this.panel4.Location = new System.Drawing.Point(76, 984);
+            this.panel4.Location = new System.Drawing.Point(76, 999);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(952, 255);
+            this.panel4.Size = new System.Drawing.Size(1139, 255);
             this.panel4.TabIndex = 22;
             // 
             // visibleInvoice
@@ -593,7 +593,7 @@
             this.textBox3.Location = new System.Drawing.Point(76, 764);
             this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(484, 51);
+            this.textBox3.Size = new System.Drawing.Size(787, 51);
             this.textBox3.TabIndex = 3;
             // 
             // textBox4
@@ -601,10 +601,10 @@
             this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox4.Font = new System.Drawing.Font("微軟正黑體", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox4.Location = new System.Drawing.Point(76, 889);
+            this.textBox4.Location = new System.Drawing.Point(73, 885);
             this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(484, 51);
+            this.textBox4.Size = new System.Drawing.Size(790, 51);
             this.textBox4.TabIndex = 4;
             // 
             // panelAddtopurchase
@@ -615,7 +615,7 @@
             this.panelAddtopurchase.Location = new System.Drawing.Point(396, 0);
             this.panelAddtopurchase.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelAddtopurchase.Name = "panelAddtopurchase";
-            this.panelAddtopurchase.Size = new System.Drawing.Size(933, 650);
+            this.panelAddtopurchase.Size = new System.Drawing.Size(1254, 573);
             this.panelAddtopurchase.TabIndex = 32;
             // 
             // label8
@@ -638,7 +638,7 @@
             this.flowAddtopurchase.Location = new System.Drawing.Point(1, 128);
             this.flowAddtopurchase.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowAddtopurchase.Name = "flowAddtopurchase";
-            this.flowAddtopurchase.Size = new System.Drawing.Size(1055, 441);
+            this.flowAddtopurchase.Size = new System.Drawing.Size(1418, 441);
             this.flowAddtopurchase.TabIndex = 0;
             // 
             // 左下panel
@@ -656,7 +656,7 @@
             this.左下panel.Location = new System.Drawing.Point(0, 0);
             this.左下panel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.左下panel.Name = "左下panel";
-            this.左下panel.Size = new System.Drawing.Size(396, 3918);
+            this.左下panel.Size = new System.Drawing.Size(396, 3841);
             this.左下panel.TabIndex = 30;
             // 
             // flowLayoutPanel2
@@ -798,7 +798,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1350, 852);
+            this.ClientSize = new System.Drawing.Size(1671, 1032);
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmPay";

@@ -27,10 +27,11 @@ namespace prjMumu_MidtermProject.FrmView
         private FrmMessage message;
         private decimal addToPurchase;
         private decimal currentProductPrice;
-        private decimal totalProductPrice;
+        private decimal donate = 0;
+        private decimal totalProductPrice=0;
         private CurrentUserManager cum;
         private ZecZecEntities db;
-
+        bool checkboxchange = false;
         private List<Products> checkedList = new List<Products>();
 
         public FrmPay(int _projectID, int _productID)
@@ -47,6 +48,64 @@ namespace prjMumu_MidtermProject.FrmView
         private async void FrmPay_Load(object sender, EventArgs e)
         {
             await MethodAsync();
+            LoadPayByChange();
+            textBox1.Text = cum.member.Address;
+            textBox3.Text = cum.member.Nickname;
+
+        }
+
+        private void LoadPayByChange()
+        {
+            paybyATM.MouseEnter += Payby_MouseEnter;
+            paybyATM.MouseLeave += Payby_MouseLeave;
+            paybyCard.MouseEnter += Payby_MouseEnter;
+            paybyCard.MouseLeave += Payby_MouseLeave;
+            paybyATM.Click += PaybyATM_Click;
+            paybyCard.Click += PaybyCard_Click;
+        }
+
+        private void PaybyCard_Click(object sender, EventArgs e)
+        {
+            if (checkboxchange == false)
+            {
+                creditcard.Checked = true;
+                ATM.Checked = false;
+
+            }
+            else
+            {
+                creditcard.Checked = false;
+
+            }
+            checkboxchange = !checkboxchange;
+        }
+
+        private void PaybyATM_Click(object sender, EventArgs e)
+        {
+            if (checkboxchange == false)
+            {
+                ATM.Checked = true;
+                creditcard.Checked = false;
+
+            }
+            else
+            {
+                ATM.Checked = false;
+
+            }
+            checkboxchange = !checkboxchange;
+        }
+
+        private void Payby_MouseLeave(object sender, EventArgs e)
+        {
+            Panel leavepanel = (Panel)sender;
+            leavepanel.BackColor = Color.DimGray;
+        }
+
+        private void Payby_MouseEnter(object sender, EventArgs e)
+        {
+            Panel enterpanel = (Panel)sender;
+            enterpanel.BackColor = Color.FromArgb(64, 64, 64);
         }
 
         private async Task MethodAsync()
@@ -77,7 +136,7 @@ namespace prjMumu_MidtermProject.FrmView
             lblSponsor.Text = memberInfo.Nickname;
             lblSponsor.MouseEnter += LblSponsor_MouseEnter;
             lblSponsor.MouseLeave += LblSponsor_MouseLeave;
-
+            
             var type = await queryDB.FindProjectType(projectID);
 
             decimal total = await LoadGoalAndTotal();
@@ -99,7 +158,7 @@ namespace prjMumu_MidtermProject.FrmView
             currentProductPrice = result.Price;
             lblTotalPrice.Text = currentProductPrice.ToString("C0");
             labelprice.Text = currentProductPrice.ToString("C0");
-            pp.productPrice = "NT$ " + currentProductPrice.ToString("C0");
+            pp.productPrice =  currentProductPrice.ToString("C0");
             pp.productIventory = "剩餘 " + result.Inventory.ToString() + " 組";
             int sponsor = result.Quantity - result.Inventory;
             pp.productSelled = "已被贊助 " + sponsor.ToString() + " 組";
@@ -119,7 +178,10 @@ namespace prjMumu_MidtermProject.FrmView
                 {
                     continue;
                 }
-
+                if(item.Inventory == 0)   //todo增加數量0條件
+                {
+                    continue;
+                }
                 Addtopurchase ad = new Addtopurchase();
 
                 if (!string.IsNullOrEmpty(item.Thumbnail))
@@ -146,14 +208,12 @@ namespace prjMumu_MidtermProject.FrmView
         private async Task<decimal> LoadGoalAndTotal()
         {
             var result = await queryDB.ProjJoinProdJoinOD(projectID);
-
             decimal total = 0;
 
             foreach (var item in result)
             {
                 total += item.price;
             }
-
             return total;
         }
         private void LblSponsor_MouseLeave(object sender, EventArgs e)
@@ -172,13 +232,11 @@ namespace prjMumu_MidtermProject.FrmView
 
         private void btnbackToSponsor_Click(object sender, EventArgs e)
         {
-           // Close();
-            FrmSponsor frmSponsor = new FrmSponsor(projectID);
-            frmSponsor.MdiParent = this.MdiParent as FrmHomepage;
-            frmSponsor.Dock = DockStyle.Fill;
-            frmSponsor.Show();
+            FrmSponsor  sponsor = new FrmSponsor(projectID);
+            sponsor.MdiParent = this.MdiParent as FrmHomepage;
+            sponsor.Dock = DockStyle.Fill;
+            sponsor.Show();
             this.Close();
-
         }
 
         private void CheckedState(Products _product)
@@ -224,18 +282,30 @@ namespace prjMumu_MidtermProject.FrmView
                         ShipDate = DateTime.Now.AddDays(7),
                         ShipmentStatusID = 1,
                         PaymentMethodID = paymentMethod,
-                        PaymentStatusID = 1
+                        PaymentStatusID = 1,
+                        //Donate = donate
                     };
                     db.Orders.Add(addOrder);
                     db.SaveChanges();
 
                     int newOrderID = addOrder.OrderID;
 
+                    decimal x;
+
+                    if (totalProductPrice == 0)
+                    {
+                        x = currentProductPrice;
+                    }
+                    else
+                    {
+                        x = totalProductPrice;
+                    }
+
                     OrderDetails addOrderDetail = new OrderDetails()
                     {
                         OrderID = newOrderID,
                         ProductID = productID,
-                        Price = totalProductPrice,
+                        Price = x,
                         Count = 1,
                     };
 
@@ -263,6 +333,19 @@ namespace prjMumu_MidtermProject.FrmView
                     FrmMyMessageBox mm = new FrmMyMessageBox();
                     mm.msg = "交易已完成，感謝您的贊助";
                     mm.ShowDialog();
+
+                    FrmTransactionDetails ftd = new FrmTransactionDetails();
+                    TransactionDetails td = new TransactionDetails();
+
+                    ftd.lblDate.Text = DateTime.Now.ToString();
+                    ftd.lblDonate.Text = donate.ToString("C0");
+                    td.productName.Text = productEdit.ProductName;
+                    td.productPrice.Text = currentProductPrice.ToString("C0");
+                    ftd.flpDateils.Controls.Add(td);
+                    ftd.ShowDialog();
+
+               
+
                 }
 
                 catch (TransactionAbortedException)
@@ -272,7 +355,13 @@ namespace prjMumu_MidtermProject.FrmView
                     mm.ShowDialog();
                     throw;
                 }
+
             }
+            FrmLiked fk = new FrmLiked(cum.member.MemberID);
+            fk.MdiParent = this.MdiParent as FrmHomepage;
+            fk.Dock = DockStyle.Fill;
+            fk.Show();
+            this.Close();
 
         }
 
@@ -291,7 +380,8 @@ namespace prjMumu_MidtermProject.FrmView
                         ShipDate = DateTime.Now.AddDays(7),
                         ShipmentStatusID = 1,
                         PaymentMethodID = paymentMethod,
-                        PaymentStatusID = 1
+                        PaymentStatusID = 1,
+                        //Donate = donate
                     };
                     db.Orders.Add(addOrder);
                     db.SaveChanges();
@@ -337,11 +427,14 @@ namespace prjMumu_MidtermProject.FrmView
                     var product = db.Products.FirstOrDefault(p => p.ProductID == productID);
 
                     checkedList.Add(product);
-
+                    List<string>  allProductName = new List<string>();
+                    List<decimal> allPRoductPrice = new List<decimal>();
                     for (int i = 0; i < checkedList.Count; i++)
                     {
                         int productIDToFind = checkedList[i].ProductID;
                         var pEdit = db.Products.FirstOrDefault(p => p.ProductID == productIDToFind);
+                        allProductName.Add(pEdit.ProductName);
+                        allPRoductPrice.Add(pEdit.Price);
 
                         if (pEdit != null && pEdit.Inventory > 0)
                         {
@@ -364,6 +457,28 @@ namespace prjMumu_MidtermProject.FrmView
                     FrmMyMessageBox mm = new FrmMyMessageBox();
                     mm.msg = "交易完成，感謝您的贊助";
                     mm.ShowDialog();
+
+
+                    FrmTransactionDetails ftd = new FrmTransactionDetails();
+
+                    for (int i = 0; i < checkedList.Count; i++)
+                    {
+                      
+                        TransactionDetails td = new TransactionDetails();
+                        ftd.lblDate.Text = DateTime.Now.ToString();
+                        ftd.lblDonate.Text = donate.ToString("C0");
+                        td.productName.Text = allProductName[i];
+                        td.productPrice.Text = allPRoductPrice[i].ToString("C0");
+                        ftd.flpDateils.Controls.Add(td);
+
+                    }
+                    ftd.ShowDialog();
+
+
+               
+
+
+
                 }
 
                 catch (TransactionAbortedException)
@@ -374,6 +489,11 @@ namespace prjMumu_MidtermProject.FrmView
                     throw;
                 }
             }
+            FrmLiked fk = new FrmLiked(cum.member.MemberID);
+            fk.MdiParent = this.MdiParent as FrmHomepage;
+            fk.Dock = DockStyle.Fill;
+            fk.Show();
+            this.Close();
         }
 
         private void btnPay_Click(object sender, EventArgs e)
@@ -402,9 +522,19 @@ namespace prjMumu_MidtermProject.FrmView
             {
                 paymentMethod = 3;
             }
+            FrmMyMessageBoxYesNo myn = new FrmMyMessageBoxYesNo();
+            myn.msg = " 確定要進行交易嗎? ";
+            myn.ShowDialog();
+            //DialogResult = MessageBox.Show(" 確定要進行交易嗎? ", "交易提示", MessageBoxButtons.OKCancel);
+            if (myn.DialogResult == DialogResult.Cancel)
+            {
+                FrmMyMessageBox  mm = new FrmMyMessageBox();
+                mm.msg = "交易已取消";
+                mm.ShowDialog();
+                return;
+            }
+                
 
-            DialogResult = MessageBox.Show(" 確定要進行交易嗎? ", "交易提示", MessageBoxButtons.OKCancel);
-            if (DialogResult == DialogResult.Cancel) return;
 
             if (checkedList.Count == 0)
             {
@@ -420,11 +550,12 @@ namespace prjMumu_MidtermProject.FrmView
         {
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
             {
+
                 if (decimal.TryParse(textBox6.Text, out decimal value) && value >= 0)
                 {
                     if (value == 0 && checkedList.Count == 0)
                     {
-                        lblTotalPrice.Text = currentProductPrice.ToString("c0");
+                        lblTotalPrice.Text = currentProductPrice.ToString("c0");       
                     }
 
                     if (value == 0 && checkedList.Count > 0)
@@ -436,12 +567,14 @@ namespace prjMumu_MidtermProject.FrmView
                     {
                         totalProductPrice = currentProductPrice + value;
                         lblTotalPrice.Text = totalProductPrice.ToString("C0");
+                        donate = value;
                     }
 
                     if (checkedList.Count > 0)
                     {
                         totalProductPrice = currentProductPrice + addToPurchase + value;
                         lblTotalPrice.Text = totalProductPrice.ToString("C0");
+                        donate = value;
                     }
                 }
             }

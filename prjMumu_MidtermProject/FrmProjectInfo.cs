@@ -73,9 +73,9 @@ namespace prjMumu_MidtermProject
                 GotoLogin();
                 return;
             }
-            MessageBox.Show("跳轉到贊助頁面" +
+            /*MessageBox.Show("跳轉到贊助頁面" +
                 "\r\nID: " + pc.product.ProductID +
-                "\r\nName: " + pc.product.ProductName);
+                "\r\nName: " + pc.product.ProductName);*/
             FrmPay frmPay = new FrmPay(_projID, pc.product.ProductID);
             frmPay.MdiParent = this.MdiParent as FrmHomepage;
             frmPay.Dock = DockStyle.Fill;
@@ -133,8 +133,8 @@ namespace prjMumu_MidtermProject
                 GotoLogin(sender, e);
                 return;
             }
-            MessageBox.Show("跳轉到贊助頁面" +
-               "\r\nID: " + _projID);
+            /*MessageBox.Show("跳轉到贊助頁面" +
+               "\r\nID: " + _projID);*/
             FrmSponsor frmSponsor = new FrmSponsor(_projID);
             frmSponsor.MdiParent = this.MdiParent as FrmHomepage;
             frmSponsor.Dock = DockStyle.Fill;
