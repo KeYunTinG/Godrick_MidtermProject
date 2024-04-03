@@ -130,7 +130,7 @@ namespace prjMumu_MidtermProject
         {
             if (!user.isLogin)
             {
-                GotoLogin(sender, e);
+                GotoLogin();
                 return;
             }
             /*MessageBox.Show("跳轉到贊助頁面" +
@@ -147,7 +147,7 @@ namespace prjMumu_MidtermProject
             // 沒登入請先登入
             if (!user.isLogin)
             {
-                GotoLogin(sender, e);
+                GotoLogin();
                 return;
             }
 
@@ -180,27 +180,11 @@ namespace prjMumu_MidtermProject
             }
         }
 
-        private void GotoLogin(object sender, EventArgs e)
-        {
-            MessageBox.Show("請先登入會員");
-            //rd?.Invoke(sender, e);
-            //return;
-
-            FrmLogIn fLogin = new FrmLogIn(this);
-            fLogin.MdiParent = this.MdiParent as FrmHomepage;
-            fLogin.Dock = DockStyle.Fill;
-            fLogin.setUserState += () => { user.isLogin = true; };
-            fLogin.setRedirectHomepage += (s, a) =>
-            {
-                ((FrmHomepage)this.MdiParent).Click();
-                fLogin.Close();
-            };
-            fLogin.Show();
-        }
 
         private void GotoLogin()
         {
-            MessageBox.Show("請先登入會員");
+            FrmMyMessageBox mb = new FrmMyMessageBox() { msg = "請先登入會員" };
+            mb.ShowDialog();
 
 
             FrmLogIn fLogin = new FrmLogIn(this);
