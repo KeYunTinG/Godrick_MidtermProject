@@ -36,7 +36,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnDemo = new System.Windows.Forms.Button();
             this.tbProjectDescription = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.metroDivider1 = new ReaLTaiizor.Controls.MetroDivider();
@@ -76,7 +76,7 @@
             this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.btnConfirm);
             this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btnDemo);
             this.panel2.Controls.Add(this.tbProjectDescription);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.metroDivider1);
@@ -148,9 +148,8 @@
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(144, 39);
             this.btnConfirm.TabIndex = 18;
-            this.btnConfirm.Text = "提案";
+            this.btnConfirm.Text = "確認";
             this.btnConfirm.UseVisualStyleBackColor = false;
-            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // button2
             // 
@@ -164,16 +163,16 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // btnDemo
             // 
-            this.button1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button1.Location = new System.Drawing.Point(556, 325);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(144, 39);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Demo";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnDemo_Click);
+            this.btnDemo.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnDemo.Location = new System.Drawing.Point(556, 325);
+            this.btnDemo.Name = "btnDemo";
+            this.btnDemo.Size = new System.Drawing.Size(144, 39);
+            this.btnDemo.TabIndex = 18;
+            this.btnDemo.Text = "Demo";
+            this.btnDemo.UseVisualStyleBackColor = true;
+            this.btnDemo.Click += new System.EventHandler(this.btnDemo_Click);
             // 
             // tbProjectDescription
             // 
@@ -224,7 +223,7 @@
             // 
             this.poisonDateTime2.CalendarFont = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.poisonDateTime2.Location = new System.Drawing.Point(383, 697);
-            this.poisonDateTime2.MinimumSize = new System.Drawing.Size(4, 30);
+            this.poisonDateTime2.MinimumSize = new System.Drawing.Size(0, 30);
             this.poisonDateTime2.Name = "poisonDateTime2";
             this.poisonDateTime2.Size = new System.Drawing.Size(200, 30);
             this.poisonDateTime2.TabIndex = 11;
@@ -234,7 +233,7 @@
             // 
             this.poisonDateTime1.CalendarFont = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.poisonDateTime1.Location = new System.Drawing.Point(144, 697);
-            this.poisonDateTime1.MinimumSize = new System.Drawing.Size(4, 30);
+            this.poisonDateTime1.MinimumSize = new System.Drawing.Size(0, 30);
             this.poisonDateTime1.Name = "poisonDateTime1";
             this.poisonDateTime1.Size = new System.Drawing.Size(200, 30);
             this.poisonDateTime1.TabIndex = 11;
@@ -280,7 +279,7 @@
             this.pbProjectThumbnail.Margin = new System.Windows.Forms.Padding(4);
             this.pbProjectThumbnail.Name = "pbProjectThumbnail";
             this.pbProjectThumbnail.Size = new System.Drawing.Size(864, 304);
-            this.pbProjectThumbnail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbProjectThumbnail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbProjectThumbnail.TabIndex = 0;
             this.pbProjectThumbnail.TabStop = false;
             this.pbProjectThumbnail.Click += new System.EventHandler(this.pbProjectThumbnail_Click);
@@ -333,7 +332,7 @@
         private ReaLTaiizor.Controls.MetroDivider metroDivider1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDemo;
         private System.Windows.Forms.RichTextBox tbProjectDescription;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button btnConfirm;

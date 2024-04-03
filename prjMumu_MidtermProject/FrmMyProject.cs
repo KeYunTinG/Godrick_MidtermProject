@@ -69,22 +69,22 @@ namespace slnMumu_MidtermProject
                     Margin = new Padding(0, 0, 0, 30)
                 };
 
-                Button btn2 = new Button
-                {
-                    Text = "編輯專案中的商品",
-                    Anchor = AnchorStyles.None,
-                    Font = new Font("Microsoft JhengHei", 10F, FontStyle.Regular),
-                    Width = 180,
-                    Height = 50,
+                //Button btn2 = new Button
+                //{
+                //    Text = "編輯專案中的商品",
+                //    Anchor = AnchorStyles.None,
+                //    Font = new Font("Microsoft JhengHei", 10F, FontStyle.Regular),
+                //    Width = 180,
+                //    Height = 50,
                     
-                };
+                //};
                 
 
                 btn1.Click += Btn1_Click;
                 btn1.Tag= proj.ProjectID;
 
-                btn2.Click += Btn2_Click;
-                btn2.Tag= proj.ProjectID;
+                //btn2.Click += Btn2_Click;
+                //btn2.Tag= proj.ProjectID;
 
 
                 FlowLayoutPanel panel = new FlowLayoutPanel
@@ -96,13 +96,10 @@ namespace slnMumu_MidtermProject
                 panel.Controls.Add(pictureBox);
                 panel.Controls.Add(label);
                 panel.Controls.Add(btn1);
-                panel.Controls.Add(btn2);
+                //panel.Controls.Add(btn2);
                 panel.BackColor= Color.LightGray;
 
-
                 flowLayoutPanelMyProject.Controls.Add(panel);
-
-
             }
 
         }
@@ -120,11 +117,10 @@ namespace slnMumu_MidtermProject
         private void Btn1_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-            FrmEdit f = new FrmEdit((int)btn.Tag);
+            FrmPropose f = new FrmPropose((int)btn.Tag);
             f.MdiParent = this.MdiParent as FrmHomepage;
             f.Dock = DockStyle.Fill;
             f.Show();
-            this.Close();
         }
 
         private void PictureBox_DoubleClick(object sender, EventArgs e)
@@ -159,7 +155,6 @@ namespace slnMumu_MidtermProject
         private void FrmMyProject_Activated(object sender, EventArgs e)
         {
             FrmMyProject_Load(sender, e);
-
         }
     }
 }
