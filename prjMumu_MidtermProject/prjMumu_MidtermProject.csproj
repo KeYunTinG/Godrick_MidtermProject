@@ -83,10 +83,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Carts.cs">
-      <DependentUpon>ZecZec.tt</DependentUpon>
+      <DependentUpon>zeczec.tt</DependentUpon>
     </Compile>
     <Compile Include="Comments.cs">
-      <DependentUpon>ZecZec.tt</DependentUpon>
+      <DependentUpon>zeczec.tt</DependentUpon>
     </Compile>
     <Compile Include="Demo.Context.cs">
       <AutoGen>True</AutoGen>
@@ -164,19 +164,19 @@
       <DependentUpon>FrmSponsor.cs</DependentUpon>
     </Compile>
     <Compile Include="LikeDetails.cs">
-      <DependentUpon>ZecZec.tt</DependentUpon>
+      <DependentUpon>zeczec.tt</DependentUpon>
     </Compile>
     <Compile Include="Likes.cs">
-      <DependentUpon>ZecZec.tt</DependentUpon>
+      <DependentUpon>zeczec.tt</DependentUpon>
     </Compile>
     <Compile Include="MemberInterestProjectType.cs">
-      <DependentUpon>ZecZec.tt</DependentUpon>
+      <DependentUpon>zeczec.tt</DependentUpon>
     </Compile>
     <Compile Include="MemberRoleGroup.cs">
-      <DependentUpon>ZecZec.tt</DependentUpon>
+      <DependentUpon>zeczec.tt</DependentUpon>
     </Compile>
     <Compile Include="Members.cs">
-      <DependentUpon>ZecZec.tt</DependentUpon>
+      <DependentUpon>zeczec.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CFunction.cs" />
     <Compile Include="Models\CurrentUserManager.cs" />
@@ -194,22 +194,22 @@
     </Compile>
     <Compile Include="Models\MembersTable.cs" />
     <Compile Include="OrderDetails.cs">
-      <DependentUpon>ZecZec.tt</DependentUpon>
+      <DependentUpon>zeczec.tt</DependentUpon>
     </Compile>
     <Compile Include="Orders.cs">
-      <DependentUpon>ZecZec.tt</DependentUpon>
+      <DependentUpon>zeczec.tt</DependentUpon>
     </Compile>
     <Compile Include="PaymentMethods.cs">
-      <DependentUpon>ZecZec.tt</DependentUpon>
+      <DependentUpon>zeczec.tt</DependentUpon>
     </Compile>
     <Compile Include="PaymentStatus.cs">
-      <DependentUpon>ZecZec.tt</DependentUpon>
+      <DependentUpon>zeczec.tt</DependentUpon>
     </Compile>
     <Compile Include="PermissionLevels.cs">
-      <DependentUpon>ZecZec.tt</DependentUpon>
+      <DependentUpon>zeczec.tt</DependentUpon>
     </Compile>
     <Compile Include="Products.cs">
-      <DependentUpon>ZecZec.tt</DependentUpon>
+      <DependentUpon>zeczec.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="FrmProject.cs">
@@ -219,34 +219,34 @@
       <DependentUpon>FrmProject.cs</DependentUpon>
     </Compile>
     <Compile Include="ProjectEditPermissions.cs">
-      <DependentUpon>ZecZec.tt</DependentUpon>
+      <DependentUpon>zeczec.tt</DependentUpon>
     </Compile>
     <Compile Include="ProjectIDType.cs">
-      <DependentUpon>ZecZec.tt</DependentUpon>
+      <DependentUpon>zeczec.tt</DependentUpon>
     </Compile>
     <Compile Include="Projects.cs">
-      <DependentUpon>ZecZec.tt</DependentUpon>
+      <DependentUpon>zeczec.tt</DependentUpon>
     </Compile>
     <Compile Include="ProjectTypes.cs">
-      <DependentUpon>ZecZec.tt</DependentUpon>
+      <DependentUpon>zeczec.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Query\QueryDB.cs" />
     <Compile Include="Roles.cs">
-      <DependentUpon>ZecZec.tt</DependentUpon>
+      <DependentUpon>zeczec.tt</DependentUpon>
     </Compile>
     <Compile Include="Service.cs">
-      <DependentUpon>ZecZec.tt</DependentUpon>
+      <DependentUpon>zeczec.tt</DependentUpon>
     </Compile>
     <Compile Include="Services\Authenticator.cs" />
     <Compile Include="ShipmentStatus.cs">
-      <DependentUpon>ZecZec.tt</DependentUpon>
+      <DependentUpon>zeczec.tt</DependentUpon>
     </Compile>
     <Compile Include="SubComments.cs">
-      <DependentUpon>ZecZec.tt</DependentUpon>
+      <DependentUpon>zeczec.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagrams.cs">
-      <DependentUpon>ZecZec.tt</DependentUpon>
+      <DependentUpon>zeczec.tt</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Addtopurchase.cs">
       <SubType>UserControl</SubType>
@@ -308,20 +308,20 @@
     <Compile Include="UserControls\ProductCard.designer.cs">
       <DependentUpon>ProductCard.cs</DependentUpon>
     </Compile>
-    <Compile Include="ZecZec.Context.cs">
+    <Compile Include="zeczec.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ZecZec.Context.tt</DependentUpon>
+      <DependentUpon>zeczec.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="ZecZec.cs">
+    <Compile Include="zeczec.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ZecZec.tt</DependentUpon>
+      <DependentUpon>zeczec.tt</DependentUpon>
     </Compile>
-    <Compile Include="ZecZec.Designer.cs">
+    <Compile Include="zeczec.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ZecZec.edmx</DependentUpon>
+      <DependentUpon>zeczec.edmx</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FrmAbout.resx">
       <DependentUpon>FrmAbout.cs</DependentUpon>
@@ -419,12 +419,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EntityDeploy Include="ZecZec.edmx">
+    <EntityDeploy Include="zeczec.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ZecZec.Designer.cs</LastGenOutput>
+      <LastGenOutput>zeczec.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ZecZec.edmx.diagram">
-      <DependentUpon>ZecZec.edmx</DependentUpon>
+    <None Include="zeczec.edmx.diagram">
+      <DependentUpon>zeczec.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -456,19 +456,19 @@
       <DependentUpon>Demo.edmx</DependentUpon>
       <LastGenOutput>Demo.cs</LastGenOutput>
     </Content>
+    <Content Include="zeczec.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>zeczec.edmx</DependentUpon>
+      <LastGenOutput>zeczec.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="zeczec.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>zeczec.edmx</DependentUpon>
+      <LastGenOutput>zeczec.cs</LastGenOutput>
+    </Content>
     <None Include="Resources\bae9a9fa28f88d9dce5881801a66820b.jfif" />
     <Content Include="Resources\DELETE.PNG" />
     <None Include="Resources\DELETE1.PNG" />
-    <Content Include="ZecZec.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ZecZec.edmx</DependentUpon>
-      <LastGenOutput>ZecZec.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="ZecZec.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ZecZec.edmx</DependentUpon>
-      <LastGenOutput>ZecZec.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

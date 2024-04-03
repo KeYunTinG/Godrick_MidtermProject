@@ -305,25 +305,24 @@
             // 
             // cpbGoal
             // 
-            this.cpbGoal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cpbGoal.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
             this.cpbGoal.AnimationSpeed = 500;
             this.cpbGoal.BackColor = System.Drawing.Color.Transparent;
-            this.cpbGoal.Font = new System.Drawing.Font("微軟正黑體", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cpbGoal.Font = new System.Drawing.Font("微軟正黑體", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.cpbGoal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.cpbGoal.InnerColor = System.Drawing.Color.Transparent;
+            this.cpbGoal.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.cpbGoal.InnerMargin = 2;
             this.cpbGoal.InnerWidth = -1;
-            this.cpbGoal.Location = new System.Drawing.Point(716, 379);
+            this.cpbGoal.Location = new System.Drawing.Point(711, 381);
             this.cpbGoal.MarqueeAnimationSpeed = 2000;
             this.cpbGoal.Name = "cpbGoal";
-            this.cpbGoal.OuterColor = System.Drawing.Color.Lavender;
+            this.cpbGoal.OuterColor = System.Drawing.Color.LightSlateGray;
             this.cpbGoal.OuterMargin = -25;
             this.cpbGoal.OuterWidth = 26;
             this.cpbGoal.ProgressColor = System.Drawing.Color.DarkSlateBlue;
             this.cpbGoal.ProgressWidth = 12;
-            this.cpbGoal.SecondaryFont = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.cpbGoal.Size = new System.Drawing.Size(120, 120);
+            this.cpbGoal.SecondaryFont = new System.Drawing.Font("新細明體", 36F);
+            this.cpbGoal.Size = new System.Drawing.Size(125, 118);
             this.cpbGoal.StartAngle = 270;
             this.cpbGoal.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
             this.cpbGoal.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
@@ -331,8 +330,8 @@
             this.cpbGoal.SuperscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
             this.cpbGoal.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
             this.cpbGoal.SuperscriptText = "";
-            this.cpbGoal.TabIndex = 11;
-            this.cpbGoal.Text = "60%";
+            this.cpbGoal.TabIndex = 10;
+            this.cpbGoal.Text = "60";
             this.cpbGoal.TextMargin = new System.Windows.Forms.Padding(0);
             this.cpbGoal.Value = 68;
             // 

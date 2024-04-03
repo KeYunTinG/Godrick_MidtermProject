@@ -77,6 +77,7 @@ namespace prjMumu_MidtermProject
                 this.flowLayoutPanel2.Controls.Clear();
                 for (int i = 1; i <= totalPages; i++)
                 {
+                    if (totalPages < 2) return; 
                     Button btn1 = new Button();
                     btn1.Width = 102;
                     btn1.Height = 32;
@@ -92,6 +93,101 @@ namespace prjMumu_MidtermProject
             }
         }
         private void loadBuyData(int memberId, int currentPage)  //購買顯示
+        {
+            titleChanged(2);
+            int lastOrderId = 0;
+            using (ZecZecEntities db = new ZecZecEntities())
+            {
+                string path = Application.StartupPath + "\\Images\\ProjectsThumbnail\\";
+                List<string> list = new List<string>();
+                var OQ = from o in db.Orders.Where(o => o.MemberID == memberId)
+                         join od in db.OrderDetails
+                         on o.OrderID equals od.OrderID
+                         join pd in db.Products
+                         on od.ProductID equals pd.ProductID
+                         join pj in db.Projects
+                         on pd.ProjectID equals pj.ProjectID
+                         orderby od.OrderID
+                         select new
+                         {
+                             _id = od.OrderID,
+                             _name = pj.ProjectName,
+                             //_info = pj.Description,
+                             _photo = pj.Thumbnail,
+                             _date = pj.Date,
+                         };
+                int pageSize = 5; // 每頁顯示的訂單數量
+
+                // 計算總頁數
+                int totalOrders = OQ.Count();
+                /*int totalOrders = (from o in db.Orders
+                 where o.MemberID == memberId
+                 select o).Count();*/
+                int totalPages = (int)Math.Ceiling((double)totalOrders / pageSize);
+
+                // 根據當前頁數進行分頁
+                int skipAmount = (currentPage - 1) * pageSize;
+
+                //每頁資料
+                foreach (var oq in OQ.Skip(skipAmount).Take(pageSize))
+                {
+                    var order = from od in db.OrderDetails.Where(o => o.OrderID == oq._id)
+                                join pd in db.Products
+                                on od.ProductID equals pd.ProductID
+                                select new
+                                {
+                                    _name = pd.ProductName,
+                                    _tot = od.Price * od.Count
+                                };
+                    //算錢
+                    decimal total = 0;
+                    List<string> pdName = new List<string>();
+                    foreach (var o in order)
+                    {
+                        pdName.Add(o._name);
+                        total += o._tot;
+                    }
+                    //if (lastOrderId == oq._id) continue; //同一order只顯示一次
+                   //     lastOrderId = oq._id;
+                    CCPurchaseHistory CCP = new CCPurchaseHistory();
+                    CCP.fieldTitle = oq._name;
+                    CCP.fieldDate = oq._date.ToString("yyyy/MM/dd");
+                    //CCP.fieldDescription = oq._info;
+                    CCP.fieldPhoto = new Bitmap(path + oq._photo);
+                    CCP.fieldPrice = total.ToString();
+                    CCP.fieldProduct1 = pdName[0];//購買方案
+                    if (pdName.Count > 1 && pdName[1].Length > 0)
+                        CCP.fieldProduct2 = pdName[1];
+                    if (pdName.Count > 2 && pdName[2].Length > 0)
+                        CCP.fieldProduct3 = pdName[2];
+                    if (pdName.Count > 3 && pdName[3].Length > 0)
+                        CCP.fieldProduct4 = pdName[3];
+                    Projects pID = db.Projects.FirstOrDefault(p => p.ProjectName == CCP.fieldTitle);
+                    if (pID == null)
+                        return;
+                    CCP.fieldClick += Item_itemFieldClick(pID.ProjectID);
+                    flowLayoutPanel1.Controls.Add(CCP);
+                }
+                //分頁計算
+                this.flowLayoutPanel2.Controls.Clear();
+                for (int i = 1; i <= totalPages; i++)
+                {
+                    if (totalPages < 2) return;
+                    Button btn1 = new Button();
+                    btn1.Width = 102;
+                    btn1.Height = 32;
+                    btn1.Text = i.ToString();
+                    btn1.FlatStyle = FlatStyle.Flat;
+                    if (i != currentPage)
+                        btn1.FlatAppearance.BorderSize = 0;
+                    btn1.Font = new Font("微軟正黑體", 12);
+                    btn1.Click += Buybtn1_Click;
+                    this.flowLayoutPanel2.Controls.Add(btn1);
+                }
+
+            }
+        }
+        /*private void loadBuyData(int memberId, int currentPage)  //購買顯示
         {
             titleChanged(2);
             using (ZecZecEntities db = new ZecZecEntities())
@@ -154,7 +250,7 @@ namespace prjMumu_MidtermProject
                     if (pdName.Count > 2 && pdName[2].Length > 0)
                         CCP.fieldProduct3 = pdName[2];
                     if (pdName.Count > 3 && pdName[3].Length > 0)
-                        CCP.fieldProduct4 = pdName[3] ?? "";
+                        CCP.fieldProduct4 = pdName[3];
                     Projects pID = db.Projects.FirstOrDefault(p => p.ProjectName == CCP.fieldTitle);
                     if (pID == null)
                         return;
@@ -165,6 +261,7 @@ namespace prjMumu_MidtermProject
                 this.flowLayoutPanel2.Controls.Clear();
                 for (int i = 1; i <= totalPages; i++)
                 {
+                    if (totalPages < 2) return; 
                     Button btn1 = new Button();
                     btn1.Width = 102;
                     btn1.Height = 32;
@@ -178,7 +275,7 @@ namespace prjMumu_MidtermProject
                 }
 
             }
-        }
+        }*/
         private void LikeTitle_Click(object sender, EventArgs e) //喜愛清單
         {
             this.flowLayoutPanel1.Controls.Clear();

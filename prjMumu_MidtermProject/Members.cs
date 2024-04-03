@@ -23,11 +23,11 @@ namespace prjMumu_MidtermProject
             this.Likes = new HashSet<Likes>();
             this.MemberInterestProjectType = new HashSet<MemberInterestProjectType>();
             this.MemberRoleGroup = new HashSet<MemberRoleGroup>();
+            this.Orders = new HashSet<Orders>();
             this.ProjectEditPermissions = new HashSet<ProjectEditPermissions>();
             this.Projects = new HashSet<Projects>();
             this.Service = new HashSet<Service>();
             this.SubComments = new HashSet<SubComments>();
-            this.Orders = new HashSet<Orders>();
         }
     
         public int MemberID { get; set; }
@@ -53,6 +53,8 @@ namespace prjMumu_MidtermProject
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MemberRoleGroup> MemberRoleGroup { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Orders> Orders { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProjectEditPermissions> ProjectEditPermissions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Projects> Projects { get; set; }
@@ -60,7 +62,5 @@ namespace prjMumu_MidtermProject
         public virtual ICollection<Service> Service { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SubComments> SubComments { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Orders> Orders { get; set; }
     }
 }

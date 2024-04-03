@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ZecZecModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="ZecZecModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Carts">
           <Key>
             <PropertyRef Name="CartsID" />
@@ -90,6 +90,7 @@
           <Property Name="ShipmentStatusID" Type="int" Nullable="false" />
           <Property Name="PaymentMethodID" Type="int" Nullable="false" />
           <Property Name="PaymentStatusID" Type="int" Nullable="false" />
+          <Property Name="Donate" Type="money" />
         </EntityType>
         <EntityType Name="PaymentMethods">
           <Key>
@@ -700,7 +701,8 @@
             <End Role="SubComments" EntitySet="SubComments" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ZecZecModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -787,11 +789,11 @@
           <NavigationProperty Name="Likes" Relationship="Self.FK_Likes_Members" FromRole="Members" ToRole="Likes" />
           <NavigationProperty Name="MemberInterestProjectType" Relationship="Self.FK_MemberInterestProjectType_Members" FromRole="Members" ToRole="MemberInterestProjectType" />
           <NavigationProperty Name="MemberRoleGroup" Relationship="Self.FK_MemberRoleGroup_Members" FromRole="Members" ToRole="MemberRoleGroup" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Members1" FromRole="Members" ToRole="Orders" />
           <NavigationProperty Name="ProjectEditPermissions" Relationship="Self.FK_ProjectEditPermissions_Members" FromRole="Members" ToRole="ProjectEditPermissions" />
           <NavigationProperty Name="Projects" Relationship="Self.FK_Projects_Members" FromRole="Members" ToRole="Projects" />
           <NavigationProperty Name="Service" Relationship="Self.FK_Service_Members" FromRole="Members" ToRole="Service" />
           <NavigationProperty Name="SubComments" Relationship="Self.FK_SubComments_Members" FromRole="Members" ToRole="SubComments" />
-          <NavigationProperty Name="Orders" Relationship="ZecZecModel.FK_Orders_Members1" FromRole="Members" ToRole="Orders" />
         </EntityType>
         <EntityType Name="OrderDetails">
           <Key>
@@ -816,11 +818,12 @@
           <Property Name="ShipmentStatusID" Type="Int32" Nullable="false" />
           <Property Name="PaymentMethodID" Type="Int32" Nullable="false" />
           <Property Name="PaymentStatusID" Type="Int32" Nullable="false" />
+          <Property Name="Donate" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Members" Relationship="Self.FK_Orders_Members1" FromRole="Orders" ToRole="Members" />
           <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetails_Orders" FromRole="Orders" ToRole="OrderDetails" />
           <NavigationProperty Name="PaymentMethods" Relationship="Self.FK_Orders_PaymentMethods" FromRole="Orders" ToRole="PaymentMethods" />
           <NavigationProperty Name="PaymentStatus" Relationship="Self.FK_Orders_PaymentStatus" FromRole="Orders" ToRole="PaymentStatus" />
           <NavigationProperty Name="ShipmentStatus" Relationship="Self.FK_Orders_ShipmentStatus" FromRole="Orders" ToRole="ShipmentStatus" />
-          <NavigationProperty Name="Members" Relationship="ZecZecModel.FK_Orders_Members1" FromRole="Orders" ToRole="Members" />
         </EntityType>
         <EntityType Name="PaymentMethods">
           <Key>
@@ -1125,6 +1128,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Orders_Members1">
+          <End Role="Members" Type="Self.Members" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ProjectEditPermissions_Members">
           <End Role="Members" Type="Self.Members" Multiplicity="1" />
           <End Role="ProjectEditPermissions" Type="Self.ProjectEditPermissions" Multiplicity="*" />
@@ -1380,6 +1395,10 @@
             <End Role="Roles" EntitySet="Roles" />
             <End Role="MemberRoleGroup" EntitySet="MemberRoleGroup" />
           </AssociationSet>
+          <AssociationSet Name="FK_Orders_Members1" Association="Self.FK_Orders_Members1">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
           <AssociationSet Name="FK_ProjectEditPermissions_Members" Association="Self.FK_ProjectEditPermissions_Members">
             <End Role="Members" EntitySet="Members" />
             <End Role="ProjectEditPermissions" EntitySet="ProjectEditPermissions" />
@@ -1440,23 +1459,7 @@
             <End Role="Roles" EntitySet="Roles" />
             <End Role="Projects" EntitySet="Projects" />
           </AssociationSet>
-          <AssociationSet Name="FK_Orders_Members1" Association="ZecZecModel.FK_Orders_Members1">
-            <End Role="Members" EntitySet="Members" />
-            <End Role="Orders" EntitySet="Orders" />
-          </AssociationSet>
         </EntityContainer>
-        <Association Name="FK_Orders_Members1">
-          <End Type="ZecZecModel.Members" Role="Members" Multiplicity="1" />
-          <End Type="ZecZecModel.Orders" Role="Orders" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Members">
-              <PropertyRef Name="MemberID" />
-            </Principal>
-            <Dependent Role="Orders">
-              <PropertyRef Name="MemberID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1555,6 +1558,7 @@
                 <ScalarProperty Name="ShipmentStatusID" ColumnName="ShipmentStatusID" />
                 <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
                 <ScalarProperty Name="PaymentStatusID" ColumnName="PaymentStatusID" />
+                <ScalarProperty Name="Donate" ColumnName="Donate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

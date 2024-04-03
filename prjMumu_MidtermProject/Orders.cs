@@ -27,12 +27,13 @@ namespace prjMumu_MidtermProject
         public int ShipmentStatusID { get; set; }
         public int PaymentMethodID { get; set; }
         public int PaymentStatusID { get; set; }
+        public Nullable<decimal> Donate { get; set; }
     
+        public virtual Members Members { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetails> OrderDetails { get; set; }
         public virtual PaymentMethods PaymentMethods { get; set; }
         public virtual PaymentStatus PaymentStatus { get; set; }
         public virtual ShipmentStatus ShipmentStatus { get; set; }
-        public virtual Members Members { get; set; }
     }
 }
