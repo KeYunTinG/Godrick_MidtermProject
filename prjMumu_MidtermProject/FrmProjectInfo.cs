@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using slnMumu_MidtermProject.FrmView;
+using prjMumu_MidtermProject;
 
 namespace slnMumu_MidtermProject
 {

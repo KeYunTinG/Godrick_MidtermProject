@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace slnMumu_MidtermProject
+namespace prjMumu_MidtermProject
 {
     public partial class FrmLogIn : Form
     {
@@ -21,7 +21,7 @@ namespace slnMumu_MidtermProject
         public delegate void RedirectHomepage(object sender, EventArgs e);
         public event RedirectHomepage setRedirectHomepage;
         public FrmProjectInfo frmProjectInfo;
-public PageBefore pb;
+        public PageBefore pb;
 
         private CurrentUserManager cum;
         private QueryDB queryDB;
@@ -34,7 +34,7 @@ public PageBefore pb;
         {
             InitializeComponent();
             cum = new CurrentUserManager();
- pb = new PageBefore();
+            pb = new PageBefore();
             queryDB = new QueryDB();
         }
         public FrmLogIn(FrmProjectInfo form)
@@ -42,7 +42,7 @@ public PageBefore pb;
             this.frmProjectInfo = form;
             InitializeComponent();
             cum = new CurrentUserManager();
- pb = new PageBefore();
+            pb = new PageBefore();
             queryDB = new QueryDB();
         }
 
@@ -72,7 +72,7 @@ public PageBefore pb;
             myMessageBox.msg = "登入成功";
             myMessageBox.ShowDialog();
 
-if (pb.page != null)
+            if (pb.page != null)
             {
                 if (pb.page == "liked")
                 {
@@ -84,7 +84,7 @@ if (pb.page != null)
                 if (pb.page == "profile")
                 {
                     (this.MdiParent as FrmHomepage).Click();
-                    
+
                     (this.MdiParent as FrmHomepage).btnProfile_Click(sender, e);
                     return;
                 }
