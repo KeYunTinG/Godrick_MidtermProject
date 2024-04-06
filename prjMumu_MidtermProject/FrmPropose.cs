@@ -1,6 +1,5 @@
 ﻿using slnMumu_MidtermProject.Views;
 using slnMumu_MidtermProject;
-using slnMumu_MidtermProject.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -45,6 +44,8 @@ namespace slnMumu_MidtermProject
                 this.tbProjectGoal.Text = proj.Goal.ToString();
                 this.poisonDateTime1.Value = proj.Date;
                 this.poisonDateTime2.Value = proj.ExpireDate;
+                this.poisonDateTime1.MaxDate = proj.ExpireDate;
+                this.poisonDateTime2.MinDate = proj.Date;
 
                 foreach (var pd in proj.Products)
                 {
@@ -130,7 +131,9 @@ namespace slnMumu_MidtermProject
                         db.SaveChanges();
                         transaction.Commit();
 
-                        MessageBox.Show("Victory");
+                        FrmMyMessageBox fm = new FrmMyMessageBox();
+                        fm.msg = "專案修改成功";
+                        fm.ShowDialog();
                     }
                     catch (Exception)
                     {
@@ -263,7 +266,9 @@ namespace slnMumu_MidtermProject
                         db.SaveChanges();
                         transaction.Commit();
 
-                        MessageBox.Show("Victory");
+                        FrmMyMessageBox fm = new FrmMyMessageBox();
+                        fm.msg = "專案新增成功";
+                        fm.ShowDialog();
                     }
                     catch (Exception)
                     {
@@ -384,6 +389,16 @@ namespace slnMumu_MidtermProject
         private void button3_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void poisonDateTime1_ValueChanged(object sender, EventArgs e)
+        {
+            poisonDateTime2.MinDate = this.poisonDateTime1.Value;
+        }
+
+        private void poisonDateTime2_ValueChanged(object sender, EventArgs e)
+        {
+            poisonDateTime1.MaxDate = this.poisonDateTime2.Value;
         }
     }
 }

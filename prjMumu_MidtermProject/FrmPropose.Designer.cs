@@ -60,10 +60,10 @@
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.AliceBlue;
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(1031, 4);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(773, 3);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(401, 844);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(302, 676);
             this.flowLayoutPanel1.TabIndex = 10;
             // 
             // panel2
@@ -88,10 +88,9 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.pbProjectThumbnail);
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Location = new System.Drawing.Point(136, 4);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Location = new System.Drawing.Point(102, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(868, 844);
+            this.panel2.Size = new System.Drawing.Size(652, 676);
             this.panel2.TabIndex = 11;
             // 
             // tbProjectName
@@ -103,7 +102,8 @@
             this.tbProjectName.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbProjectName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(51)))));
             this.tbProjectName.Hint = "";
-            this.tbProjectName.Location = new System.Drawing.Point(144, 325);
+            this.tbProjectName.Location = new System.Drawing.Point(108, 260);
+            this.tbProjectName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbProjectName.MaxLength = 32767;
             this.tbProjectName.Multiline = false;
             this.tbProjectName.Name = "tbProjectName";
@@ -112,7 +112,7 @@
             this.tbProjectName.SelectedText = "";
             this.tbProjectName.SelectionLength = 0;
             this.tbProjectName.SelectionStart = 0;
-            this.tbProjectName.Size = new System.Drawing.Size(406, 43);
+            this.tbProjectName.Size = new System.Drawing.Size(304, 38);
             this.tbProjectName.TabIndex = 20;
             this.tbProjectName.TabStop = false;
             this.tbProjectName.Text = "hopeTextBox1";
@@ -122,9 +122,10 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label6.Location = new System.Drawing.Point(350, 659);
+            this.label6.Location = new System.Drawing.Point(262, 527);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 25);
+            this.label6.Size = new System.Drawing.Size(43, 20);
             this.label6.TabIndex = 19;
             this.label6.Text = "NTD";
             // 
@@ -132,9 +133,10 @@
             // 
             this.button3.BackColor = System.Drawing.SystemColors.Control;
             this.button3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button3.Location = new System.Drawing.Point(706, 781);
+            this.button3.Location = new System.Drawing.Point(530, 625);
+            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(144, 39);
+            this.button3.Size = new System.Drawing.Size(108, 31);
             this.button3.TabIndex = 18;
             this.button3.Text = "取消";
             this.button3.UseVisualStyleBackColor = false;
@@ -144,9 +146,10 @@
             // 
             this.btnConfirm.BackColor = System.Drawing.Color.SkyBlue;
             this.btnConfirm.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnConfirm.Location = new System.Drawing.Point(556, 781);
+            this.btnConfirm.Location = new System.Drawing.Point(417, 625);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(144, 39);
+            this.btnConfirm.Size = new System.Drawing.Size(108, 31);
             this.btnConfirm.TabIndex = 18;
             this.btnConfirm.Text = "確認";
             this.btnConfirm.UseVisualStyleBackColor = false;
@@ -155,9 +158,10 @@
             // 
             this.button2.BackColor = System.Drawing.Color.SkyBlue;
             this.button2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button2.Location = new System.Drawing.Point(706, 325);
+            this.button2.Location = new System.Drawing.Point(530, 260);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(144, 39);
+            this.button2.Size = new System.Drawing.Size(108, 31);
             this.button2.TabIndex = 18;
             this.button2.Text = "新增產品 >>";
             this.button2.UseVisualStyleBackColor = false;
@@ -166,9 +170,10 @@
             // btnDemo
             // 
             this.btnDemo.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnDemo.Location = new System.Drawing.Point(556, 325);
+            this.btnDemo.Location = new System.Drawing.Point(417, 260);
+            this.btnDemo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDemo.Name = "btnDemo";
-            this.btnDemo.Size = new System.Drawing.Size(144, 39);
+            this.btnDemo.Size = new System.Drawing.Size(108, 31);
             this.btnDemo.TabIndex = 18;
             this.btnDemo.Text = "Demo";
             this.btnDemo.UseVisualStyleBackColor = true;
@@ -177,9 +182,10 @@
             // tbProjectDescription
             // 
             this.tbProjectDescription.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbProjectDescription.Location = new System.Drawing.Point(144, 374);
+            this.tbProjectDescription.Location = new System.Drawing.Point(108, 299);
+            this.tbProjectDescription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbProjectDescription.Name = "tbProjectDescription";
-            this.tbProjectDescription.Size = new System.Drawing.Size(646, 230);
+            this.tbProjectDescription.Size = new System.Drawing.Size(486, 185);
             this.tbProjectDescription.TabIndex = 17;
             this.tbProjectDescription.Text = "";
             // 
@@ -187,20 +193,20 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label5.Location = new System.Drawing.Point(25, 332);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(19, 266);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(112, 25);
+            this.label5.Size = new System.Drawing.Size(89, 20);
             this.label5.TabIndex = 16;
             this.label5.Text = "專案名稱：";
             // 
             // metroDivider1
             // 
             this.metroDivider1.IsDerivedStyle = true;
-            this.metroDivider1.Location = new System.Drawing.Point(15, 628);
+            this.metroDivider1.Location = new System.Drawing.Point(11, 502);
+            this.metroDivider1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.metroDivider1.Name = "metroDivider1";
             this.metroDivider1.Orientation = ReaLTaiizor.Enum.Metro.DividerStyle.Horizontal;
-            this.metroDivider1.Size = new System.Drawing.Size(835, 4);
+            this.metroDivider1.Size = new System.Drawing.Size(626, 4);
             this.metroDivider1.Style = ReaLTaiizor.Enum.Metro.Style.Light;
             this.metroDivider1.StyleManager = null;
             this.metroDivider1.TabIndex = 14;
@@ -213,48 +219,53 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label3.Location = new System.Drawing.Point(350, 699);
+            this.label3.Location = new System.Drawing.Point(262, 559);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(27, 25);
+            this.label3.Size = new System.Drawing.Size(21, 20);
             this.label3.TabIndex = 12;
             this.label3.Text = "~";
             // 
             // poisonDateTime2
             // 
             this.poisonDateTime2.CalendarFont = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.poisonDateTime2.Location = new System.Drawing.Point(383, 697);
-            this.poisonDateTime2.MinimumSize = new System.Drawing.Size(0, 30);
+            this.poisonDateTime2.Location = new System.Drawing.Point(287, 558);
+            this.poisonDateTime2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.poisonDateTime2.MinimumSize = new System.Drawing.Size(0, 29);
             this.poisonDateTime2.Name = "poisonDateTime2";
-            this.poisonDateTime2.Size = new System.Drawing.Size(200, 30);
+            this.poisonDateTime2.Size = new System.Drawing.Size(151, 30);
             this.poisonDateTime2.TabIndex = 11;
             this.poisonDateTime2.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
+            this.poisonDateTime2.ValueChanged += new System.EventHandler(this.poisonDateTime2_ValueChanged);
             // 
             // poisonDateTime1
             // 
             this.poisonDateTime1.CalendarFont = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.poisonDateTime1.Location = new System.Drawing.Point(144, 697);
-            this.poisonDateTime1.MinimumSize = new System.Drawing.Size(0, 30);
+            this.poisonDateTime1.Location = new System.Drawing.Point(108, 558);
+            this.poisonDateTime1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.poisonDateTime1.MinimumSize = new System.Drawing.Size(0, 29);
             this.poisonDateTime1.Name = "poisonDateTime1";
-            this.poisonDateTime1.Size = new System.Drawing.Size(200, 30);
+            this.poisonDateTime1.Size = new System.Drawing.Size(151, 30);
             this.poisonDateTime1.TabIndex = 11;
             this.poisonDateTime1.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
+            this.poisonDateTime1.ValueChanged += new System.EventHandler(this.poisonDateTime1_ValueChanged);
             // 
             // tbProjectGoal
             // 
             this.tbProjectGoal.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbProjectGoal.Location = new System.Drawing.Point(144, 650);
+            this.tbProjectGoal.Location = new System.Drawing.Point(108, 520);
+            this.tbProjectGoal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbProjectGoal.Name = "tbProjectGoal";
-            this.tbProjectGoal.Size = new System.Drawing.Size(200, 34);
+            this.tbProjectGoal.Size = new System.Drawing.Size(151, 29);
             this.tbProjectGoal.TabIndex = 10;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.Location = new System.Drawing.Point(25, 374);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(19, 299);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 25);
+            this.label1.Size = new System.Drawing.Size(89, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "專案內容：";
             // 
@@ -262,10 +273,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.Location = new System.Drawing.Point(25, 699);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(19, 559);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 25);
+            this.label2.Size = new System.Drawing.Size(89, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "募資期間：\r\n";
             // 
@@ -276,9 +286,8 @@
             this.pbProjectThumbnail.Dock = System.Windows.Forms.DockStyle.Top;
             this.pbProjectThumbnail.Image = ((System.Drawing.Image)(resources.GetObject("pbProjectThumbnail.Image")));
             this.pbProjectThumbnail.Location = new System.Drawing.Point(0, 0);
-            this.pbProjectThumbnail.Margin = new System.Windows.Forms.Padding(4);
             this.pbProjectThumbnail.Name = "pbProjectThumbnail";
-            this.pbProjectThumbnail.Size = new System.Drawing.Size(864, 304);
+            this.pbProjectThumbnail.Size = new System.Drawing.Size(648, 244);
             this.pbProjectThumbnail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbProjectThumbnail.TabIndex = 0;
             this.pbProjectThumbnail.TabStop = false;
@@ -290,10 +299,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label4.Location = new System.Drawing.Point(25, 659);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(19, 527);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(112, 25);
+            this.label4.Size = new System.Drawing.Size(89, 20);
             this.label4.TabIndex = 1;
             this.label4.Text = "募資目標：";
             // 
@@ -303,12 +311,13 @@
             // 
             // FrmPropose
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1482, 853);
+            this.ClientSize = new System.Drawing.Size(1112, 682);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmPropose";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmPropose";
