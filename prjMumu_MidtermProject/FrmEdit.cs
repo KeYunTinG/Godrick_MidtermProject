@@ -35,7 +35,7 @@ namespace slnMumu_MidtermProject
                 textBox3.Text = prj.Description;
                 //textBox4.Text = prj.Discount.ToString();
                 textBox2.Text = prj.Goal.ToString();
-                string path = System.Windows.Forms.Application.StartupPath + "\\Image\\ProjectsThumbnail";
+                string path = System.Windows.Forms.Application.StartupPath + "\\Images\\ProjectsThumbnail";
                 pictureBox1.Image = new Bitmap(path + "\\" + prj.Thumbnail);
 
             }
@@ -161,7 +161,7 @@ namespace slnMumu_MidtermProject
             if (openFileDialog1.ShowDialog() != DialogResult.OK)
                 return;
             _ImagePath = _ImagePath = DateTime.Now.ToString("yyyyMMddHHmmss") + ".jpg";
-            string path = System.Windows.Forms.Application.StartupPath + "\\Image\\ProjectsThumbnail";
+            string path = System.Windows.Forms.Application.StartupPath + "\\Images\\ProjectsThumbnail";
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
             File.Copy(openFileDialog1.FileName, path + "\\" + _ImagePath, true);

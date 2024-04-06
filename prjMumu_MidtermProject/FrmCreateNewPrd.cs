@@ -15,7 +15,7 @@ namespace slnMumu_MidtermProject
     public partial class FrmCreateNewPrd : Form
     {
         private int prjID;
-        private string path = System.Windows.Forms.Application.StartupPath + "\\Image\\ProductsThumbnail";
+        private string path = System.Windows.Forms.Application.StartupPath + "\\Images\\ProductsThumbnail";
         private string _ImagePath = "";
         public FrmCreateNewPrd(int prjID)
         {
@@ -80,7 +80,7 @@ namespace slnMumu_MidtermProject
             if (openFileDialog1.ShowDialog() != DialogResult.OK)
                 return;
             _ImagePath = _ImagePath = DateTime.Now.ToString("yyyyMMddHHmmss") + ".jpg";
-            string path = System.Windows.Forms.Application.StartupPath + "\\Image\\ProductsThumbnail";
+            string path = System.Windows.Forms.Application.StartupPath + "\\Images\\ProductsThumbnail";
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
             File.Copy(openFileDialog1.FileName, path + "\\" + _ImagePath, true);

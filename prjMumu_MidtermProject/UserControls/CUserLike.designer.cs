@@ -46,17 +46,18 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1651, 188);
+            this.panel1.Size = new System.Drawing.Size(1238, 150);
             this.panel1.TabIndex = 1;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::slnMumu_MidtermProject.Properties.Resources.DELETE;
-            this.pictureBox2.Location = new System.Drawing.Point(1386, 61);
+            this.pictureBox2.Image = global::prjMumu_MidtermProject.Properties.Resources.DELETE;
+            this.pictureBox2.Location = new System.Drawing.Point(1040, 49);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(164, 58);
+            this.pictureBox2.Size = new System.Drawing.Size(123, 46);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
             // 
@@ -65,10 +66,9 @@
             this.label1.AutoEllipsis = true;
             this.label1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(328, 61);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(246, 49);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(981, 100);
+            this.label1.Size = new System.Drawing.Size(736, 80);
             this.label1.TabIndex = 3;
             this.label1.Text = "MyGO!!!!!是日本女子搖滾樂隊，屬於日本跨媒體製作《BanG Dream!》的一部分。成員包括五名聲優：主唱羊宮妃那、吉他手立石凜、吉他手青木陽菜、貝斯手小" +
     "日向美香和鼓手林鼓子，五名聲優分別飾演故事中高松燈、千早愛音、要樂奈、長崎爽世和椎名立希五個角色";
@@ -80,33 +80,32 @@
             this.Titlelabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Titlelabel.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.Titlelabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(238)))));
-            this.Titlelabel.Location = new System.Drawing.Point(328, 11);
-            this.Titlelabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Titlelabel.MaximumSize = new System.Drawing.Size(981, 34);
+            this.Titlelabel.Location = new System.Drawing.Point(246, 9);
+            this.Titlelabel.MaximumSize = new System.Drawing.Size(736, 27);
             this.Titlelabel.Name = "Titlelabel";
-            this.Titlelabel.Size = new System.Drawing.Size(177, 34);
+            this.Titlelabel.Size = new System.Drawing.Size(177, 27);
             this.Titlelabel.TabIndex = 1;
             this.Titlelabel.Text = "我愛木須龍拉";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Image = global::slnMumu_MidtermProject.Properties.Resources.bae9a9fa28f88d9dce5881801a66820b;
+            this.pictureBox1.Image = global::prjMumu_MidtermProject.Properties.Resources.bae9a9fa28f88d9dce5881801a66820b;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(320, 188);
+            this.pictureBox1.Size = new System.Drawing.Size(240, 150);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // CUserLike
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "CUserLike";
-            this.Size = new System.Drawing.Size(1651, 188);
+            this.Size = new System.Drawing.Size(1238, 150);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

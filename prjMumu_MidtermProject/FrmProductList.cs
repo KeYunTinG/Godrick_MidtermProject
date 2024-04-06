@@ -27,7 +27,7 @@ namespace slnMumu_MidtermProject
             using (ZecZecEntities db=new ZecZecEntities())
             {
                 var prod=db.Products.Where(x=>x.ProjectID==prjID).ToList();
-                string path = System.Windows.Forms.Application.StartupPath + "\\Image\\ProductsThumbnail";
+                string path = System.Windows.Forms.Application.StartupPath + "\\Images\\ProductsThumbnail";
                 foreach (var product in prod)
                 {
                     PictureBox pictureBox = new PictureBox

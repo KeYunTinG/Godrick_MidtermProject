@@ -81,7 +81,7 @@ namespace slnMumu_MidtermProject
             }
             if (!string.IsNullOrEmpty(userInfo.Thumbnail))
             {
-                string path = Application.StartupPath + "\\Image\\membersThumbnail";
+                string path = Application.StartupPath + "\\Images\\membersThumbnail";
                 pictureBox1.Image = new Bitmap(path + "\\" + userInfo.Thumbnail);
             }
 
@@ -97,7 +97,7 @@ namespace slnMumu_MidtermProject
             if (openFileDialog1.ShowDialog() != DialogResult.OK)
                 return;
             _ImagePath = _ImagePath = DateTime.Now.ToString("yyyyMMddHHmmss") + ".jpg";
-            string path = System.Windows.Forms.Application.StartupPath + "\\Image\\membersThumbnail";
+            string path = System.Windows.Forms.Application.StartupPath + "\\Images\\membersThumbnail";
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
             File.Copy(openFileDialog1.FileName, path + "\\" + _ImagePath, true);

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace slnMumu_MidtermProject.Properties {
+namespace prjMumu_MidtermProject.Properties {
     using System;
     
     
@@ -57,6 +57,36 @@ namespace slnMumu_MidtermProject.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Bitmap _211616_a_left_arrow_icon {
+            get {
+                object obj = ResourceManager.GetObject("211616_a_left_arrow_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Bitmap _211619_a_right_arrow_icon {
+            get {
+                object obj = ResourceManager.GetObject("211619_a_right_arrow_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Bitmap _9110796_x_icon {
+            get {
+                object obj = ResourceManager.GetObject("9110796_x_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
