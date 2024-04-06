@@ -264,8 +264,10 @@ namespace slnMumu_MidtermProject
         {
             return (sender, e) =>
             {
-                DialogResult = MessageBox.Show(" 確定要接肢嗎? ", "接肢提示", MessageBoxButtons.OKCancel);
-                if (DialogResult == DialogResult.Cancel) return;
+                FrmMyMessageBoxYesNo myn = new FrmMyMessageBoxYesNo();
+                myn.msg = " 確定要移除最愛嗎? ";
+                myn.ShowDialog();
+                if (myn.DialogResult == DialogResult.Cancel) return;
 
                 using (ZecZecEntities db = new ZecZecEntities())
                 {
