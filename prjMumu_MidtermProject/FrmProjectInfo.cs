@@ -25,9 +25,13 @@ namespace slnMumu_MidtermProject
     public delegate void D();
     public partial class FrmProjectInfo : Form
     {
+#pragma warning disable CS0067 // 事件 'FrmProjectInfo.RefreshHomePage' 從未使用過
         public event D RefreshHomePage;
+#pragma warning restore CS0067 // 事件 'FrmProjectInfo.RefreshHomePage' 從未使用過
         public delegate void Redirect(object sender, EventArgs e);
+#pragma warning disable CS0067 // 事件 'FrmProjectInfo.rd' 從未使用過
         public event Redirect rd;
+#pragma warning restore CS0067 // 事件 'FrmProjectInfo.rd' 從未使用過
         private ZecZecEntities db;
         private int _projID;
         bool _isLike = false;
@@ -37,10 +41,10 @@ namespace slnMumu_MidtermProject
             InitializeComponent();
             _projID = pid;
             user = new CurrentUserManager();
+            db = new ZecZecEntities();
         }
         private void FrmProjectInfo_Load(object sender, EventArgs e)
         {
-            db = new ZecZecEntities();
             //TODO 1 - 顯示這個Project的欄位資訊
             Projects project = SelectProjectById(_projID);
             if (user.member != null)
@@ -95,7 +99,23 @@ namespace slnMumu_MidtermProject
         private void DisplayProjectInfo(Projects proj)
         {
             this.lblProjectName.Text = proj.ProjectName;
-            this.lblGoal.Text = proj.Goal.ToString("C0");
+            this.lblSponsor.Text = proj.Members.Nickname;
+            var projTypes = proj.ProjectIDType.Select(pit => pit.ProjectTypes);
+            //var projTypes = proj.ProjectIDType.SelectMany(pit => pit.ProjectTypes);
+
+            //var projTypes = from projectIDType in proj.ProjectIDType
+            //                from projectType in projectIDType.ProjectTypes.ProjectTypeName
+            //                select projectType;
+
+            this.lblProjectType.Text = "";
+            foreach (var projType in projTypes)
+            {
+                this.lblProjectType.Text += $"{ projType.ProjectTypeName } ";
+            }
+            int total = (int)proj.Products.SelectMany(p => p.OrderDetails).Sum(order => order.Price * order.Count);
+            this.lblGoal.Text = $"{total:c0} / {proj.Goal:c0}";
+            LoadProgress(total, proj.Goal);
+
             if (!string.IsNullOrEmpty(proj.Thumbnail))
             {
                 this.pbProjectThumbnail.Image =
@@ -104,17 +124,12 @@ namespace slnMumu_MidtermProject
             this.lblDate.Text = $"{proj.Date:yyyy/MM/dd} ~ {proj.ExpireDate:yyyy/MM/dd}";
             this.label1.Text = proj.Description;
             this.pbLikeButton.Image = (_isLike ? ilLiked.Images[1] : ilLiked.Images[0]);
-            LoadProgress(proj.ProjectID);
 
         }
 
-        private void LoadProgress(int projID)
+        private void LoadProgress(int total, decimal goal)
         {
-            var proj = from p in db.Projects
-                       select p;
-            var currentProject = proj.FirstOrDefault(x => x.ProjectID == projID);
-            int total = (int)currentProject.Products.SelectMany(p => p.OrderDetails).Sum(order => order.Price * order.Count);
-            int percentage = (int)(total / currentProject.Goal * 100);
+            int percentage = (int)(total / goal * 100);
             this.cpbGoal.Text = percentage.ToString() + "%";
             this.cpbGoal.Value = (percentage > 100) ? 100 : percentage;
         }
