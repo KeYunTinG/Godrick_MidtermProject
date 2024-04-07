@@ -54,6 +54,7 @@
             this.btnSponsor = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.ilLiked = new System.Windows.Forms.ImageList(this.components);
+            this.lblReply = new System.Windows.Forms.Label();
             this.panelBUTTOM.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -176,8 +177,7 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
@@ -212,6 +212,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.lblReply);
             this.tabPage2.Controls.Add(this.flpComments);
             this.tabPage2.Controls.Add(this.panel1);
             this.tabPage2.Location = new System.Drawing.Point(4, 34);
@@ -225,6 +226,8 @@
             // flpComments
             // 
             this.flpComments.AutoScroll = true;
+            this.flpComments.AutoSize = true;
+            this.flpComments.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flpComments.BackColor = System.Drawing.Color.RosyBrown;
             this.flpComments.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpComments.Location = new System.Drawing.Point(3, 3);
@@ -381,6 +384,17 @@
             this.ilLiked.Images.SetKeyName(0, "heart_unlike_icon.png");
             this.ilLiked.Images.SetKeyName(1, "heart_like_icon.png");
             // 
+            // label5
+            // 
+            this.lblReply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblReply.AutoSize = true;
+            this.lblReply.Location = new System.Drawing.Point(5, 222);
+            this.lblReply.Name = "label5";
+            this.lblReply.Size = new System.Drawing.Size(72, 25);
+            this.lblReply.TabIndex = 0;
+            this.lblReply.Text = "回覆 ...";
+            this.lblReply.Visible = false;
+            // 
             // FrmProjectInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -397,6 +411,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -432,5 +447,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblSponsor;
         private System.Windows.Forms.Label lblProjectType;
+        private System.Windows.Forms.Label lblReply;
     }
 }

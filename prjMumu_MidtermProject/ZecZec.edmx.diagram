@@ -25,7 +25,7 @@
         <EntityTypeShape EntityType="ZecZecModel.Roles" Width="1.5" PointX="6.75" PointY="9" IsExpanded="true" />
         <EntityTypeShape EntityType="ZecZecModel.Service" Width="1.5" PointX="3" PointY="46.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ZecZecModel.ShipmentStatus" Width="1.5" PointX="6.75" PointY="28.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZecZecModel.SubComments" Width="1.5" PointX="5.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZecZecModel.SubComments" Width="1.5" PointX="4.375" PointY="12" IsExpanded="true" />
         <EntityTypeShape EntityType="ZecZecModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="ZecZecModel.FK_Carts_Members" ManuallyRouted="false" />
         <AssociationConnector Association="ZecZecModel.FK_Carts_Products" ManuallyRouted="false" />

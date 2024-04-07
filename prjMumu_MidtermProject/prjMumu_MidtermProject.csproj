@@ -315,6 +315,12 @@
     <Compile Include="UserControls\CommentBox.designer.cs">
       <DependentUpon>CommentBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\CommentBoxSub.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CommentBoxSub.Designer.cs">
+      <DependentUpon>CommentBoxSub.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\CUserLike.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -357,7 +363,6 @@
     <Compile Include="UserControls\ProductCard.designer.cs">
       <DependentUpon>ProductCard.cs</DependentUpon>
     </Compile>
-
     <Compile Include="UserControls\ProductCardEditable.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -369,7 +374,6 @@
     </Compile>
     <Compile Include="UserControls\Progressbar.designer.cs">
       <DependentUpon>Progressbar.cs</DependentUpon>
-
     </Compile>
     <Compile Include="UserControls\TransactionDetails.cs">
       <SubType>UserControl</SubType>
@@ -473,6 +477,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\CommentBox.resx">
       <DependentUpon>CommentBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\CommentBoxSub.resx">
+      <DependentUpon>CommentBoxSub.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\CUserLike.resx">
       <DependentUpon>CUserLike.cs</DependentUpon>

@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using slnMumu_MidtermProject.FrmView;
 using prjMumu_MidtermProject;
+using prjMumu_MidtermProject.UserControls;
 
 namespace slnMumu_MidtermProject
 {
@@ -110,7 +111,7 @@ namespace slnMumu_MidtermProject
             this.lblProjectType.Text = "";
             foreach (var projType in projTypes)
             {
-                this.lblProjectType.Text += $"{ projType.ProjectTypeName } ";
+                this.lblProjectType.Text += $"{projType.ProjectTypeName} ";
             }
             int total = (int)proj.Products.SelectMany(p => p.OrderDetails).Sum(order => order.Price * order.Count);
             this.lblGoal.Text = $"{total:c0} / {proj.Goal:c0}";
@@ -224,6 +225,8 @@ namespace slnMumu_MidtermProject
 
             _isLike = true;
         }
+
+        #region Comments
         private void LoadComments()
         {
             this.flpComments.Controls.Clear();
@@ -233,34 +236,81 @@ namespace slnMumu_MidtermProject
                            select c;
             foreach (var comment in comments)
             {
+                Label l = new Label();
+                l.BackColor = Color.Gray;
+                l.Size = new Size(this.flpComments.Width - 30, 1);
+                l.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+
+
                 CommentBox c = new CommentBox();
+                c.ReplyClick += ReplyClick;
                 c.comment = comment;
+                c.Size = new Size(this.flpComments.Width - 30, 20);
+                c.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+                this.flpComments.Controls.Add(l);
                 this.flpComments.Controls.Add(c);
+                // 印出 SubComment
+                foreach(var sc in comment.SubComments)
+                {
+                    CommentBoxSub cb = new CommentBoxSub();
+                    cb.subComment = sc;
+                    cb.Margin = new Padding(30,0,0,0);
+                    c.Size = new Size(this.flpComments.Width - 30, 20);
+
+                    this.flpComments.Controls.Add(cb);
+                }
+
             }
+        }
+        private Comments _selectedComment;
+        private void ReplyClick(Comments comm)
+        {
+            lblReply.Text = $"回覆 {comm.Members.Nickname}";
+            this.lblReply.Visible = true;
+            _selectedComment = comm;
         }
         private void btnSend_Click(object sender, EventArgs e)
         {
-            SendMessage();
+            SendMessage(_selectedComment);
         }
 
-        private void SendMessage()
+        private void SendMessage(Comments comm)
         {
-            // 插入一筆資料到 Comments 表
-            ZecZecEntities db = new ZecZecEntities();
-            Comments comment = new Comments();
             if (user.member == null)
             {
                 GotoLogin();
                 return;
             }
-            comment.MemberID = user.member.MemberID;
-            comment.ProjectID = _projID;
-            comment.CommentMsg = this.tbMessage.Text;
-            comment.Date = DateTime.Now;
-            db.Comments.Add(comment);
-            db.SaveChanges();
+            if (string.IsNullOrEmpty(this.tbMessage.Text)) return;
+            using (var db = new ZecZecEntities())
+            {
+                if (comm is null)
+                {
+                    // 新增一筆 Comment
+                    Comments comment = new Comments();
+                    comment.MemberID = user.member.MemberID;
+                    comment.ProjectID = _projID;
+                    comment.CommentMsg = this.tbMessage.Text;
+                    comment.Date = DateTime.Now;
+                    db.Comments.Add(comment);
+                }
+                else
+                {
+                    //新增一筆 SubComment
+                    SubComments sc = new SubComments();
+                    sc.MemberID = user.member.MemberID;
+                    sc.SubCommentMsg = this.tbMessage.Text;
+                    sc.Date = DateTime.Now;
+                    sc.CommentID = comm.CommentID;
+                    db.SubComments.Add(sc);
+                }
+                db.SaveChanges();
+            }
+
             // 更新畫面
             this.tbMessage.Text = "";
+            this.lblReply.Visible = false;
+            _selectedComment = null;
             int scrollPosition = this.flpComments.VerticalScroll.Maximum;
             LoadComments();
             //this.flpComments.AutoScrollPosition=new Point(this.flpComments.Height);
@@ -269,8 +319,15 @@ namespace slnMumu_MidtermProject
 
         private void tbMessage_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if(e.KeyChar == (char)Keys.Escape)
+            {
+                this.lblReply.Visible = false;
+                _selectedComment = null;
+                return;
+            };
             if (e.KeyChar != (char)Keys.Enter) return;
-            SendMessage();
+            SendMessage(_selectedComment);
         }
+        #endregion
     }
 }
