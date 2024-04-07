@@ -43,8 +43,7 @@ namespace slnMumu_MidtermProject.Views
                 }
                 this.lblName.Text = _product.ProductName;
                 this.lblPrice.Text = _product.Price.ToString("C0");
-                // TODO:計算剩餘數量
-                this.lblQuantity.Text = $"剩餘 {_product.Quantity - 0} 份";
+                this.lblQuantity.Text = $"剩餘 {_product.Quantity} 份";
                 this.rtbDescription.Text = _product.ProductDescription;
             }
         }

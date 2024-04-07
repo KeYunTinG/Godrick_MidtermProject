@@ -21,7 +21,7 @@ namespace slnMumu_MidtermProject
 
         // 預存
         string _imagePath;
-        
+
         public FrmPropose()
         {
             InitializeComponent();
@@ -36,7 +36,7 @@ namespace slnMumu_MidtermProject
             // 開load
             using (ZecZecEntities db = new ZecZecEntities())
             {
-                Projects proj = db.Projects.FirstOrDefault(p=>p.ProjectID == id);
+                Projects proj = db.Projects.FirstOrDefault(p => p.ProjectID == id);
                 if (proj == null) return;
                 _imagePath = Application.StartupPath + @"\Images\ProjectsThumbnail\" + proj.Thumbnail;
                 this.pbProjectThumbnail.Image = new Bitmap(Application.StartupPath + @"\Images\ProjectsThumbnail\" + proj.Thumbnail);
@@ -46,41 +46,25 @@ namespace slnMumu_MidtermProject
                 this.poisonDateTime1.Value = proj.Date;
                 this.poisonDateTime2.Value = proj.ExpireDate;
 
-                foreach(var pd in proj.Products)
+                foreach (var pd in proj.Products)
                 {
-                    pd.Thumbnail = Application.StartupPath+ @"\Images\ProductsThumbnail\"+pd.Thumbnail;
+                    pd.Thumbnail = Application.StartupPath + @"\Images\ProductsThumbnail\" + pd.Thumbnail;
                     ProductCardEditable pce = new ProductCardEditable();
                     pce.EditButtonClick += this.Card_EditButtonClick;
                     pce.RemoveButtonClick += this.Card_RemoveButtonClick;
                     pce.PositionButtonClick += this.Card_PositionButtonClick;
                     pce.product = pd;
-                    this.flowLayoutPanel1.Controls.Add(pce); 
+                    this.flowLayoutPanel1.Controls.Add(pce);
                 }
             }
         }
 
         private void EditConfirm(object sender, EventArgs e)
         {
-            //todo
             int pid = (int)((Button)sender).Tag;
-
-            decimal goal;
             // 確認輸入正確
-            if (string.IsNullOrEmpty(this.tbProjectName.Text))
-            {
-                MessageBox.Show("專案名稱不可空白");
-            }
-            if (string.IsNullOrEmpty(this.tbProjectDescription.Text))
-            {
-                MessageBox.Show("專案名稱不可空白");
-                return;
-            }
+            if (!IsLegalInput()) return;
 
-            if (!decimal.TryParse(tbProjectGoal.Text, out goal))
-            {
-                MessageBox.Show("募資目標");
-                return;
-            }
             // 存入資料庫
             using (var db = new ZecZecEntities())
             {
@@ -94,43 +78,39 @@ namespace slnMumu_MidtermProject
                         newProj.Goal = decimal.Parse(this.tbProjectGoal.Text);
                         newProj.Date = this.poisonDateTime1.Value;
                         newProj.ExpireDate = this.poisonDateTime2.Value;
-                        newProj.MemberID = _member.MemberID;
                         string storedPath = Path.GetFileName(_imagePath);
                         if (storedPath != newProj.Thumbnail)
-                        storedPath = CopyImage(_imagePath, ImageType.Project); //
+                            storedPath = CopyImage(_imagePath, ImageType.Project);
                         newProj.Thumbnail = storedPath;
                         newProj.RoleID = 1;
 
-                        // 資料庫原本products都刪掉
-                        //newProj.Products.Clear();
 
-                        var pd = db.Products.Where(x => x.ProjectID == pid);
-                        
-
-                        // 新增products到資料庫
+                        // 新增 products 到資料庫
                         List<Products> products = new List<Products>();
                         foreach (var pce in this.flowLayoutPanel1.Controls)
                         {
                             Products p = ((ProductCardEditable)pce).product;
                             //照片
                             string stored = Path.GetFileName(p.Thumbnail);
-                            //if (stored != db.Products.Where(x=>x.ProductID==p.ProductID))
-                            if(!newProj.Products.Any(item=>item.Thumbnail==stored))
+                            if (!newProj.Products.Any(item => item.Thumbnail == stored))
                                 stored = CopyImage(p.Thumbnail, ImageType.Product);
                             p.Thumbnail = stored;
                             p.Projects = newProj;
                             products.Add(p);
                         }
                         //刪除
+                        var pd = db.Products.Where(x => x.ProjectID == pid);
                         foreach (var p in pd)
                             db.Products.Remove(p);
 
-                        db.Products.AddRange(products);
+                        foreach (var p in products)
+                            db.Products.Add(p);
                         // 3. 保存更改
                         db.SaveChanges();
                         transaction.Commit();
 
-                        MessageBox.Show("Victory");
+                        MessageBox.Show("編輯成功");
+                        Close();
                     }
                     catch (Exception)
                     {
@@ -142,11 +122,92 @@ namespace slnMumu_MidtermProject
             }
         }
 
+        private bool IsLegalInput()
+        {
+
+            if (string.IsNullOrEmpty(this.tbProjectName.Text))
+            {
+                MessageBox.Show("專案名稱不可空白");
+                return false;
+            }
+            if (string.IsNullOrEmpty(this.tbProjectDescription.Text))
+            {
+                MessageBox.Show("專案名稱不可空白");
+                return false;
+            }
+            if (!decimal.TryParse(tbProjectGoal.Text, out decimal goal))
+            {
+                MessageBox.Show("募資目標");
+                return false;
+            }
+            if (string.IsNullOrEmpty(_imagePath))
+            {
+                MessageBox.Show("照片呢???");
+                return false;
+            }
+            return true;
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            // 確認輸入正確
+            if (!IsLegalInput()) return;
+            // 存入資料庫
+            using (var db = new ZecZecEntities())
+            {
+                using (var transaction = db.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        Projects newProj = new Projects();
+                        newProj.ProjectName = this.tbProjectName.Text;
+                        newProj.Description = this.tbProjectDescription.Text;
+                        newProj.Goal = decimal.Parse(this.tbProjectGoal.Text);
+                        newProj.Date = this.poisonDateTime1.Value;
+                        newProj.ExpireDate = this.poisonDateTime2.Value;
+                        newProj.MemberID = _member.MemberID;//todo: 改成接到正確 member
+                        string storedPath = CopyImage(_imagePath, ImageType.Project);
+                        newProj.Thumbnail = storedPath;
+                        newProj.RoleID = 1;
+
+
+                        // 
+
+                        List<Products> products = new List<Products>();
+                        foreach (var pce in this.flowLayoutPanel1.Controls)
+                        {
+                            Products p = ((ProductCardEditable)pce).product;
+                            //照片
+                            string stored = CopyImage(p.Thumbnail, ImageType.Product);
+                            p.Thumbnail = stored;
+                            p.Projects = newProj;
+                            products.Add(p);
+                        }
+                        db.Projects.Add(newProj);
+                        db.Products.AddRange(products);
+                        // 3. 保存更改
+                        db.SaveChanges();
+                        transaction.Commit();
+
+                        MessageBox.Show("新增成功");
+                        Close();
+                    }
+                    catch (Exception)
+                    {
+                        transaction.Rollback();
+                        throw;
+                    }
+
+                }
+            }
+
+        }
+
+        #region Thumbnail
         private void FrmPropose_Load(object sender, EventArgs e)
         {
             this.pbProjectThumbnail.AllowDrop = true;
         }
-
         private void pbProjectThumbnail_Click(object sender, EventArgs e)
         {
             this.openFileDialog1.Filter = "照片|*.jpg;*.png;*.jpeg";
@@ -155,7 +216,6 @@ namespace slnMumu_MidtermProject
             this.pbProjectThumbnail.Image = new Bitmap(this.openFileDialog1.FileName);
             _imagePath = this.openFileDialog1.FileName;
         }
-
         private void pbProjectThumbnail_DragDrop(object sender, DragEventArgs e)
         {
 
@@ -174,7 +234,6 @@ namespace slnMumu_MidtermProject
             string extension = System.IO.Path.GetExtension(fileName);
             return allowedExtensions.Contains(extension);
         }
-
         private void pbProjectThumbnail_DragEnter(object sender, DragEventArgs e)
         {
 
@@ -191,6 +250,7 @@ namespace slnMumu_MidtermProject
             }
 
         }
+        #endregion
 
         private void btnDemo_Click(object sender, EventArgs e)
         {
@@ -199,76 +259,6 @@ namespace slnMumu_MidtermProject
             this.tbProjectGoal.Text = "10000";
             this.poisonDateTime2.Value = DateTime.Now.AddDays(10);
         }
-
-        private void btnConfirm_Click(object sender, EventArgs e)
-        {
-            decimal goal;
-            // 確認輸入正確
-            if (string.IsNullOrEmpty(this.tbProjectName.Text))
-            {
-                MessageBox.Show("專案名稱不可空白");
-            }
-            if (string.IsNullOrEmpty(this.tbProjectDescription.Text))
-            {
-                MessageBox.Show("專案名稱不可空白");
-                return;
-            }
-
-            if (!decimal.TryParse(tbProjectGoal.Text, out goal))
-            {
-                MessageBox.Show("募資目標");
-                return;
-            }
-            // 存入資料庫
-            using (var db = new ZecZecEntities())
-            {
-                using (var transaction = db.Database.BeginTransaction())
-                {
-                    try
-                    {
-                        Projects newProj = new Projects();
-                        newProj.ProjectName = this.tbProjectName.Text;
-                        newProj.Description = this.tbProjectDescription.Text;
-                        newProj.Goal = decimal.Parse(this.tbProjectGoal.Text);
-                        newProj.Date = this.poisonDateTime1.Value;
-                        newProj.ExpireDate = this.poisonDateTime2.Value;
-                        newProj.MemberID = _member.MemberID;//todo: 改成接到正確 member
-                        string storedPath = CopyImage(_imagePath,ImageType.Project);
-                        newProj.Thumbnail = storedPath;
-                        newProj.RoleID = 1;
-
-
-                        // 
-                       
-                        List<Products> products = new List<Products>();
-                        foreach (var pce in this.flowLayoutPanel1.Controls)
-                        {
-                            Products p = ((ProductCardEditable)pce).product;
-                            //照片
-                            string stored = CopyImage(p.Thumbnail,ImageType.Product);
-                            p.Thumbnail = stored;
-                            p.Projects = newProj;
-                            products.Add(p);
-                        }
-                        db.Projects.Add(newProj);
-                        db.Products.AddRange(products);
-                        // 3. 保存更改
-                        db.SaveChanges();
-                        transaction.Commit();
-
-                        MessageBox.Show("Victory");
-                    }
-                    catch (Exception)
-                    {
-                        transaction.Rollback();
-                        throw;
-                    }
-                    
-                }
-            }
-
-        }
-
         private enum ImageType
         {
             Project,
@@ -277,17 +267,18 @@ namespace slnMumu_MidtermProject
 
         private string CopyImage(string path, ImageType imgType)
         {
-            string destinationDirectory="";
+            string destinationDirectory = "";
             string fileName = Path.GetFileName(path);
 
-            switch (imgType){
+            switch (imgType)
+            {
                 case ImageType.Project:
                     destinationDirectory = $@"{Application.StartupPath}\Images\ProjectsThumbnail";
                     break;
                 case ImageType.Product:
                     destinationDirectory = $@"{Application.StartupPath}\Images\ProductsThumbnail";
                     break;
-                    
+
             }
 
             if (!Directory.Exists(destinationDirectory))
