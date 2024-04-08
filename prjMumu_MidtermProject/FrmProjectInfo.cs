@@ -13,6 +13,7 @@ using System.Xml.Linq;
 using slnMumu_MidtermProject.FrmView;
 using prjMumu_MidtermProject;
 using prjMumu_MidtermProject.UserControls;
+using System.Reflection;
 
 namespace slnMumu_MidtermProject
 {
@@ -233,6 +234,7 @@ namespace slnMumu_MidtermProject
             ZecZecEntities db = new ZecZecEntities();
             var comments = from c in db.Comments
                            where c.ProjectID == _projID
+                           orderby c.Date
                            select c;
             foreach (var comment in comments)
             {
@@ -245,7 +247,7 @@ namespace slnMumu_MidtermProject
                 CommentBox c = new CommentBox();
                 c.ReplyClick += ReplyClick;
                 c.comment = comment;
-                c.Size = new Size(this.flpComments.Width - 30, 20);
+                c.Width = this.flpComments.Width - 20;
                 c.Anchor = AnchorStyles.Left | AnchorStyles.Right;
                 this.flpComments.Controls.Add(l);
                 this.flpComments.Controls.Add(c);
@@ -254,8 +256,7 @@ namespace slnMumu_MidtermProject
                 {
                     CommentBoxSub cb = new CommentBoxSub();
                     cb.subComment = sc;
-                    cb.Margin = new Padding(30,0,0,0);
-                    c.Size = new Size(this.flpComments.Width - 30, 20);
+                    cb.Margin = new Padding(30,0,5,5);
 
                     this.flpComments.Controls.Add(cb);
                 }
@@ -329,5 +330,22 @@ namespace slnMumu_MidtermProject
             SendMessage(_selectedComment);
         }
         #endregion
+        private FrmMessage message;
+
+        private void LblSponsor_MouseLeave(object sender, EventArgs e)
+        {
+            if (message != null)
+            {
+                message.Close();
+            }
+        }
+
+        private void LblSponsor_MouseEnter(object sender, EventArgs e)
+        {
+            Projects project = SelectProjectById(_projID);
+            Members memberInfo = project.Members;
+            message = new FrmMessage(memberInfo);
+            message.Show();
+        }
     }
 }
