@@ -164,7 +164,32 @@ namespace slnMumu_MidtermProject.FrmView
             pp.productSelled = "已被贊助 " + sponsor.ToString() + " 組";
             pp.productDescription = result.ProductDescription;
 
+            for (int i = 1; i <= result.Inventory; i++)
+            {
+                comboBoxAmount.Items.Add(i);
+            }
+            comboBoxAmount.SelectedItem = 1;
+            comboBoxAmount.SelectionChangeCommitted += ComboBoxAmount_SelectionChangeCommitted;
+
+
+
             flowLayoutPanel2.Controls.Add(pp);
+        }
+
+        private void ComboBoxAmount_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            decimal total = addToPurchase + donate;
+            ComboBox selectAmount = (ComboBox)sender;
+            if (selectAmount.SelectedItem == "1")
+            {
+                lblTotalPrice.Text = (total + currentProductPrice).ToString("c0");
+            }
+            else
+            {
+                decimal addAmount = ((int)selectAmount.SelectedItem * currentProductPrice);
+                lblTotalPrice.Text = (total + addAmount).ToString("c0");
+            }
+
         }
 
         private async Task FindOtherProductWithProjectID()
@@ -265,8 +290,9 @@ namespace slnMumu_MidtermProject.FrmView
             lblAddtopurchase.Text = addToPurchase.ToString("C0");
 
             totalProductPrice = currentProductPrice + addToPurchase;
+            decimal total = (currentProductPrice * (int)comboBoxAmount.SelectedItem) + addToPurchase + donate;
 
-            lblTotalPrice.Text = totalProductPrice.ToString("C0");
+            lblTotalPrice.Text = total.ToString("C0");
         }
 
         private void NOAddPurchases(int paymentMethod)
@@ -292,7 +318,7 @@ namespace slnMumu_MidtermProject.FrmView
 
                     decimal x;
 
-                    if (totalProductPrice == 0)
+                    if (totalProductPrice == 0 && comboBoxAmount.SelectedItem == "1")
                     {
                         x = currentProductPrice;
                     }
@@ -300,18 +326,19 @@ namespace slnMumu_MidtermProject.FrmView
                     {
                         x = totalProductPrice;
                     }
-
+                    decimal addAmount = ((int)comboBoxAmount.SelectedItem * currentProductPrice);
                     OrderDetails addOrderDetail = new OrderDetails()
                     {
                         OrderID = newOrderID,
                         ProductID = productID,
-                        Price = x,
-                        Count = 1,
+                        Price = addAmount + donate,//x + addAmount+donate,
+                        Count = (int)comboBoxAmount.SelectedItem,
                     };
 
                     db.OrderDetails.Add(addOrderDetail);
 
                     var productEdit = db.Products.FirstOrDefault(p => p.ProductID == productID);
+
                     if (productEdit.Inventory == 0) //TODO 如剩餘總數為0
                     {
                         productEdit.Inventory = 0;
@@ -321,11 +348,11 @@ namespace slnMumu_MidtermProject.FrmView
                         mms.ShowDialog();
                         return;
                     }
+
                     if (productEdit != null && productEdit.Inventory > 0)
                     {
-                        productEdit.Inventory -= 1;
+                        productEdit.Inventory -= (int)comboBoxAmount.SelectedItem;
                     }
-
 
                     db.SaveChanges();
 
@@ -337,14 +364,21 @@ namespace slnMumu_MidtermProject.FrmView
                     FrmTransactionDetails ftd = new FrmTransactionDetails();
                     TransactionDetails td = new TransactionDetails();
 
+
                     ftd.lblDate.Text = DateTime.Now.ToString();
                     ftd.lblDonate.Text = donate.ToString("C0");
                     td.productName.Text = productEdit.ProductName;
                     td.productPrice.Text = currentProductPrice.ToString("C0");
+                    td.productCount.Text = "數量:" + comboBoxAmount.SelectedItem; ;
                     ftd.flpDateils.Controls.Add(td);
                     ftd.ShowDialog();
 
 
+                    FrmLiked fk = new FrmLiked(cum.member.MemberID);
+                    fk.MdiParent = this.MdiParent as FrmHomepage;
+                    fk.Dock = DockStyle.Fill;
+                    fk.Show();
+                    this.Close();
 
                 }
 
@@ -357,11 +391,6 @@ namespace slnMumu_MidtermProject.FrmView
                 }
 
             }
-            FrmLiked fk = new FrmLiked(cum.member.MemberID);
-            fk.MdiParent = this.MdiParent as FrmHomepage;
-            fk.Dock = DockStyle.Fill;
-            fk.Show();
-            this.Close();
 
         }
 
@@ -412,14 +441,14 @@ namespace slnMumu_MidtermProject.FrmView
                         db.OrderDetails.Add(Addtopurchase);
                     }
 
-
+                    decimal addAmount = (int)comboBoxAmount.SelectedItem * currentProductPrice;
 
                     OrderDetails addOrderDetail = new OrderDetails()    //主要商品
                     {
                         OrderID = newOrderID,      //帶入剛新增的OrderID
                         ProductID = productID,
-                        Price = (totalProductPrice - addToPurchase), //TODO 如要加上加碼功能這裡要取總額而不是商品售價
-                        Count = 1,
+                        Price = addAmount + donate, //TODO 如要加上加碼功能這裡要取總額而不是商品售價
+                        Count = (int)comboBoxAmount.SelectedItem,
                     };
 
                     db.OrderDetails.Add(addOrderDetail);
@@ -435,6 +464,7 @@ namespace slnMumu_MidtermProject.FrmView
                         var pEdit = db.Products.FirstOrDefault(p => p.ProductID == productIDToFind);
                         allProductName.Add(pEdit.ProductName);
                         allPRoductPrice.Add(pEdit.Price);
+
                         if (pEdit.Inventory == 0) //TODO 如剩餘總數為0
                         {
                             pEdit.Inventory = 0;
@@ -442,6 +472,11 @@ namespace slnMumu_MidtermProject.FrmView
                             mms.msg = "訂單含庫存為0的商品，請重新操作";
                             mms.ShowDialog();
                             return;
+                        }
+                        if (pEdit.ProductID == productID && comboBoxAmount.SelectedItem != "1")
+                        {
+                            pEdit.Inventory -= (int)comboBoxAmount.SelectedItem;
+                            continue;
                         }
                         if (pEdit != null && pEdit.Inventory > 0)
                         {
@@ -471,11 +506,25 @@ namespace slnMumu_MidtermProject.FrmView
                         td.productPrice.Text = allPRoductPrice[i].ToString("C0");
                         ftd.flpDateils.Controls.Add(td);
 
+                        if (i == checkedList.Count - 1)
+                        {
+                            td.productCount.Text = "數量:" + comboBoxAmount.SelectedItem;
+                            continue;
+                        }
+                        td.productCount.Text = "數量:1";
+
+                        // ftd.flpDateils.Controls.Add(td);
+
+
                     }
                     ftd.ShowDialog();
 
 
-
+                    FrmLiked fk = new FrmLiked(cum.member.MemberID);
+                    fk.MdiParent = this.MdiParent as FrmHomepage;
+                    fk.Dock = DockStyle.Fill;
+                    fk.Show();
+                    this.Close();
 
 
 
@@ -489,11 +538,6 @@ namespace slnMumu_MidtermProject.FrmView
                     throw;
                 }
             }
-            FrmLiked fk = new FrmLiked(cum.member.MemberID);
-            fk.MdiParent = this.MdiParent as FrmHomepage;
-            fk.Dock = DockStyle.Fill;
-            fk.Show();
-            this.Close();
         }
 
         private void btnPay_Click(object sender, EventArgs e)
@@ -553,27 +597,30 @@ namespace slnMumu_MidtermProject.FrmView
 
                 if (decimal.TryParse(textBox6.Text, out decimal value) && value >= 0)
                 {
+                    decimal Amount = currentProductPrice * (int)comboBoxAmount.SelectedItem;
                     if (value == 0 && checkedList.Count == 0)
                     {
-                        lblTotalPrice.Text = currentProductPrice.ToString("c0");
+                        lblTotalPrice.Text = Amount.ToString("c0");
                     }
 
                     if (value == 0 && checkedList.Count > 0)
                     {
-                        lblTotalPrice.Text = (addToPurchase + currentProductPrice).ToString("C0");
+                        lblTotalPrice.Text = (addToPurchase + Amount).ToString("C0");
                     }
 
                     if (checkedList.Count == 0)
                     {
                         totalProductPrice = currentProductPrice + value;
-                        lblTotalPrice.Text = totalProductPrice.ToString("C0");
+                        Amount += value;
+                        lblTotalPrice.Text = Amount.ToString("C0");
                         donate = value;
                     }
 
                     if (checkedList.Count > 0)
                     {
                         totalProductPrice = currentProductPrice + addToPurchase + value;
-                        lblTotalPrice.Text = totalProductPrice.ToString("C0");
+                        Amount += (value + addToPurchase);
+                        lblTotalPrice.Text = Amount.ToString("C0");
                         donate = value;
                     }
                 }
