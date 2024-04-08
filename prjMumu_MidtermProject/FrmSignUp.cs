@@ -13,6 +13,8 @@ using System.Net.NetworkInformation;
 using slnMumu_MidtermProject.Services;
 using System.Text.RegularExpressions;
 using slnMumu_MidtermProject.Query;
+using prjMumu_MidtermProject;
+using prjMumu_MidtermProject.Models;
 
 namespace slnMumu_MidtermProject
 {
@@ -25,6 +27,7 @@ namespace slnMumu_MidtermProject
 
         private ZecZecEntities db;
         private QueryDB queryDB;
+        private PageBefore pb;
 
 
         public FrmSignUp()
@@ -32,6 +35,7 @@ namespace slnMumu_MidtermProject
             InitializeComponent();
             db = new ZecZecEntities();
             queryDB = new QueryDB();
+            pb = new PageBefore();
         }
 
         private void FrmSignUp_Load(object sender, EventArgs e)
@@ -179,6 +183,16 @@ namespace slnMumu_MidtermProject
             txtNickname.Text = "UserTest1234";
             txtAddress.Text = "台北市大安區復興南路一段390號";
             txtEmail.Text = "UserTest1234@msit.com";
+        }
+
+        private void btnGoogleMap_Click(object sender, EventArgs e)
+        {
+            FrmMap fm = new FrmMap();
+            fm.ShowDialog();
+            if (fm.DialogResult == DialogResult.OK)
+            {
+                txtAddress.Text = pb.address;
+            }
         }
     }
 }

@@ -76,14 +76,14 @@ namespace prjMumu_MidtermProject
             {
                 if (pb.page == "liked")
                 {
-                    (this.MdiParent as FrmHomepage).Click();
+                    (this.MdiParent as FrmHomepage).ClickButNotClick();
                     (this.MdiParent as FrmHomepage).btnLiked_Click(sender, e);
                     return;
                 }
 
                 if (pb.page == "profile")
                 {
-                    (this.MdiParent as FrmHomepage).Click();
+                    (this.MdiParent as FrmHomepage).ClickButNotClick();
 
                     (this.MdiParent as FrmHomepage).btnProfile_Click(sender, e);
                     return;
@@ -91,7 +91,7 @@ namespace prjMumu_MidtermProject
 
                 if (pb.page == "myProject")
                 {
-                    (this.MdiParent as FrmHomepage).Click();
+                    (this.MdiParent as FrmHomepage).ClickButNotClick();
 
                     (this.MdiParent as FrmHomepage).btnMyProject_Click(sender, e);
                     return;

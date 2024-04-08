@@ -11,5 +11,7 @@ namespace prjMumu_MidtermProject.Models
     {
         private static string _page;
         public string page { get { return _page; } set { _page = value; } }
+        private static string _address;
+        public string address { get { return _address; } set { _address = value; } }
     }
 }

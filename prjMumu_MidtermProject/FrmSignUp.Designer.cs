@@ -48,6 +48,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblDescription = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnGoogleMap = new ReaLTaiizor.Controls.ParrotButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -61,7 +62,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1350, 578);
+            this.pictureBox1.Size = new System.Drawing.Size(1600, 900);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -71,6 +72,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(89)))), ((int)(((byte)(74)))));
+            this.panel1.Controls.Add(this.btnGoogleMap);
             this.panel1.Controls.Add(this.txtConfirmPassword);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.lblErrorMsg);
@@ -84,10 +86,10 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtUsername);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(250, 32);
+            this.panel1.Location = new System.Drawing.Point(500, 32);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(500, 510);
+            this.panel1.Size = new System.Drawing.Size(500, 832);
             this.panel1.TabIndex = 1;
             // 
             // txtConfirmPassword
@@ -265,10 +267,10 @@
             this.panel2.Controls.Add(this.btnLogin);
             this.panel2.Controls.Add(this.lblDescription);
             this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Location = new System.Drawing.Point(750, 9);
+            this.panel2.Location = new System.Drawing.Point(1000, 9);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(500, 560);
+            this.panel2.Size = new System.Drawing.Size(500, 882);
             this.panel2.TabIndex = 2;
             // 
             // lblDescription
@@ -296,11 +298,36 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
+            // btnGoogleMap
+            // 
+            this.btnGoogleMap.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnGoogleMap.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btnGoogleMap.ButtonImage")));
+            this.btnGoogleMap.ButtonStyle = ReaLTaiizor.Controls.ParrotButton.Style.MaterialRounded;
+            this.btnGoogleMap.ButtonText = "Google Map";
+            this.btnGoogleMap.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.btnGoogleMap.ClickTextColor = System.Drawing.Color.DodgerBlue;
+            this.btnGoogleMap.CornerRadius = 5;
+            this.btnGoogleMap.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGoogleMap.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnGoogleMap.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnGoogleMap.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
+            this.btnGoogleMap.HoverTextColor = System.Drawing.Color.DodgerBlue;
+            this.btnGoogleMap.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
+            this.btnGoogleMap.Location = new System.Drawing.Point(100, 716);
+            this.btnGoogleMap.Name = "btnGoogleMap";
+            this.btnGoogleMap.Size = new System.Drawing.Size(301, 43);
+            this.btnGoogleMap.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.btnGoogleMap.TabIndex = 13;
+            this.btnGoogleMap.TextColor = System.Drawing.Color.DodgerBlue;
+            this.btnGoogleMap.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.btnGoogleMap.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnGoogleMap.Click += new System.EventHandler(this.btnGoogleMap_Click);
+            // 
             // FrmSignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1350, 578);
+            this.ClientSize = new System.Drawing.Size(1600, 900);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
@@ -341,5 +368,6 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.TextBox txtConfirmPassword;
         private System.Windows.Forms.Label label6;
+        private ReaLTaiizor.Controls.ParrotButton btnGoogleMap;
     }
 }
