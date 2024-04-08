@@ -27,5 +27,10 @@ namespace slnMumu_MidtermProject.UserControls
             get { return lblPrice; }
             set { lblPrice = value; }
         }
+        public Label productCount
+        {
+            get { return lblCount; }
+            set { lblCount = value; }
+        }
     }
 }

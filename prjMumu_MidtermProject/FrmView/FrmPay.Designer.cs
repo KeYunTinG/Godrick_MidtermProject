@@ -86,6 +86,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.comboBoxAmount = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -268,7 +270,7 @@
             this.textBox6.Location = new System.Drawing.Point(190, 525);
             this.textBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(1017, 51);
+            this.textBox6.Size = new System.Drawing.Size(1038, 51);
             this.textBox6.TabIndex = 0;
             this.textBox6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox6_KeyDown);
             // 
@@ -304,7 +306,7 @@
             this.paybyATM.Location = new System.Drawing.Point(76, 238);
             this.paybyATM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.paybyATM.Name = "paybyATM";
-            this.paybyATM.Size = new System.Drawing.Size(1131, 96);
+            this.paybyATM.Size = new System.Drawing.Size(1152, 96);
             this.paybyATM.TabIndex = 10;
             // 
             // ATMfont
@@ -351,7 +353,7 @@
             this.comboBox1.Location = new System.Drawing.Point(76, 399);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(1131, 50);
+            this.comboBox1.Size = new System.Drawing.Size(1152, 50);
             this.comboBox1.TabIndex = 13;
             // 
             // btnPay
@@ -431,7 +433,7 @@
             this.paybyCard.Location = new System.Drawing.Point(76, 107);
             this.paybyCard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.paybyCard.Name = "paybyCard";
-            this.paybyCard.Size = new System.Drawing.Size(1131, 96);
+            this.paybyCard.Size = new System.Drawing.Size(1152, 96);
             this.paybyCard.TabIndex = 9;
             // 
             // label15
@@ -491,7 +493,7 @@
             this.panel4.Location = new System.Drawing.Point(76, 999);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1139, 255);
+            this.panel4.Size = new System.Drawing.Size(1160, 255);
             this.panel4.TabIndex = 22;
             // 
             // visibleInvoice
@@ -593,7 +595,7 @@
             this.textBox3.Location = new System.Drawing.Point(76, 764);
             this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(787, 51);
+            this.textBox3.Size = new System.Drawing.Size(808, 51);
             this.textBox3.TabIndex = 3;
             // 
             // textBox4
@@ -604,7 +606,7 @@
             this.textBox4.Location = new System.Drawing.Point(73, 885);
             this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(790, 51);
+            this.textBox4.Size = new System.Drawing.Size(811, 51);
             this.textBox4.TabIndex = 4;
             // 
             // panelAddtopurchase
@@ -638,12 +640,14 @@
             this.flowAddtopurchase.Location = new System.Drawing.Point(1, 128);
             this.flowAddtopurchase.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowAddtopurchase.Name = "flowAddtopurchase";
-            this.flowAddtopurchase.Size = new System.Drawing.Size(1418, 441);
+            this.flowAddtopurchase.Size = new System.Drawing.Size(1439, 441);
             this.flowAddtopurchase.TabIndex = 0;
             // 
             // 左下panel
             // 
             this.左下panel.AutoSize = true;
+            this.左下panel.Controls.Add(this.label10);
+            this.左下panel.Controls.Add(this.comboBoxAmount);
             this.左下panel.Controls.Add(this.flowLayoutPanel2);
             this.左下panel.Controls.Add(this.label6);
             this.左下panel.Controls.Add(this.lblTotalPrice);
@@ -794,6 +798,31 @@
             this.label12.TabIndex = 8;
             this.label12.Text = "+ (未知)";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(283, 995);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(47, 38);
+            this.label10.TabIndex = 35;
+            this.label10.Text = "份";
+            // 
+            // comboBoxAmount
+            // 
+            this.comboBoxAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxAmount.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.comboBoxAmount.Font = new System.Drawing.Font("微軟正黑體", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.comboBoxAmount.FormattingEnabled = true;
+            this.comboBoxAmount.Location = new System.Drawing.Point(173, 990);
+            this.comboBoxAmount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxAmount.Name = "comboBoxAmount";
+            this.comboBoxAmount.Size = new System.Drawing.Size(91, 43);
+            this.comboBoxAmount.TabIndex = 34;
+            // 
             // FrmPay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -890,5 +919,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox comboBoxAmount;
     }
 }

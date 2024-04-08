@@ -30,6 +30,7 @@
         {
             this.lblProductName = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
+            this.lblCount = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblProductName
@@ -56,11 +57,23 @@
             this.lblPrice.TabIndex = 1;
             this.lblPrice.Text = "label2";
             // 
+            // lblCount
+            // 
+            this.lblCount.AutoSize = true;
+            this.lblCount.Font = new System.Drawing.Font("微軟正黑體", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblCount.ForeColor = System.Drawing.Color.White;
+            this.lblCount.Location = new System.Drawing.Point(239, 2);
+            this.lblCount.Name = "lblCount";
+            this.lblCount.Size = new System.Drawing.Size(63, 23);
+            this.lblCount.TabIndex = 3;
+            this.lblCount.Text = "label1";
+            // 
             // TransactionDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
+            this.Controls.Add(this.lblCount);
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.lblProductName);
             this.Name = "TransactionDetails";
@@ -74,5 +87,6 @@
 
         private System.Windows.Forms.Label lblProductName;
         private System.Windows.Forms.Label lblPrice;
+        private System.Windows.Forms.Label lblCount;
     }
 }
