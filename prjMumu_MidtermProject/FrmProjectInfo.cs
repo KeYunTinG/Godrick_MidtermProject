@@ -194,7 +194,7 @@ namespace slnMumu_MidtermProject
             fLogin.setUserState += () => { user.isLogin = true; };
             fLogin.setRedirectHomepage += (s, a) =>
             {
-                (this.MdiParent as FrmHomepage).Click();
+                (this.MdiParent as FrmHomepage).ClickButNotClick();
                 fLogin.Close();
                 //RefreshHomePage?.Invoke();
             };

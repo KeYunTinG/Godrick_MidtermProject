@@ -470,7 +470,7 @@ namespace slnMumu_MidtermProject
         private void FrmHomepage_Resize(object sender, EventArgs e)
         {
         }
-        public void Click()
+        public void ClickButNotClick()
         {
             pnCurrentPage.Location = new Point(0, 160);
 
