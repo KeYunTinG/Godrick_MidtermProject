@@ -1,4 +1,5 @@
-﻿using System;
+﻿using slnMumu_MidtermProject;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,7 +23,17 @@ namespace prjMumu_MidtermProject
 
         private void FrmShowPPT_Load(object sender, EventArgs e)
         {
-            pictureBox1.Image = new Bitmap(path + p + ".jpg");
+            try
+            {
+                pictureBox1.Image = new Bitmap(path + p + ".jpg");
+            }
+            catch
+            {
+                FrmMyMessageBox fm = new FrmMyMessageBox();
+                fm.msg = "啟動失敗";
+                fm.ShowDialog();
+            }
+           
         }
         private void pictureBoxLeft_Click(object sender, EventArgs e)
         {
