@@ -24,18 +24,10 @@ namespace slnMumu_MidtermProject
         private void FrmHomepage_Load(object sender, EventArgs e)
         {
             //屁眼
+            homepagePBAddBtn();
         }
-        private void headProject()
+        private void homepagePBAddBtn()
         {
-            //取最新5筆計畫加入_list
-            if (_list != null) 
-            _list.Clear();
-            ZecZecEntities db = new ZecZecEntities();
-            var project = from x in db.Projects
-                          orderby x.Date descending
-                          select x;
-            _list = project.Take(5).ToList();
-            printHeadPB();
             foreach (var item in homepagePB1.Controls)
             {
                 ((Control)item).Click += homepagePB1_Click;
@@ -48,6 +40,19 @@ namespace slnMumu_MidtermProject
                     ((Control)x).MouseLeave += homepagePB1_MouseLeave;
                 }
             }
+        }
+        private async Task headProject()
+        {
+            //取最新5筆計畫加入_list
+            if (_list != null) 
+            _list.Clear();
+            ZecZecEntities db = new ZecZecEntities();
+            var project = from x in db.Projects
+                          orderby x.Date descending
+                          select x;
+            _list = project.Take(5).ToList();
+            printHeadPB();
+            await Task.Yield();
         }
         private void printHeadPB()
         {
@@ -103,7 +108,7 @@ namespace slnMumu_MidtermProject
                 _pbIndex++;
             printHeadPB();
         }
-        private void fillPBLong()
+        private async Task fillPBLong()
         {
             this.flowLayoutPanel1.Controls.Clear();
             ZecZecEntities db = new ZecZecEntities();
@@ -150,14 +155,16 @@ namespace slnMumu_MidtermProject
                 }
                 this.flowLayoutPanel1.Controls.Add(homepagePBLong);
             }
+                await Task.Yield();
         }
-        private void fillFlowAllPrj()
+        private async Task fillFlowAllPrj()
         {
             //底下所有計畫的生成
             ZecZecEntities db = new ZecZecEntities();
             var projects = from x in db.Projects
                            select x;
             createPBSquare(db, projects);
+            await Task.Yield();
         }
         private void createPBSquare(ZecZecEntities db, IQueryable<Projects> projects)
         {
@@ -213,7 +220,7 @@ namespace slnMumu_MidtermProject
                 this.flowLayoutPanel2.Controls.Add(pBSquare);
             }
         }
-        private void fillComboPrjType()
+        private async Task fillComboPrjType()
         {
             //combobox加入計畫分類
             ZecZecEntities db = new ZecZecEntities();
@@ -227,6 +234,7 @@ namespace slnMumu_MidtermProject
             }
             this.comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
             this.comboBox2.SelectedIndex = 0;
+            await Task.Yield();
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -264,6 +272,7 @@ namespace slnMumu_MidtermProject
         private void prjAnyClick_Click(object sender, EventArgs e)
         {
             FrmProjectInfo f = new FrmProjectInfo((int)((Control)sender).Tag);
+            f.rd += (this.MdiParent as FrmHomepage).button1_Click;
             f.MdiParent = this.MdiParent as FrmHomepage;
             f.Dock = DockStyle.Fill;
             f.Show();
@@ -283,12 +292,14 @@ namespace slnMumu_MidtermProject
             _timer.Stop();
             _timer.Dispose();
         }
-        private void FrmHomepage_Activated(object sender, EventArgs e)
+        private async void FrmHomepage_Activated(object sender, EventArgs e)
         {
-            headProject();
-            fillComboPrjType();
-            fillFlowAllPrj();
-            fillPBLong();
+            Task t1 = fillFlowAllPrj();
+            Task t2 = fillPBLong();
+            Task t3 = headProject();
+            Task t4 = fillComboPrjType();
+
+            await Task.WhenAll(t1, t2, t3, t4);
             //設置計時
             setTimer();
         }
@@ -300,7 +311,5 @@ namespace slnMumu_MidtermProject
         {
             _timer.Start();
         }
-
-
     }
 }
