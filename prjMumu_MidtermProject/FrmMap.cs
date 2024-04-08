@@ -36,7 +36,11 @@ namespace prjMumu_MidtermProject
         {
             string mapUrl = wb.Source.ToString();
 
-            int startIndex = mapUrl.IndexOf("https://www.google.com.tw/maps/place/") + "https://www.google.com.tw/maps/place/".Length;
+            int start = mapUrl.IndexOf("https://www.google.com.tw/maps/place/");
+
+            if (start == -1) return;
+
+            int startIndex = start + "https://www.google.com.tw/maps/place/".Length;
             int endIndex = mapUrl.IndexOf("/@");
 
             if (startIndex <= 0) return;

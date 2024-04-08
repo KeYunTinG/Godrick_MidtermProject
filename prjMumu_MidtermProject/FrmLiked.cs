@@ -23,7 +23,7 @@ namespace slnMumu_MidtermProject
             m_id = id;
             InitializeComponent();
             cum = new CurrentUserManager();
-            loadLikeData(m_id, 1);
+            //loadLikeData(m_id, 1);
         }
 
         private string currentUser;
@@ -36,7 +36,8 @@ namespace slnMumu_MidtermProject
         private void FrmLiked_Activated(object sender, EventArgs e)
         {
             this.flowLayoutPanel1.Controls.Clear();
-            loadLikeData(m_id, 1);
+            //loadLikeData(m_id, 1);
+            loadBuyData(m_id, 1);
         }
         private void loadLikeData(int memberId, int currentPage) //收藏顯示
         {

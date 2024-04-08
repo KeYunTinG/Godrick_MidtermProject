@@ -33,7 +33,6 @@ namespace prjMumu_MidtermProject
                 fm.msg = "啟動失敗";
                 fm.ShowDialog();
             }
-           
         }
         private void pictureBoxLeft_Click(object sender, EventArgs e)
         {

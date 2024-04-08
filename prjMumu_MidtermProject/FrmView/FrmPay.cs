@@ -372,15 +372,8 @@ namespace slnMumu_MidtermProject.FrmView
                     td.productCount.Text = "數量:" + comboBoxAmount.SelectedItem; ;
                     ftd.flpDateils.Controls.Add(td);
                     ftd.ShowDialog();
-
-
-                    FrmLiked fk = new FrmLiked(cum.member.MemberID);
-                    fk.MdiParent = this.MdiParent as FrmHomepage;
-                    fk.Dock = DockStyle.Fill;
-                    fk.Show();
-                    this.Close();
-
                 }
+
 
                 catch (TransactionAbortedException)
                 {
@@ -390,7 +383,17 @@ namespace slnMumu_MidtermProject.FrmView
                     throw;
                 }
 
+
+
+
+
             }
+
+            FrmLiked fk = new FrmLiked(cum.member.MemberID);
+            fk.MdiParent = this.MdiParent as FrmHomepage;
+            fk.Dock = DockStyle.Fill;
+            fk.Show();
+            this.Close();
 
         }
 
@@ -518,17 +521,8 @@ namespace slnMumu_MidtermProject.FrmView
 
                     }
                     ftd.ShowDialog();
-
-
-                    FrmLiked fk = new FrmLiked(cum.member.MemberID);
-                    fk.MdiParent = this.MdiParent as FrmHomepage;
-                    fk.Dock = DockStyle.Fill;
-                    fk.Show();
-                    this.Close();
-
-
-
                 }
+
 
                 catch (TransactionAbortedException)
                 {
@@ -537,7 +531,15 @@ namespace slnMumu_MidtermProject.FrmView
                     mm.ShowDialog();
                     throw;
                 }
+
+              
             }
+
+            FrmLiked fk = new FrmLiked(cum.member.MemberID);
+            fk.MdiParent = this.MdiParent as FrmHomepage;
+            fk.Dock = DockStyle.Fill;
+            fk.Show();
+            this.Close();
         }
 
         private void btnPay_Click(object sender, EventArgs e)
