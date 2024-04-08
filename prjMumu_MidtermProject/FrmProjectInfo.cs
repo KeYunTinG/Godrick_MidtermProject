@@ -13,6 +13,7 @@ using System.Xml.Linq;
 using slnMumu_MidtermProject.FrmView;
 using prjMumu_MidtermProject;
 using prjMumu_MidtermProject.UserControls;
+using System.Reflection;
 
 namespace slnMumu_MidtermProject
 {
@@ -329,5 +330,22 @@ namespace slnMumu_MidtermProject
             SendMessage(_selectedComment);
         }
         #endregion
+        private FrmMessage message;
+
+        private void LblSponsor_MouseLeave(object sender, EventArgs e)
+        {
+            if (message != null)
+            {
+                message.Close();
+            }
+        }
+
+        private void LblSponsor_MouseEnter(object sender, EventArgs e)
+        {
+            Projects project = SelectProjectById(_projID);
+            Members memberInfo = project.Members;
+            message = new FrmMessage(memberInfo);
+            message.Show();
+        }
     }
 }

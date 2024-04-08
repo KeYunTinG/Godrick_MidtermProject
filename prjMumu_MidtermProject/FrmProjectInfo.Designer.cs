@@ -40,6 +40,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lblReply = new System.Windows.Forms.Label();
             this.flpComments = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -54,7 +55,6 @@
             this.btnSponsor = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.ilLiked = new System.Windows.Forms.ImageList(this.components);
-            this.lblReply = new System.Windows.Forms.Label();
             this.panelBUTTOM.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -129,6 +129,8 @@
             this.lblSponsor.Size = new System.Drawing.Size(140, 25);
             this.lblSponsor.TabIndex = 12;
             this.lblSponsor.Text = "ARCE Fitness ";
+            this.lblSponsor.MouseEnter += new System.EventHandler(this.LblSponsor_MouseEnter);
+            this.lblSponsor.MouseLeave += new System.EventHandler(this.LblSponsor_MouseLeave);
             // 
             // lblProjectType
             // 
@@ -177,7 +179,8 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
@@ -222,6 +225,17 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "留言";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // lblReply
+            // 
+            this.lblReply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblReply.AutoSize = true;
+            this.lblReply.Location = new System.Drawing.Point(5, 222);
+            this.lblReply.Name = "lblReply";
+            this.lblReply.Size = new System.Drawing.Size(72, 25);
+            this.lblReply.TabIndex = 0;
+            this.lblReply.Text = "回覆 ...";
+            this.lblReply.Visible = false;
             // 
             // flpComments
             // 
@@ -343,11 +357,11 @@
             // 
             this.lblProjectName.BackColor = System.Drawing.Color.Transparent;
             this.lblProjectName.Font = new System.Drawing.Font("微軟正黑體", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblProjectName.Location = new System.Drawing.Point(25, 337);
+            this.lblProjectName.Location = new System.Drawing.Point(29, 337);
             this.lblProjectName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblProjectName.MaximumSize = new System.Drawing.Size(749, 300);
             this.lblProjectName.Name = "lblProjectName";
-            this.lblProjectName.Size = new System.Drawing.Size(456, 78);
+            this.lblProjectName.Size = new System.Drawing.Size(380, 62);
             this.lblProjectName.TabIndex = 1;
             this.lblProjectName.Text = "{專案名稱}";
             // 
@@ -383,17 +397,6 @@
             this.ilLiked.TransparentColor = System.Drawing.Color.Transparent;
             this.ilLiked.Images.SetKeyName(0, "heart_unlike_icon.png");
             this.ilLiked.Images.SetKeyName(1, "heart_like_icon.png");
-            // 
-            // label5
-            // 
-            this.lblReply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblReply.AutoSize = true;
-            this.lblReply.Location = new System.Drawing.Point(5, 222);
-            this.lblReply.Name = "label5";
-            this.lblReply.Size = new System.Drawing.Size(72, 25);
-            this.lblReply.TabIndex = 0;
-            this.lblReply.Text = "回覆 ...";
-            this.lblReply.Visible = false;
             // 
             // FrmProjectInfo
             // 
