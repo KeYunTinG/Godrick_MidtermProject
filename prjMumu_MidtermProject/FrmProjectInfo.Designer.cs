@@ -55,6 +55,8 @@
             this.btnSponsor = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.ilLiked = new System.Windows.Forms.ImageList(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.panelBUTTOM.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -150,7 +152,7 @@
             this.cpbGoal.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
             this.cpbGoal.AnimationSpeed = 500;
             this.cpbGoal.BackColor = System.Drawing.Color.Transparent;
-            this.cpbGoal.Font = new System.Drawing.Font("微軟正黑體", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cpbGoal.Font = new System.Drawing.Font("微軟正黑體", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.cpbGoal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cpbGoal.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.cpbGoal.InnerMargin = 2;
@@ -162,7 +164,7 @@
             this.cpbGoal.OuterMargin = -25;
             this.cpbGoal.OuterWidth = 26;
             this.cpbGoal.ProgressColor = System.Drawing.Color.DarkSlateBlue;
-            this.cpbGoal.ProgressWidth = 12;
+            this.cpbGoal.ProgressWidth = 8;
             this.cpbGoal.SecondaryFont = new System.Drawing.Font("新細明體", 36F);
             this.cpbGoal.Size = new System.Drawing.Size(125, 118);
             this.cpbGoal.StartAngle = 270;
@@ -398,6 +400,18 @@
             this.ilLiked.Images.SetKeyName(0, "heart_unlike_icon.png");
             this.ilLiked.Images.SetKeyName(1, "heart_like_icon.png");
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 10;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timer2
+            // 
+            this.timer2.Enabled = true;
+            this.timer2.Interval = 10;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
             // FrmProjectInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -451,5 +465,7 @@
         private System.Windows.Forms.Label lblSponsor;
         private System.Windows.Forms.Label lblProjectType;
         private System.Windows.Forms.Label lblReply;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer2;
     }
 }

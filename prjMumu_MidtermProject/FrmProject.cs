@@ -70,7 +70,7 @@ namespace slnMumu_MidtermProject
             int sup = 0;
             foreach (var o in orders)
             {
-                total += o.tot * o.cou;
+                total += o.tot ;
                 sup++;
             }
             this.homepagePB1.textSupport = "已有" + sup + "人支持";
@@ -125,7 +125,7 @@ namespace slnMumu_MidtermProject
                 int sup = 0;
                 foreach (var o in order)
                 {
-                    total += o.tot * o.cou;
+                    total += o.tot ;
                     sup++;
                 }
                 PrjPBLong homepagePBLong = new PrjPBLong();
@@ -188,7 +188,7 @@ namespace slnMumu_MidtermProject
                 int sup = 0;
                 foreach (var o in order)
                 {
-                    total += o.tot * o.cou;
+                    total += o.tot;
                     sup++;
                 }//屁眼
                 PrjPBSquare pBSquare = new PrjPBSquare();

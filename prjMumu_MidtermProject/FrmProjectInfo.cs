@@ -80,6 +80,12 @@ namespace slnMumu_MidtermProject
                 GotoLogin();
                 return;
             }
+            if (pc.product.Inventory <= 0)
+            {
+                FrmMyMessageBox mb = new FrmMyMessageBox() { msg = "賣完了~~下次一定留給你" };
+                mb.ShowDialog();
+                return;
+            }
             /*MessageBox.Show("跳轉到贊助頁面" +
                 "\r\nID: " + pc.product.ProductID +
                 "\r\nName: " + pc.product.ProductName);*/
@@ -114,7 +120,7 @@ namespace slnMumu_MidtermProject
             {
                 this.lblProjectType.Text += $"{projType.ProjectTypeName} ";
             }
-            int total = (int)proj.Products.SelectMany(p => p.OrderDetails).Sum(order => order.Price * order.Count);
+            int total = (int)proj.Products.SelectMany(p => p.OrderDetails).Sum(order => order.Price );
             this.lblGoal.Text = $"{total:c0} / {proj.Goal:c0}";
             LoadProgress(total, proj.Goal);
 
@@ -132,8 +138,27 @@ namespace slnMumu_MidtermProject
         private void LoadProgress(int total, decimal goal)
         {
             int percentage = (int)(total / goal * 100);
-            this.cpbGoal.Text = percentage.ToString() + "%";
-            this.cpbGoal.Value = (percentage > 100) ? 100 : percentage;
+            cpbGoal.Text = "0%";
+            cpbGoal.Value = 0;
+            timer1.Tag = ((percentage > 100) ? 100 : percentage);
+            timer2.Tag = percentage;
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            int value = (int)((Timer)sender).Tag;
+            cpbGoal.Value += 1;
+            //int current = int.Parse(cpbGoal.Text.Substring(0, cpbGoal.Text.Length - 1));
+            //cpbGoal.Text = $"{++current}%";
+            if (cpbGoal.Value >= value)
+                timer1.Enabled = false;
+        }
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            int value = (int)((Timer)sender).Tag;
+            int current = int.Parse(cpbGoal.Text.Substring(0, cpbGoal.Text.Length - 1));
+            cpbGoal.Text = $"{++current}%";
+            if (current >= value)
+                timer2.Enabled = false;
         }
 
         private Projects SelectProjectById(int id)
