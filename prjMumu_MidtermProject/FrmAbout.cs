@@ -29,7 +29,7 @@ namespace slnMumu_MidtermProject
         {
 
            // ProgressBar pb = new ProgressBar();
-            pb.Location = new Point(240, 190);
+            pb.Location = new Point(720, 400);
             pb.Width = 190;
             pb.Height = 30;
             this.Controls.Add(pb);
@@ -65,7 +65,7 @@ namespace slnMumu_MidtermProject
         private void PTTButtonShow()
         {
             Button btn1 = new Button();
-            btn1.Location = new Point(250, 250);
+            btn1.Location = new Point(750, 500);
             btn1.Width = 120;
             btn1.Height = 50;
             btn1.Text = "啟動!";
