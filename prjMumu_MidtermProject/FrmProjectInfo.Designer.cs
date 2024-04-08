@@ -242,7 +242,7 @@
             this.flpComments.AutoScroll = true;
             this.flpComments.AutoSize = true;
             this.flpComments.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flpComments.BackColor = System.Drawing.Color.RosyBrown;
+            this.flpComments.BackColor = System.Drawing.Color.Snow;
             this.flpComments.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpComments.Location = new System.Drawing.Point(3, 3);
             this.flpComments.Name = "flpComments";

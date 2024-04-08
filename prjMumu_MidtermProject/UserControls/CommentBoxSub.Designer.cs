@@ -57,10 +57,11 @@
             // 
             // lblCommentTime
             // 
+            this.lblCommentTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCommentTime.Font = new System.Drawing.Font("微軟正黑體", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblCommentTime.Location = new System.Drawing.Point(200, 7);
+            this.lblCommentTime.Location = new System.Drawing.Point(297, 7);
             this.lblCommentTime.Name = "lblCommentTime";
-            this.lblCommentTime.Size = new System.Drawing.Size(42, 22);
+            this.lblCommentTime.Size = new System.Drawing.Size(49, 22);
             this.lblCommentTime.TabIndex = 7;
             this.lblCommentTime.Text = "16天前";
             this.lblCommentTime.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -72,7 +73,7 @@
             this.pbThumbnail.Image = ((System.Drawing.Image)(resources.GetObject("pbThumbnail.Image")));
             this.pbThumbnail.Location = new System.Drawing.Point(0, 0);
             this.pbThumbnail.Name = "pbThumbnail";
-            this.pbThumbnail.Size = new System.Drawing.Size(60, 46);
+            this.pbThumbnail.Size = new System.Drawing.Size(60, 48);
             this.pbThumbnail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbThumbnail.TabIndex = 5;
             this.pbThumbnail.TabStop = false;
@@ -82,13 +83,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MistyRose;
-            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblCommentTime);
             this.Controls.Add(this.pbThumbnail);
             this.Name = "CommentBoxSub";
-            this.Size = new System.Drawing.Size(243, 46);
+            this.Size = new System.Drawing.Size(349, 48);
             ((System.ComponentModel.ISupportInitialize)(this.pbThumbnail)).EndInit();
             this.ResumeLayout(false);
 

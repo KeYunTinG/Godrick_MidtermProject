@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace prjMumu_MidtermProject.UserControls
 {
@@ -30,7 +31,12 @@ namespace prjMumu_MidtermProject.UserControls
                 {
                     this.pbThumbnail.Image = new Bitmap(Application.StartupPath + @"\Images\membersThumbnail\" + _subComment.Members.Thumbnail);
                 }
-                this.lblCommentTime.Text = _subComment.Date.Value.ToString("yyyy/MM/dd\nHH:mm");
+                if (_subComment.Date.Value.AddDays(1) < DateTime.Now)
+                    this.lblCommentTime.Text = $"{(DateTime.Now - _subComment.Date.Value).Days} 天前";
+                else if (_subComment.Date.Value.AddHours(1) < DateTime.Now)
+                    this.lblCommentTime.Text = $"{(DateTime.Now - _subComment.Date.Value).Hours} 小時前";
+                else
+                    this.lblCommentTime.Text = $"1 小時內";
                 this.lblMessage.Text = _subComment.SubCommentMsg;
             }
         }

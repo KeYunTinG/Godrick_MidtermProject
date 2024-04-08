@@ -29,7 +29,12 @@ namespace slnMumu_MidtermProject
                 {
                     this.pbThumbnail.Image = new Bitmap(Application.StartupPath + @"\Images\membersThumbnail\" + _comment.Members.Thumbnail);
                 }
-                this.lblCommentTime.Text = _comment.Date.Value.ToString("yyyy/MM/dd\nHH:mm");
+                if (_comment.Date.Value.AddDays(1) < DateTime.Now)
+                    this.lblCommentTime.Text = $"{(DateTime.Now - _comment.Date.Value).Days} 天前";
+                else if(_comment.Date.Value.AddHours(1) < DateTime.Now)
+                    this.lblCommentTime.Text = $"{(DateTime.Now - _comment.Date.Value).Hours} 小時前";
+                else
+                    this.lblCommentTime.Text = $"1 小時內";
                 this.lblMessage.Text = _comment.CommentMsg;
             }
         }
