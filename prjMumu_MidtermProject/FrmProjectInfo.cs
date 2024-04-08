@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using slnMumu_MidtermProject.FrmView;
 using prjMumu_MidtermProject;
+using prjMumu_MidtermProject.UserControls;
 
 namespace slnMumu_MidtermProject
 {
@@ -25,9 +26,13 @@ namespace slnMumu_MidtermProject
     public delegate void D();
     public partial class FrmProjectInfo : Form
     {
+#pragma warning disable CS0067 // 事件 'FrmProjectInfo.RefreshHomePage' 從未使用過
         public event D RefreshHomePage;
+#pragma warning restore CS0067 // 事件 'FrmProjectInfo.RefreshHomePage' 從未使用過
         public delegate void Redirect(object sender, EventArgs e);
+#pragma warning disable CS0067 // 事件 'FrmProjectInfo.rd' 從未使用過
         public event Redirect rd;
+#pragma warning restore CS0067 // 事件 'FrmProjectInfo.rd' 從未使用過
         private ZecZecEntities db;
         private int _projID;
         bool _isLike = false;
@@ -37,10 +42,10 @@ namespace slnMumu_MidtermProject
             InitializeComponent();
             _projID = pid;
             user = new CurrentUserManager();
+            db = new ZecZecEntities();
         }
         private void FrmProjectInfo_Load(object sender, EventArgs e)
         {
-            db = new ZecZecEntities();
             //TODO 1 - 顯示這個Project的欄位資訊
             Projects project = SelectProjectById(_projID);
             if (user.member != null)
@@ -95,7 +100,23 @@ namespace slnMumu_MidtermProject
         private void DisplayProjectInfo(Projects proj)
         {
             this.lblProjectName.Text = proj.ProjectName;
-            this.lblGoal.Text = proj.Goal.ToString("C0");
+            this.lblSponsor.Text = proj.Members.Nickname;
+            var projTypes = proj.ProjectIDType.Select(pit => pit.ProjectTypes);
+            //var projTypes = proj.ProjectIDType.SelectMany(pit => pit.ProjectTypes);
+
+            //var projTypes = from projectIDType in proj.ProjectIDType
+            //                from projectType in projectIDType.ProjectTypes.ProjectTypeName
+            //                select projectType;
+
+            this.lblProjectType.Text = "";
+            foreach (var projType in projTypes)
+            {
+                this.lblProjectType.Text += $"{projType.ProjectTypeName} ";
+            }
+            int total = (int)proj.Products.SelectMany(p => p.OrderDetails).Sum(order => order.Price * order.Count);
+            this.lblGoal.Text = $"{total:c0} / {proj.Goal:c0}";
+            LoadProgress(total, proj.Goal);
+
             if (!string.IsNullOrEmpty(proj.Thumbnail))
             {
                 this.pbProjectThumbnail.Image =
@@ -104,17 +125,12 @@ namespace slnMumu_MidtermProject
             this.lblDate.Text = $"{proj.Date:yyyy/MM/dd} ~ {proj.ExpireDate:yyyy/MM/dd}";
             this.label1.Text = proj.Description;
             this.pbLikeButton.Image = (_isLike ? ilLiked.Images[1] : ilLiked.Images[0]);
-            LoadProgress(proj.ProjectID);
 
         }
 
-        private void LoadProgress(int projID)
+        private void LoadProgress(int total, decimal goal)
         {
-            var proj = from p in db.Projects
-                       select p;
-            var currentProject = proj.FirstOrDefault(x => x.ProjectID == projID);
-            int total = (int)currentProject.Products.SelectMany(p => p.OrderDetails).Sum(order => order.Price * order.Count);
-            int percentage = (int)(total / currentProject.Goal * 100);
+            int percentage = (int)(total / goal * 100);
             this.cpbGoal.Text = percentage.ToString() + "%";
             this.cpbGoal.Value = (percentage > 100) ? 100 : percentage;
         }
@@ -209,6 +225,8 @@ namespace slnMumu_MidtermProject
 
             _isLike = true;
         }
+
+        #region Comments
         private void LoadComments()
         {
             this.flpComments.Controls.Clear();
@@ -218,34 +236,81 @@ namespace slnMumu_MidtermProject
                            select c;
             foreach (var comment in comments)
             {
+                Label l = new Label();
+                l.BackColor = Color.Gray;
+                l.Size = new Size(this.flpComments.Width - 30, 1);
+                l.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+
+
                 CommentBox c = new CommentBox();
+                c.ReplyClick += ReplyClick;
                 c.comment = comment;
+                c.Size = new Size(this.flpComments.Width - 30, 20);
+                c.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+                this.flpComments.Controls.Add(l);
                 this.flpComments.Controls.Add(c);
+                // 印出 SubComment
+                foreach(var sc in comment.SubComments)
+                {
+                    CommentBoxSub cb = new CommentBoxSub();
+                    cb.subComment = sc;
+                    cb.Margin = new Padding(30,0,0,0);
+                    c.Size = new Size(this.flpComments.Width - 30, 20);
+
+                    this.flpComments.Controls.Add(cb);
+                }
+
             }
+        }
+        private Comments _selectedComment;
+        private void ReplyClick(Comments comm)
+        {
+            lblReply.Text = $"回覆 {comm.Members.Nickname}";
+            this.lblReply.Visible = true;
+            _selectedComment = comm;
         }
         private void btnSend_Click(object sender, EventArgs e)
         {
-            SendMessage();
+            SendMessage(_selectedComment);
         }
 
-        private void SendMessage()
+        private void SendMessage(Comments comm)
         {
-            // 插入一筆資料到 Comments 表
-            ZecZecEntities db = new ZecZecEntities();
-            Comments comment = new Comments();
             if (user.member == null)
             {
                 GotoLogin();
                 return;
             }
-            comment.MemberID = user.member.MemberID;
-            comment.ProjectID = _projID;
-            comment.CommentMsg = this.tbMessage.Text;
-            comment.Date = DateTime.Now;
-            db.Comments.Add(comment);
-            db.SaveChanges();
+            if (string.IsNullOrEmpty(this.tbMessage.Text)) return;
+            using (var db = new ZecZecEntities())
+            {
+                if (comm is null)
+                {
+                    // 新增一筆 Comment
+                    Comments comment = new Comments();
+                    comment.MemberID = user.member.MemberID;
+                    comment.ProjectID = _projID;
+                    comment.CommentMsg = this.tbMessage.Text;
+                    comment.Date = DateTime.Now;
+                    db.Comments.Add(comment);
+                }
+                else
+                {
+                    //新增一筆 SubComment
+                    SubComments sc = new SubComments();
+                    sc.MemberID = user.member.MemberID;
+                    sc.SubCommentMsg = this.tbMessage.Text;
+                    sc.Date = DateTime.Now;
+                    sc.CommentID = comm.CommentID;
+                    db.SubComments.Add(sc);
+                }
+                db.SaveChanges();
+            }
+
             // 更新畫面
             this.tbMessage.Text = "";
+            this.lblReply.Visible = false;
+            _selectedComment = null;
             int scrollPosition = this.flpComments.VerticalScroll.Maximum;
             LoadComments();
             //this.flpComments.AutoScrollPosition=new Point(this.flpComments.Height);
@@ -254,8 +319,15 @@ namespace slnMumu_MidtermProject
 
         private void tbMessage_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if(e.KeyChar == (char)Keys.Escape)
+            {
+                this.lblReply.Visible = false;
+                _selectedComment = null;
+                return;
+            };
             if (e.KeyChar != (char)Keys.Enter) return;
-            SendMessage();
+            SendMessage(_selectedComment);
         }
+        #endregion
     }
 }

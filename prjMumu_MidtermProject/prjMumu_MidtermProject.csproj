@@ -338,6 +338,12 @@
     <Compile Include="UserControls\CommentBox.designer.cs">
       <DependentUpon>CommentBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\CommentBoxSub.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CommentBoxSub.Designer.cs">
+      <DependentUpon>CommentBoxSub.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\CUserLike.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -500,6 +506,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\CommentBox.resx">
       <DependentUpon>CommentBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\CommentBoxSub.resx">
+      <DependentUpon>CommentBoxSub.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\CUserLike.resx">
       <DependentUpon>CUserLike.cs</DependentUpon>

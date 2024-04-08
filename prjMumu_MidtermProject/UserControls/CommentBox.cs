@@ -14,6 +14,9 @@ namespace slnMumu_MidtermProject
 {
     public partial class CommentBox : UserControl
     {
+        public delegate void ReplyClickHandler(Comments comm);
+        public event ReplyClickHandler ReplyClick;
+
         private Comments _comment;
         public Comments comment
         {
@@ -21,7 +24,7 @@ namespace slnMumu_MidtermProject
             set
             {
                 _comment = value;
-                this.lblName.Text = _comment.Members.Username;
+                this.lblName.Text = _comment.Members.Nickname;
                 if (!string.IsNullOrEmpty(_comment.Members.Thumbnail))
                 {
                     this.pbThumbnail.Image = new Bitmap(Application.StartupPath + @"\Images\membersThumbnail\" + _comment.Members.Thumbnail);
@@ -34,7 +37,12 @@ namespace slnMumu_MidtermProject
         public CommentBox()
         {
             InitializeComponent();
-            
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // 回傳 CommentID
+            this.ReplyClick?.Invoke(_comment);
         }
     }
 }

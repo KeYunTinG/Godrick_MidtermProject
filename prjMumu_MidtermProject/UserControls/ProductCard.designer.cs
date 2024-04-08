@@ -35,6 +35,7 @@
             this.lblName = new System.Windows.Forms.Label();
             this.lblQuantity = new System.Windows.Forms.Label();
             this.pbThumbnail = new System.Windows.Forms.PictureBox();
+            this.lblSponsorTime = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbThumbnail)).BeginInit();
             this.SuspendLayout();
@@ -45,6 +46,7 @@
             this.panel1.Controls.Add(this.rtbDescription);
             this.panel1.Controls.Add(this.lblPrice);
             this.panel1.Controls.Add(this.lblName);
+            this.panel1.Controls.Add(this.lblSponsorTime);
             this.panel1.Controls.Add(this.lblQuantity);
             this.panel1.Controls.Add(this.pbThumbnail);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -86,7 +88,9 @@
             // lblQuantity
             // 
             this.lblQuantity.AutoSize = true;
+            this.lblQuantity.BackColor = System.Drawing.Color.IndianRed;
             this.lblQuantity.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblQuantity.ForeColor = System.Drawing.Color.White;
             this.lblQuantity.Location = new System.Drawing.Point(21, 272);
             this.lblQuantity.Name = "lblQuantity";
             this.lblQuantity.Size = new System.Drawing.Size(106, 25);
@@ -104,6 +108,18 @@
             this.pbThumbnail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbThumbnail.TabIndex = 8;
             this.pbThumbnail.TabStop = false;
+            // 
+            // lblSponsorTime
+            // 
+            this.lblSponsorTime.AutoSize = true;
+            this.lblSponsorTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblSponsorTime.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblSponsorTime.ForeColor = System.Drawing.Color.White;
+            this.lblSponsorTime.Location = new System.Drawing.Point(133, 272);
+            this.lblSponsorTime.Name = "lblSponsorTime";
+            this.lblSponsorTime.Size = new System.Drawing.Size(136, 25);
+            this.lblSponsorTime.TabIndex = 18;
+            this.lblSponsorTime.Text = "已被贊助10次";
             // 
             // ProductCard
             // 
@@ -135,5 +151,6 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblQuantity;
         private System.Windows.Forms.Label rtbDescription;
+        private System.Windows.Forms.Label lblSponsorTime;
     }
 }

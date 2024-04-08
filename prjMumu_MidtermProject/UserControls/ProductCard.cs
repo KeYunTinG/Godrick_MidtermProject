@@ -38,15 +38,18 @@ namespace slnMumu_MidtermProject.Views
                 this.lblName.Text = _product.ProductName;
                 this.lblPrice.Text = _product.Price.ToString("C0");
                 // TODO:計算剩餘數量
-                this.lblQuantity.Text = $"剩餘 {_product.Quantity} 份";
+                using(var db = new ZecZecEntities())
+                {
+                    int count = (int)_product.OrderDetails.Sum(order => order.Count);
+                    this.lblQuantity.Text = $"剩餘 {_product.Quantity-count} 份";
+                    this.lblSponsorTime.Text = $"已被贊助 {count} 次";
+                }
                 this.rtbDescription.Text = _product.ProductDescription;
             }
         }
 
         private void ProductCard_Load(object sender, EventArgs e)
         {
-            // 關於設計
-
             // 所有元素都可以觸發事件
             this.panel1.Click += ProductCard_Click;
             this.panel1.MouseEnter += ProductCard_MouseEnter;

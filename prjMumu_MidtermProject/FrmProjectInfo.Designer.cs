@@ -32,6 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProjectInfo));
             this.panelBUTTOM = new ReaLTaiizor.Controls.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblSponsor = new System.Windows.Forms.Label();
+            this.lblProjectType = new System.Windows.Forms.Label();
+            this.cpbGoal = new CircularProgressBar.CircularProgressBar();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
@@ -50,7 +54,7 @@
             this.btnSponsor = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.ilLiked = new System.Windows.Forms.ImageList(this.components);
-            this.cpbGoal = new CircularProgressBar.CircularProgressBar();
+            this.lblReply = new System.Windows.Forms.Label();
             this.panelBUTTOM.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -79,9 +83,13 @@
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.lblSponsor);
+            this.panel2.Controls.Add(this.lblProjectType);
             this.panel2.Controls.Add(this.cpbGoal);
             this.panel2.Controls.Add(this.tabControl1);
             this.panel2.Controls.Add(this.label2);
@@ -98,9 +106,78 @@
             this.panel2.Size = new System.Drawing.Size(868, 844);
             this.panel2.TabIndex = 9;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label3.ForeColor = System.Drawing.Color.OrangeRed;
+            this.label3.Location = new System.Drawing.Point(33, 415);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 27);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "提案人";
+            // 
+            // lblSponsor
+            // 
+            this.lblSponsor.AutoSize = true;
+            this.lblSponsor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblSponsor.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblSponsor.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lblSponsor.Location = new System.Drawing.Point(111, 415);
+            this.lblSponsor.Name = "lblSponsor";
+            this.lblSponsor.Size = new System.Drawing.Size(140, 25);
+            this.lblSponsor.TabIndex = 12;
+            this.lblSponsor.Text = "ARCE Fitness ";
+            // 
+            // lblProjectType
+            // 
+            this.lblProjectType.AutoSize = true;
+            this.lblProjectType.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblProjectType.ForeColor = System.Drawing.Color.Black;
+            this.lblProjectType.Location = new System.Drawing.Point(17, 312);
+            this.lblProjectType.Margin = new System.Windows.Forms.Padding(0);
+            this.lblProjectType.Name = "lblProjectType";
+            this.lblProjectType.Size = new System.Drawing.Size(52, 25);
+            this.lblProjectType.TabIndex = 13;
+            this.lblProjectType.Text = "類別";
+            // 
+            // cpbGoal
+            // 
+            this.cpbGoal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cpbGoal.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
+            this.cpbGoal.AnimationSpeed = 500;
+            this.cpbGoal.BackColor = System.Drawing.Color.Transparent;
+            this.cpbGoal.Font = new System.Drawing.Font("微軟正黑體", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cpbGoal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cpbGoal.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.cpbGoal.InnerMargin = 2;
+            this.cpbGoal.InnerWidth = -1;
+            this.cpbGoal.Location = new System.Drawing.Point(711, 381);
+            this.cpbGoal.MarqueeAnimationSpeed = 2000;
+            this.cpbGoal.Name = "cpbGoal";
+            this.cpbGoal.OuterColor = System.Drawing.Color.LightSlateGray;
+            this.cpbGoal.OuterMargin = -25;
+            this.cpbGoal.OuterWidth = 26;
+            this.cpbGoal.ProgressColor = System.Drawing.Color.DarkSlateBlue;
+            this.cpbGoal.ProgressWidth = 12;
+            this.cpbGoal.SecondaryFont = new System.Drawing.Font("新細明體", 36F);
+            this.cpbGoal.Size = new System.Drawing.Size(125, 118);
+            this.cpbGoal.StartAngle = 270;
+            this.cpbGoal.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.cpbGoal.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
+            this.cpbGoal.SubscriptText = "";
+            this.cpbGoal.SuperscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.cpbGoal.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
+            this.cpbGoal.SuperscriptText = "";
+            this.cpbGoal.TabIndex = 10;
+            this.cpbGoal.Text = "60";
+            this.cpbGoal.TextMargin = new System.Windows.Forms.Padding(0);
+            this.cpbGoal.Value = 68;
+            // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
@@ -135,6 +212,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.lblReply);
             this.tabPage2.Controls.Add(this.flpComments);
             this.tabPage2.Controls.Add(this.panel1);
             this.tabPage2.Location = new System.Drawing.Point(4, 34);
@@ -148,6 +226,8 @@
             // flpComments
             // 
             this.flpComments.AutoScroll = true;
+            this.flpComments.AutoSize = true;
+            this.flpComments.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flpComments.BackColor = System.Drawing.Color.RosyBrown;
             this.flpComments.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpComments.Location = new System.Drawing.Point(3, 3);
@@ -181,7 +261,8 @@
             // 
             // tbMessage
             // 
-            this.tbMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbMessage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbMessage.Location = new System.Drawing.Point(3, 6);
             this.tbMessage.Name = "tbMessage";
             this.tbMessage.Size = new System.Drawing.Size(751, 34);
@@ -213,7 +294,7 @@
             // 
             this.lblGoal.AutoSize = true;
             this.lblGoal.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblGoal.Location = new System.Drawing.Point(145, 434);
+            this.lblGoal.Location = new System.Drawing.Point(134, 449);
             this.lblGoal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGoal.Name = "lblGoal";
             this.lblGoal.Size = new System.Drawing.Size(68, 25);
@@ -251,7 +332,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label4.Location = new System.Drawing.Point(25, 434);
+            this.label4.Location = new System.Drawing.Point(25, 449);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(112, 25);
@@ -261,12 +342,12 @@
             // lblProjectName
             // 
             this.lblProjectName.BackColor = System.Drawing.Color.Transparent;
-            this.lblProjectName.Font = new System.Drawing.Font("微軟正黑體", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblProjectName.Location = new System.Drawing.Point(26, 312);
+            this.lblProjectName.Font = new System.Drawing.Font("微軟正黑體", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblProjectName.Location = new System.Drawing.Point(25, 337);
             this.lblProjectName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblProjectName.MaximumSize = new System.Drawing.Size(749, 300);
             this.lblProjectName.Name = "lblProjectName";
-            this.lblProjectName.Size = new System.Drawing.Size(456, 109);
+            this.lblProjectName.Size = new System.Drawing.Size(456, 78);
             this.lblProjectName.TabIndex = 1;
             this.lblProjectName.Text = "{專案名稱}";
             // 
@@ -303,37 +384,16 @@
             this.ilLiked.Images.SetKeyName(0, "heart_unlike_icon.png");
             this.ilLiked.Images.SetKeyName(1, "heart_like_icon.png");
             // 
-            // cpbGoal
+            // label5
             // 
-            this.cpbGoal.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
-            this.cpbGoal.AnimationSpeed = 500;
-            this.cpbGoal.BackColor = System.Drawing.Color.Transparent;
-            this.cpbGoal.Font = new System.Drawing.Font("微軟正黑體", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.cpbGoal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.cpbGoal.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.cpbGoal.InnerMargin = 2;
-            this.cpbGoal.InnerWidth = -1;
-            this.cpbGoal.Location = new System.Drawing.Point(711, 381);
-            this.cpbGoal.MarqueeAnimationSpeed = 2000;
-            this.cpbGoal.Name = "cpbGoal";
-            this.cpbGoal.OuterColor = System.Drawing.Color.LightSlateGray;
-            this.cpbGoal.OuterMargin = -25;
-            this.cpbGoal.OuterWidth = 26;
-            this.cpbGoal.ProgressColor = System.Drawing.Color.DarkSlateBlue;
-            this.cpbGoal.ProgressWidth = 12;
-            this.cpbGoal.SecondaryFont = new System.Drawing.Font("新細明體", 36F);
-            this.cpbGoal.Size = new System.Drawing.Size(125, 118);
-            this.cpbGoal.StartAngle = 270;
-            this.cpbGoal.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
-            this.cpbGoal.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
-            this.cpbGoal.SubscriptText = "";
-            this.cpbGoal.SuperscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
-            this.cpbGoal.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
-            this.cpbGoal.SuperscriptText = "";
-            this.cpbGoal.TabIndex = 10;
-            this.cpbGoal.Text = "60";
-            this.cpbGoal.TextMargin = new System.Windows.Forms.Padding(0);
-            this.cpbGoal.Value = 68;
+            this.lblReply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblReply.AutoSize = true;
+            this.lblReply.Location = new System.Drawing.Point(5, 222);
+            this.lblReply.Name = "label5";
+            this.lblReply.Size = new System.Drawing.Size(72, 25);
+            this.lblReply.TabIndex = 0;
+            this.lblReply.Text = "回覆 ...";
+            this.lblReply.Visible = false;
             // 
             // FrmProjectInfo
             // 
@@ -351,6 +411,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -383,5 +444,9 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.ImageList ilLiked;
         private CircularProgressBar.CircularProgressBar cpbGoal;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblSponsor;
+        private System.Windows.Forms.Label lblProjectType;
+        private System.Windows.Forms.Label lblReply;
     }
 }
