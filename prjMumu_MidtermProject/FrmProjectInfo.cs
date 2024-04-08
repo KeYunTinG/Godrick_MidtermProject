@@ -246,7 +246,7 @@ namespace slnMumu_MidtermProject
                 CommentBox c = new CommentBox();
                 c.ReplyClick += ReplyClick;
                 c.comment = comment;
-                c.Size = new Size(this.flpComments.Width - 30, 20);
+                c.Width = this.flpComments.Width - 30;
                 c.Anchor = AnchorStyles.Left | AnchorStyles.Right;
                 this.flpComments.Controls.Add(l);
                 this.flpComments.Controls.Add(c);
@@ -254,9 +254,9 @@ namespace slnMumu_MidtermProject
                 foreach(var sc in comment.SubComments)
                 {
                     CommentBoxSub cb = new CommentBoxSub();
+                    //cb.Width = this.flpComments.Width - 100;
                     cb.subComment = sc;
-                    cb.Margin = new Padding(30,0,0,0);
-                    c.Size = new Size(this.flpComments.Width - 30, 20);
+                    cb.Margin = new Padding(30,0,5,5);
 
                     this.flpComments.Controls.Add(cb);
                 }

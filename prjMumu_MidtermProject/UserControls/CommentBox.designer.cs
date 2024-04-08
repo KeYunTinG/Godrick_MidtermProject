@@ -44,7 +44,7 @@
             this.pbThumbnail.Image = ((System.Drawing.Image)(resources.GetObject("pbThumbnail.Image")));
             this.pbThumbnail.Location = new System.Drawing.Point(0, 0);
             this.pbThumbnail.Name = "pbThumbnail";
-            this.pbThumbnail.Size = new System.Drawing.Size(84, 79);
+            this.pbThumbnail.Size = new System.Drawing.Size(84, 77);
             this.pbThumbnail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbThumbnail.TabIndex = 0;
             this.pbThumbnail.TabStop = false;
@@ -96,13 +96,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblCommentTime);
             this.Controls.Add(this.pbThumbnail);
             this.Name = "CommentBox";
-            this.Size = new System.Drawing.Size(379, 79);
+            this.Size = new System.Drawing.Size(377, 77);
             ((System.ComponentModel.ISupportInitialize)(this.pbThumbnail)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
