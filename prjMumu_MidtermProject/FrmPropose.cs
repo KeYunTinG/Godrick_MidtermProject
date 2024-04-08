@@ -25,6 +25,8 @@ namespace slnMumu_MidtermProject
         {
             InitializeComponent();
             this.btnConfirm.Click += btnConfirm_Click;
+            poisonDateTime2.MinDate = poisonDateTime1.Value;
+            poisonDateTime1.MaxDate = poisonDateTime2.Value;
         }
         public FrmPropose(int id)
         {
