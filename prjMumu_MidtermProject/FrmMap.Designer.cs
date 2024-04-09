@@ -33,12 +33,12 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.btnGetAddress = new ReaLTaiizor.Controls.SkyButton();
-            this.btnEnter = new ReaLTaiizor.Controls.SkyButton();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.貼上ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.全選ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.複製ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.貼上ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnGetAddress = new ReaLTaiizor.Controls.SkyButton();
+            this.btnEnter = new ReaLTaiizor.Controls.SkyButton();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,6 +74,37 @@
             this.richTextBox1.Size = new System.Drawing.Size(268, 400);
             this.richTextBox1.TabIndex = 3;
             this.richTextBox1.Text = "";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.全選ToolStripMenuItem,
+            this.複製ToolStripMenuItem,
+            this.貼上ToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(109, 76);
+            // 
+            // 全選ToolStripMenuItem
+            // 
+            this.全選ToolStripMenuItem.Name = "全選ToolStripMenuItem";
+            this.全選ToolStripMenuItem.Size = new System.Drawing.Size(108, 24);
+            this.全選ToolStripMenuItem.Text = "全選";
+            this.全選ToolStripMenuItem.Click += new System.EventHandler(this.全選ToolStripMenuItem_Click);
+            // 
+            // 複製ToolStripMenuItem
+            // 
+            this.複製ToolStripMenuItem.Name = "複製ToolStripMenuItem";
+            this.複製ToolStripMenuItem.Size = new System.Drawing.Size(108, 24);
+            this.複製ToolStripMenuItem.Text = "複製";
+            this.複製ToolStripMenuItem.Click += new System.EventHandler(this.複製ToolStripMenuItem_Click);
+            // 
+            // 貼上ToolStripMenuItem
+            // 
+            this.貼上ToolStripMenuItem.Name = "貼上ToolStripMenuItem";
+            this.貼上ToolStripMenuItem.Size = new System.Drawing.Size(108, 24);
+            this.貼上ToolStripMenuItem.Text = "貼上";
+            this.貼上ToolStripMenuItem.Click += new System.EventHandler(this.貼上ToolStripMenuItem_Click);
             // 
             // btnGetAddress
             // 
@@ -151,37 +182,6 @@
             this.btnEnter.Text = "Enter";
             this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.全選ToolStripMenuItem,
-            this.複製ToolStripMenuItem,
-            this.貼上ToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 104);
-            // 
-            // 貼上ToolStripMenuItem
-            // 
-            this.貼上ToolStripMenuItem.Name = "貼上ToolStripMenuItem";
-            this.貼上ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
-            this.貼上ToolStripMenuItem.Text = "貼上";
-            this.貼上ToolStripMenuItem.Click += new System.EventHandler(this.貼上ToolStripMenuItem_Click);
-            // 
-            // 全選ToolStripMenuItem
-            // 
-            this.全選ToolStripMenuItem.Name = "全選ToolStripMenuItem";
-            this.全選ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
-            this.全選ToolStripMenuItem.Text = "全選";
-            this.全選ToolStripMenuItem.Click += new System.EventHandler(this.全選ToolStripMenuItem_Click);
-            // 
-            // 複製ToolStripMenuItem
-            // 
-            this.複製ToolStripMenuItem.Name = "複製ToolStripMenuItem";
-            this.複製ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
-            this.複製ToolStripMenuItem.Text = "複製";
-            this.複製ToolStripMenuItem.Click += new System.EventHandler(this.複製ToolStripMenuItem_Click);
-            // 
             // FrmMap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -196,6 +196,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmMap";
             this.Text = "FrmMap";
+            this.Activated += new System.EventHandler(this.FrmMap_Load);
             this.Load += new System.EventHandler(this.FrmMap_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
