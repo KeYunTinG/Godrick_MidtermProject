@@ -32,6 +32,8 @@ namespace slnMumu_MidtermProject
         {
             currentUser = cum.currentUser;
             label2.Text = currentUser;
+            this.ControlBox = false;
+
         }
         private void FrmLiked_Activated(object sender, EventArgs e)
         {

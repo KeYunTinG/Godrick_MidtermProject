@@ -24,6 +24,12 @@ namespace slnMumu_MidtermProject.UserControls
         {
             string path = Application.StartupPath + "\\Images\\membersThumbnail\\" + member.Thumbnail;
 
+            if (member.Thumbnail == null)
+            {
+                path = Application.StartupPath + "\\Images\\membersThumbnail\\圖片1.png";
+            }
+
+
             pictureBox1.Image = new Bitmap(path);
 
 

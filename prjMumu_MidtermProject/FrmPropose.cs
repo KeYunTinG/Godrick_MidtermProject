@@ -98,11 +98,13 @@ namespace slnMumu_MidtermProject
                         newProj.Date = this.poisonDateTime1.Value;
                         newProj.ExpireDate = this.poisonDateTime2.Value;
                         newProj.MemberID = _member.MemberID;
+
                         string storedPath = Path.GetFileName(_imagePath);
                         if (storedPath != newProj.Thumbnail)
                             storedPath = CopyImage(_imagePath, ImageType.Project); //
                         newProj.Thumbnail = storedPath;
                         newProj.RoleID = 1;
+
 
                         // 資料庫原本products都刪掉
                         //newProj.Products.Clear();
@@ -130,6 +132,8 @@ namespace slnMumu_MidtermProject
 
                         db.Products.AddRange(products);
                         // 3. 保存更改
+
+
                         db.SaveChanges();
                         transaction.Commit();
 

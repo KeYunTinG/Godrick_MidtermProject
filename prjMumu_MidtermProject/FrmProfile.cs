@@ -62,6 +62,8 @@ namespace slnMumu_MidtermProject
 
         private void FrmProfile_Load(object sender, EventArgs e)
         {
+            this.ControlBox = false;
+
             PictureBoxPaint();
 
             currentUser = cum.currentUser;   

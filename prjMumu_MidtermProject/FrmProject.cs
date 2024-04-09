@@ -25,6 +25,7 @@ namespace slnMumu_MidtermProject
         {
             //屁眼
             homepagePBAddBtn();
+            this.ControlBox = false;
         }
         private void homepagePBAddBtn()
         {
