@@ -17,13 +17,9 @@ namespace prjMumu_MidtermProject
         int p = 1;
         int pMax = 9;
         string path = "";
-       /* string path = Application.StartupPath + "\\PPT\\";
-        string parentDirectory = Path.GetDirectoryName(Application.StartupPath);
-        string path123 = Path.GetDirectoryName(Application.StartupPath);*/
         public FrmShowPPT()
         {
             InitializeComponent();
-            //string path = Application.StartupPath + "\\PPT\\";
             string parentDirectory = Path.GetDirectoryName(Path.GetDirectoryName(Application.StartupPath)) + "\\PPT\\";
             path = parentDirectory;
         }
