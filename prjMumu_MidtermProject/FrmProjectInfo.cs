@@ -138,27 +138,17 @@ namespace slnMumu_MidtermProject
         private void LoadProgress(int total, decimal goal)
         {
             int percentage = (int)(total / goal * 100);
-            cpbGoal.Text = "0%";
+            cpbGoal.Text = $"{percentage}%";
             cpbGoal.Value = 0;
             timer1.Tag = ((percentage > 100) ? 100 : percentage);
-            timer2.Tag = percentage;
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            int value = (int)((Timer)sender).Tag;
             cpbGoal.Value += 1;
             //int current = int.Parse(cpbGoal.Text.Substring(0, cpbGoal.Text.Length - 1));
             //cpbGoal.Text = $"{++current}%";
-            if (cpbGoal.Value >= value)
+            if (cpbGoal.Value >= (int)((Timer)sender).Tag)
                 timer1.Enabled = false;
-        }
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            int value = (int)((Timer)sender).Tag;
-            int current = int.Parse(cpbGoal.Text.Substring(0, cpbGoal.Text.Length - 1));
-            cpbGoal.Text = $"{++current}%";
-            if (current >= value)
-                timer2.Enabled = false;
         }
 
         private Projects SelectProjectById(int id)
