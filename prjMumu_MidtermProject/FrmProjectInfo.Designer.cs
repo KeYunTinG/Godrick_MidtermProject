@@ -319,13 +319,13 @@
             // pbLikeButton
             // 
             this.pbLikeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbLikeButton.BackColor = System.Drawing.Color.Pink;
+            this.pbLikeButton.BackColor = System.Drawing.Color.Transparent;
             this.pbLikeButton.Image = ((System.Drawing.Image)(resources.GetObject("pbLikeButton.Image")));
             this.pbLikeButton.Location = new System.Drawing.Point(788, 312);
-            this.pbLikeButton.Margin = new System.Windows.Forms.Padding(4);
+            this.pbLikeButton.Margin = new System.Windows.Forms.Padding(0);
             this.pbLikeButton.Name = "pbLikeButton";
             this.pbLikeButton.Size = new System.Drawing.Size(48, 48);
-            this.pbLikeButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbLikeButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLikeButton.TabIndex = 8;
             this.pbLikeButton.TabStop = false;
             this.pbLikeButton.Click += new System.EventHandler(this.pbLikeButton_Click);
@@ -369,8 +369,8 @@
             // btnSponsor
             // 
             this.btnSponsor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSponsor.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnSponsor.Location = new System.Drawing.Point(585, 310);
+            this.btnSponsor.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnSponsor.Location = new System.Drawing.Point(585, 312);
             this.btnSponsor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSponsor.Name = "btnSponsor";
             this.btnSponsor.Size = new System.Drawing.Size(196, 48);
@@ -396,8 +396,8 @@
             // 
             this.ilLiked.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ilLiked.ImageStream")));
             this.ilLiked.TransparentColor = System.Drawing.Color.Transparent;
-            this.ilLiked.Images.SetKeyName(0, "heart_unlike_icon.png");
-            this.ilLiked.Images.SetKeyName(1, "heart_like_icon.png");
+            this.ilLiked.Images.SetKeyName(0, "10806118_appreciate_support_appreciation_love_like_icon.png");
+            this.ilLiked.Images.SetKeyName(1, "10837044_appreciation_support_love_like_likes_icon.png");
             // 
             // timer1
             // 

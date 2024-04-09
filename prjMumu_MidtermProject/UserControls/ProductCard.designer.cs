@@ -33,9 +33,9 @@
             this.rtbDescription = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
+            this.lblSponsorTime = new System.Windows.Forms.Label();
             this.lblQuantity = new System.Windows.Forms.Label();
             this.pbThumbnail = new System.Windows.Forms.PictureBox();
-            this.lblSponsorTime = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbThumbnail)).BeginInit();
             this.SuspendLayout();
@@ -78,12 +78,24 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblName.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblName.Location = new System.Drawing.Point(21, 212);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(92, 25);
             this.lblName.TabIndex = 17;
             this.lblName.Text = "早鳥方案";
+            // 
+            // lblSponsorTime
+            // 
+            this.lblSponsorTime.AutoSize = true;
+            this.lblSponsorTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblSponsorTime.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblSponsorTime.ForeColor = System.Drawing.Color.White;
+            this.lblSponsorTime.Location = new System.Drawing.Point(133, 272);
+            this.lblSponsorTime.Name = "lblSponsorTime";
+            this.lblSponsorTime.Size = new System.Drawing.Size(136, 25);
+            this.lblSponsorTime.TabIndex = 18;
+            this.lblSponsorTime.Text = "已被贊助10次";
             // 
             // lblQuantity
             // 
@@ -108,18 +120,6 @@
             this.pbThumbnail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbThumbnail.TabIndex = 8;
             this.pbThumbnail.TabStop = false;
-            // 
-            // lblSponsorTime
-            // 
-            this.lblSponsorTime.AutoSize = true;
-            this.lblSponsorTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblSponsorTime.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblSponsorTime.ForeColor = System.Drawing.Color.White;
-            this.lblSponsorTime.Location = new System.Drawing.Point(133, 272);
-            this.lblSponsorTime.Name = "lblSponsorTime";
-            this.lblSponsorTime.Size = new System.Drawing.Size(136, 25);
-            this.lblSponsorTime.TabIndex = 18;
-            this.lblSponsorTime.Text = "已被贊助10次";
             // 
             // ProductCard
             // 
