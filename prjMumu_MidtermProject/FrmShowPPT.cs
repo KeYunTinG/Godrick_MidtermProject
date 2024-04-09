@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,11 +15,17 @@ namespace prjMumu_MidtermProject
     public partial class FrmShowPPT : Form
     {
         int p = 1;
-        int pMax = 8;
-        string path = Application.StartupPath + "\\PPT\\";
+        int pMax = 9;
+        string path = "";
+       /* string path = Application.StartupPath + "\\PPT\\";
+        string parentDirectory = Path.GetDirectoryName(Application.StartupPath);
+        string path123 = Path.GetDirectoryName(Application.StartupPath);*/
         public FrmShowPPT()
         {
             InitializeComponent();
+            //string path = Application.StartupPath + "\\PPT\\";
+            string parentDirectory = Path.GetDirectoryName(Path.GetDirectoryName(Application.StartupPath)) + "\\PPT\\";
+            path = parentDirectory;
         }
 
         private void FrmShowPPT_Load(object sender, EventArgs e)

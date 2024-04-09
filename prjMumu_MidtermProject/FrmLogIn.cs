@@ -119,5 +119,11 @@ namespace prjMumu_MidtermProject
             txtUsername.Text = "UserTest1234";
             txtPassword.Text = "UserTest1234";
         }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            txtUsername.Text = "test123456";
+            txtPassword.Text = "test123456";
+        }
     }
 }
