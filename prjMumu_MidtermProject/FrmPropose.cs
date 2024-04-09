@@ -11,6 +11,7 @@ using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.WebSockets;
 
 namespace slnMumu_MidtermProject
 {
@@ -140,6 +141,7 @@ namespace slnMumu_MidtermProject
                         FrmMyMessageBox fm = new FrmMyMessageBox();
                         fm.msg = "專案修改成功";
                         fm.ShowDialog();
+                        Close();
                     }
                     catch (Exception)
                     {
@@ -275,6 +277,7 @@ namespace slnMumu_MidtermProject
                         FrmMyMessageBox fm = new FrmMyMessageBox();
                         fm.msg = "專案新增成功";
                         fm.ShowDialog();
+                        Close();
                     }
                     catch (Exception)
                     {
