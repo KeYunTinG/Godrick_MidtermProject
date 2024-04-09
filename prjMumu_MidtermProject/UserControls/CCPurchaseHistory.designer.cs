@@ -74,10 +74,10 @@
             // 
             this.Pricelabel.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.Pricelabel.ForeColor = System.Drawing.Color.Black;
-            this.Pricelabel.Location = new System.Drawing.Point(1435, 10);
+            this.Pricelabel.Location = new System.Drawing.Point(1420, 10);
             this.Pricelabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Pricelabel.Name = "Pricelabel";
-            this.Pricelabel.Size = new System.Drawing.Size(191, 35);
+            this.Pricelabel.Size = new System.Drawing.Size(206, 35);
             this.Pricelabel.TabIndex = 2;
             this.Pricelabel.Text = "NT$1234567";
             // 

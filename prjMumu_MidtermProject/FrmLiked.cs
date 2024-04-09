@@ -151,7 +151,8 @@ namespace slnMumu_MidtermProject
                                 select new
                                 {
                                     _name = pd.ProductName,
-                                    _tot = od.Price * od.Count
+                                   // _tot = od.Price * od.Count
+                                    _tot = od.Price 
                                 };
                     //算錢
                     decimal total = 0;
