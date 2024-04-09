@@ -173,10 +173,12 @@ namespace slnMumu_MidtermProject
             if (projects.FirstOrDefault() == null)
             {
                 Label label = new Label();
-                label.Text = "⚠️喔喔~ 找不到喔~ 換個關鍵字再試試看🤪~";
+                label.Text = "⚠️\n喔喔 找不到喔~ \n換個關鍵字再試試看~\n🤪";
+                label.TextAlign= ContentAlignment.MiddleCenter;
                 label.Font = new Font("微軟正黑體", 16, FontStyle.Bold);
                 label.ForeColor = Color.Red;
                 label.AutoSize = true;
+                label.Margin = new Padding((this.flowLayoutPanel2.Width/2-label.Width*3/2),0,0,0);
                 this.flowLayoutPanel2.Controls.Add(label);
                 return;
             }
