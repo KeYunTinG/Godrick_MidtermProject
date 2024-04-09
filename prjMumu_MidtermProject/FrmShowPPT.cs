@@ -57,9 +57,9 @@ namespace prjMumu_MidtermProject
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            if (pMax == 8) return;
+            if (p == pMax) return;
             p++;
-            pictureBox1.Image = new Bitmap(path + p);
+            pictureBox1.Image = new Bitmap(path + p + ".jpg");
         }
     }
 }
