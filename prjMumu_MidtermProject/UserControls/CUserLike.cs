@@ -19,6 +19,11 @@ namespace slnMumu_MidtermProject.UserControls
             InitializeComponent();
             oClick();
         }
+        public int fieldId
+        {
+            get { return (int)this.Tag; }
+            set { Tag = value; }
+        }
         public Image fieldPhoto
         {
             get { return pictureBox1.Image; }

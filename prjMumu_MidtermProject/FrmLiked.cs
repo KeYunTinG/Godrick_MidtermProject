@@ -58,6 +58,7 @@ namespace slnMumu_MidtermProject
                              _name = pj.ProjectName,
                              _info = pj.Description,
                              _photo = pj.Thumbnail,
+                             _pjid = o.ProjectID,
                          }; 
                 int pageSize = 5; // 每頁顯示的訂單數量
 
@@ -72,10 +73,11 @@ namespace slnMumu_MidtermProject
                 foreach (var oq in OQ.Skip(skipAmount).Take(pageSize))
                 {
                     CUserLike CUL = new CUserLike();
+                    CUL.fieldId = (int)oq._pjid;
                     CUL.fieldTitle = oq._name;
                     CUL.fieldDescription = oq._info;
                     CUL.fieldPhoto = new Bitmap(path + oq._photo);
-                    Projects pID = db.Projects.FirstOrDefault(p => p.ProjectName == CUL.fieldTitle);
+                    Projects pID = db.Projects.FirstOrDefault(p => p.ProjectID == CUL.fieldId);
                     if (pID != null)
                     {
                         ContextMenuStrip cms = new ContextMenuStrip();
