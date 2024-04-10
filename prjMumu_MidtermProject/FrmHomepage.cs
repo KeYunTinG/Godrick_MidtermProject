@@ -411,6 +411,8 @@ namespace slnMumu_MidtermProject
                 this.ActiveMdiChild.Close();
             }
 
+            cum.member = null;
+
             btnSignUp.Visible = true;
             btnLogIn.Visible = true;
             btnLogOut.Visible = false;
