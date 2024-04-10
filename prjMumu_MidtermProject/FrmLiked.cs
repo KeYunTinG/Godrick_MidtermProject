@@ -51,14 +51,14 @@ namespace slnMumu_MidtermProject
                 var OQ = from o in db.Likes.Where(o => o.MemberID == memberId)
                          join pj in db.Projects
                          on o.ProjectID equals pj.ProjectID
-                         orderby o.LikeID
+                         orderby o.LikeID descending
                          select new
                          {
                              _id = o.LikeID,
                              _name = pj.ProjectName,
                              _info = pj.Description,
                              _photo = pj.Thumbnail,
-                         };
+                         }; 
                 int pageSize = 5; // 每頁顯示的訂單數量
 
                 // 計算總頁數
@@ -132,7 +132,7 @@ namespace slnMumu_MidtermProject
                               //_info = pj.Description,
                               _photo = pj.Thumbnail,
                               _date = pj.Date,
-                          }).Distinct().OrderBy(o => o._id); //屁眼派對
+                          }).Distinct().OrderByDescending(o => o._id); //屁眼派對
                 int pageSize = 5; // 每頁顯示的訂單數量
 
                 // 計算總頁數
